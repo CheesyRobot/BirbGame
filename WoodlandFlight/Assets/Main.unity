@@ -137,8 +137,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalForce: 11
-  horizontalForce: 5
-  glideforce: 0
+  glidingSpeed: 5
+  flyingSpeed: 3
+  walkingSpeed: 2
+  playerHeight: 0.2
   Camera: {fileID: 1206616419}
 --- !u!54 &372861194
 Rigidbody:
@@ -166,7 +168,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!4 &372861197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}

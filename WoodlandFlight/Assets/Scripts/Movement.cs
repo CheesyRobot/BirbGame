@@ -7,13 +7,16 @@ using UnityEngine.Rendering;
 public class Movement : MonoBehaviour
 {
     public float verticalForce;
-    public float horizontalForce;
-    public float glideforce;
+    public float glidingSpeed;
+    public float flyingSpeed;
+    public float walkingSpeed;
+    public float playerHeight;
     private Rigidbody rb;
-    private ConstantForce cf;
     private Vector3 speed;
+    private float maxSpeed;
     private float mass;
-
+    private bool grounded;
+    private bool gliding;
     public Transform Camera;
     private Vector3 cameraDirection;
     private Transform transform;
@@ -21,7 +24,6 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        cf = GetComponent<ConstantForce>();
         mass = rb.mass;
         rb.freezeRotation = true;
     }
@@ -39,38 +41,43 @@ public class Movement : MonoBehaviour
         transform = rb.transform;
         speed = rb.linearVelocity;
 
-
+        // Flying up
         if (Input.GetKey(KeyCode.Space))
         {
             rb.AddForce(new Vector3(0, verticalForce, 0));
             if (speed.y <= 0)
                 speed.y += 1;
-            //speed.y = Mathf.Clamp(speed.y, 0, float.MaxValue);
+            gliding = false;
         }
-        else if (Input.GetKey(KeyCode.LeftShift))
-            //rb.mass = mass / 5;
+        // Gliding
+        else if (Input.GetKey(KeyCode.LeftShift)) {
             speed.y = Mathf.Clamp(speed.y, -1, float.MaxValue);
-        //GetComponent<Transform>().RotateAround(transform.position, Vector3.up, Vector2.Dot(new Vector2(Camera.main.transform.forward.x, Camera.main.transform.forward.z), new Vector2(transform.forward.x, transform.forward.z)));
-        Vector2 inputDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
-        //rb.transform.RotateAround(transform.position, Vector3.up, 1);
+            gliding = true;
+        }
+        else
+            gliding = false;
 
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f);
+        
+        if (grounded)
+            maxSpeed = walkingSpeed;
+        else if (gliding)
+            maxSpeed = glidingSpeed;
+        else
+            maxSpeed = flyingSpeed;
+
+        Vector2 inputDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         Vector3 moveDirection = Camera.forward * inputDirection.y + Camera.right * inputDirection.x;
 
+        // Character rotation
         if (moveDirection.magnitude != 0)
             rb.transform.forward = new Vector3(moveDirection.x, 0, moveDirection.z);
+        // Rotate based on camera
         // else
         //     rb.transform.forward = new Vector3(Camera.forward.x, 0, Camera.forward.z);
 
-        speed.x = moveDirection.x * horizontalForce;
-        speed.z = moveDirection.z * horizontalForce;
-        // speed.x = Input.GetAxis("Horizontal") * horizontalForce;
-        // speed.z = Input.GetAxis("Vertical") * horizontalForce;
+        speed.x = moveDirection.x * maxSpeed;
+        speed.z = moveDirection.z * maxSpeed;
         rb.linearVelocity = new Vector3(speed.x, speed.y, speed.z);
-        //rb.linearDamping = 2;
-        //rb.AddRelativeForce(0, 0, inputDirection.y * horizontalForce);
-        //rb.AddRelativeForce(inputDirection.x * horizontalForce, 0, 0);
-        //rb.AddForce(0, 0, moveDirection.y * horizontalForce);
-        //rb.AddForce(moveDirection.x * horizontalForce, 0, 0);
-        //rb.AddForce(moveDirection * horizontalForce, ForceMode.Force);
     }
 }
