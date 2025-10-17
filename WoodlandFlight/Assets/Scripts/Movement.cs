@@ -3,6 +3,7 @@ using Unity.Mathematics;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Splines.Interpolators;
 
 public class Movement : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Movement : MonoBehaviour
     public float flyingSpeed;
     public float walkingSpeed;
     public float playerHeight;
+    [SerializeField] LayerMask ground;
     private Rigidbody rb;
     private Vector3 speed;
     private float maxSpeed;
@@ -54,10 +56,11 @@ public class Movement : MonoBehaviour
             speed.y = Mathf.Clamp(speed.y, -1, float.MaxValue);
             gliding = true;
         }
-        else
+        else {
             gliding = false;
+        }
 
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f, ground);
         
         if (grounded)
             maxSpeed = walkingSpeed;
@@ -76,8 +79,8 @@ public class Movement : MonoBehaviour
         // else
         //     rb.transform.forward = new Vector3(Camera.forward.x, 0, Camera.forward.z);
 
-        speed.x = moveDirection.x * maxSpeed;
-        speed.z = moveDirection.z * maxSpeed;
+        speed.x = Mathf.Lerp(speed.x, moveDirection.x * maxSpeed, Time.fixedTime * 0.1f);
+        speed.z = Mathf.Lerp(speed.z, moveDirection.z * maxSpeed, Time.fixedTime * 0.1f);
         rb.linearVelocity = new Vector3(speed.x, speed.y, speed.z);
     }
 }
