@@ -3,23 +3,24 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private float health;
-    [SerializeField] private float stamina;
-    [SerializeField] private float staminaLimit;
-    [SerializeField] private int experience;
+    [field:SerializeField] public float health { get; private set; }
+    [field:SerializeField] public float stamina { get; private set; }
+    [field:SerializeField] public float staminaLimit { get; private set; }
+    [field:SerializeField] public int experience { get; private set; }
     public float weightLimit { get; private set; }
     public float currentHealth { get; private set; }
     public float currentStamina { get; private set; }
-    public float recoveryRateStamina { get; private set; }
-    public float recoveryRateHealth { get; private set; }
+    [field:SerializeField] public float staminaRecoveryRate { get; private set; }
+    [field:SerializeField] public float staminaRecoveryRateGliding { get; private set; }
+    [field:SerializeField] public float staminaRecoveryDelay { get; private set; }
+    [field:SerializeField] public float healthRecoveryRate { get; private set; }
+    [field:SerializeField] public float staminaConsumptionRate { get; private set; }
     void Start()
     {
         currentHealth = health;
         currentStamina = stamina;
     }
 
-    // Update is called once per frame
     void Update()
     {
         

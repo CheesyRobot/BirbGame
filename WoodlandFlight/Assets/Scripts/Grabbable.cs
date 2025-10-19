@@ -35,6 +35,7 @@ public class Grabbable : MonoBehaviour, IInteractable
         if (grabPoint == null)
         {
             grabPoint = interactor.interactionPoint;
+            interactor.GetComponent<Movement>().MovePlayer(this.transform.position - grabPoint.position - offset);
             rb.useGravity = false;
             prompt = "(E) Drop";
         }

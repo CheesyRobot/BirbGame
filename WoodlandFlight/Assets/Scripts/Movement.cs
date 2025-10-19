@@ -20,12 +20,13 @@ public class Movement : MonoBehaviour
     private bool grounded;
     private bool gliding;
     public Transform Camera;
-    private Vector3 cameraDirection;
-    private Transform transform;
+    private Transform tr;
+    private Player player;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        player = GetComponent<Player>();
         mass = rb.mass;
         rb.freezeRotation = true;
     }
@@ -39,35 +40,37 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
-        //transform = GetComponent<Transform>();
-        transform = rb.transform;
+        tr = rb.transform;
         speed = rb.linearVelocity;
 
         // Flying up
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && player.currentStamina > 0)
         {
-            rb.AddForce(new Vector3(0, verticalForce, 0));
+            rb.AddForce(Vector3.up * verticalForce);
             if (speed.y <= 0)
-                speed.y += 1;
+                speed.y += 0.1f;
             gliding = false;
+            player.AddStamina(-player.staminaConsumptionRate * Time.fixedDeltaTime);
         }
         // Gliding
         else if (Input.GetKey(KeyCode.LeftShift)) {
             speed.y = Mathf.Clamp(speed.y, -1, float.MaxValue);
             gliding = true;
+            player.AddStamina(player.staminaRecoveryRateGliding * Time.fixedDeltaTime);
         }
         else {
             gliding = false;
+            player.AddStamina(player.staminaRecoveryRate * Time.fixedDeltaTime);
         }
 
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f, ground);
+        grounded = Physics.Raycast(tr.position, Vector3.down, playerHeight * 0.5f, ground);
         
         if (grounded)
             maxSpeed = walkingSpeed;
         else if (gliding)
-            maxSpeed = glidingSpeed;
+            maxSpeed = Mathf.Lerp(maxSpeed, glidingSpeed, Time.fixedDeltaTime * 1.0f);
         else
-            maxSpeed = flyingSpeed;
+            maxSpeed = Mathf.Lerp(maxSpeed, flyingSpeed, Time.fixedDeltaTime * 1.5f);
 
         Vector2 inputDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         Vector3 moveDirection = Camera.forward * inputDirection.y + Camera.right * inputDirection.x;
@@ -79,8 +82,14 @@ public class Movement : MonoBehaviour
         // else
         //     rb.transform.forward = new Vector3(Camera.forward.x, 0, Camera.forward.z);
 
-        speed.x = Mathf.Lerp(speed.x, moveDirection.x * maxSpeed, Time.fixedTime * 0.1f);
-        speed.z = Mathf.Lerp(speed.z, moveDirection.z * maxSpeed, Time.fixedTime * 0.1f);
+        // speed.x = Mathf.Lerp(speed.x, moveDirection.x * maxSpeed, Time.fixedTime * 0.1f);
+        // speed.z = Mathf.Lerp(speed.z, moveDirection.z * maxSpeed, Time.fixedTime * 0.1f);
+        speed.x = moveDirection.x * maxSpeed;
+        speed.z = moveDirection.z * maxSpeed;
         rb.linearVelocity = new Vector3(speed.x, speed.y, speed.z);
+    }
+    
+    public void MovePlayer(Vector3 translation) {
+        tr.Translate(translation);
     }
 }

@@ -13,7 +13,7 @@ public class Interactor : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(interactionPoint.position, interactionRadius, interactableLayerMask);
         if (colliders.Length != 0)
         {
-            var interactable = colliders[0].GetComponent<IInteractable>();
+            var interactable = colliders[^1].GetComponent<IInteractable>();
             prompt.gameObject.SetActive(true);
             prompt.SetText(interactable.InteractionPrompt);
             if (interactable != null && Input.GetKeyDown(KeyCode.E))
