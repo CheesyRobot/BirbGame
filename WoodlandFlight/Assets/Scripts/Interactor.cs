@@ -14,14 +14,14 @@ public class Interactor : MonoBehaviour
         if (colliders.Length != 0)
         {
             var interactable = colliders[^1].GetComponent<IInteractable>();
-            prompt.gameObject.SetActive(true);
-            prompt.SetText(interactable.InteractionPrompt);
-            if (interactable != null && Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("Interaction");
-                interactable.Interact(this);
+            if (interactable != null) {
+                prompt.gameObject.SetActive(true);
+                prompt.SetText(interactable.InteractionPrompt);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    interactable.Interact(this);
+                }
             }
-            
         }
         else
         {

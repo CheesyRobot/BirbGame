@@ -11,18 +11,18 @@ public class Grabbable : MonoBehaviour, IInteractable
     [SerializeField] private string prompt;
     public string InteractionPrompt => prompt;
 
-    void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
         cl = GetComponent<Collider>();
         offset = Mathf.Min(cl.bounds.size.x, cl.bounds.size.y, cl.bounds.size.z) * 0.5f * Vector3.down;
-        prompt = "(E) Pick Up";
     }
 
     public void Grab(Transform grabPoint)
     {
         this.grabPoint = grabPoint;
         rb.useGravity = false;
+        prompt = "(E) Drop";
     }
 
     public void Drop() {
