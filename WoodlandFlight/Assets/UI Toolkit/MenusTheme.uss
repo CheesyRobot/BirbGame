@@ -1,0 +1,43 @@
+.NormalButton {
+    width: 490px;
+    height: 70px;
+    font-size: 50px;
+    margin-top: 13px;
+    margin-right: 13px;
+    margin-bottom: 13px;
+    margin-left: 13px;
+    -unity-font-definition: url("project://database/Assets/UIElements/Fonts/Karantina/Karantina-Regular.ttf?fileID=12800000&guid=30e113c54c5f9b34187c6eb110b5d30a&type=3#Karantina-Regular");
+    color: rgb(0, 148, 181);
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-top-width: 6px;
+    border-right-width: 6px;
+    border-bottom-width: 6px;
+    border-left-width: 6px;
+    border-left-color: rgb(28, 161, 103);
+    border-right-color: rgb(28, 161, 103);
+    border-top-color: rgb(28, 161, 103);
+    border-bottom-color: rgb(28, 161, 103);
+    transition-duration: 0.3s, 0.05s;
+    transition-property: all, background-color;
+    transition-timing-function: ease, ease-in-cubic;
+}
+
+.NormalButton:hover {
+    scale: 1.1 1.1;
+}
+
+.NormalButton:active {
+    scale: 1.1 1.1;
+    background-color: rgb(211, 211, 211);
+}
+
+.GameName {
+    font-size: 190px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/UIElements/Fonts/Kaushan_Script/KaushanScript-Regular.ttf?fileID=12800000&guid=1c87b14d57fdafc4d94a83bf52c0f87d&type=3#KaushanScript-Regular");
+    color: rgb(255, 255, 255);
+}
