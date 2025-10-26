@@ -2,6 +2,7 @@
     font-size: 50px;
     -unity-font-definition: url("project://database/Assets/UI%20Toolkit/Fonts/Karantina/Karantina-Regular.ttf?fileID=12800000&guid=30e113c54c5f9b34187c6eb110b5d30a&type=3#Karantina-Regular");
     letter-spacing: 7px;
+    color: rgb(255, 255, 255);
 }
 
 .NormalButton {
@@ -45,7 +46,7 @@
     background-color: rgb(211, 211, 211);
 }
 
-.SettingsButton:focus {
+.SettingsButton:checked {
     border-top-width: 11px;
     border-right-width: 11px;
     border-bottom-width: 11px;
@@ -80,7 +81,7 @@
 }
 
 .unity-base-popup-field__label {
-    -unity-text-align: middle-right;
+    -unity-text-align: middle-left;
     padding-bottom: 2px;
 }
 
@@ -98,23 +99,97 @@
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
+    max-width: 50%;
 }
 
 .unity-base-popup-field__text {
     -unity-text-align: middle-right;
     padding-bottom: 2px;
+    margin-right: 8px;
 }
 
 .unity-base-popup-field__arrow {
-    background-image: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1304905567622442630&guid=d5802138c1f7b464cbe9e151ba572397&type=3#arrow-down@2x");
-    width: 70px;
-    height: 70px;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
+    background-image: url("project://database/Assets/UI%20Toolkit/Fonts/dropdownArrow.png?fileID=2800000&guid=37a80cb325622e84cb71dbe35a51c961&type=3#dropdownArrow");
+    width: 44px;
+    height: 44px;
+    background-color: rgba(255, 255, 255, 0);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+.unity-float-field__input {
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    min-width: auto;
+    max-width: 12%;
+    color: rgb(27, 141, 153);
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-bottom-left-radius: 22px;
+}
+
+.unity-base-popup-field {
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+DropdownField:hover .unity-base-field__input.unity-base-popup-field__input.unity-popup-field__input {
+    background-color: rgb(24, 128, 145);
+}
+
+DropdownField:focus .unity-base-popup-field__label {
+    color: rgb(255, 255, 255);
+}
+
+FloatField:focus .unity-base-field__label {
+    color: rgb(255, 255, 255);
+}
+
+Slider:focus .unity-base-field__label--with-dragger {
+    color: rgb(255, 255, 255);
+}
+
+Toggle:focus .unity-base-field__label {
+    color: rgb(255, 255, 255);
+}
+
+.unity-base-slider__tracker {
+    background-color: rgb(18, 93, 111);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    height: 8px;
+}
+
+.unity-base-slider__dragger {
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    width: 22px;
+}
+
+.unity-base-field__input {
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#unity-checkmark {
+    -unity-background-image-tint-color: rgb(27, 141, 153);
+    width: 44px;
+    height: 44px;
+}
+
+#unity-toggle-button-group__container {
+    flex-direction: row;
+    justify-content: center;
 }
