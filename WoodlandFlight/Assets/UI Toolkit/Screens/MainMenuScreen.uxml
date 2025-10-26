@@ -1,6 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UIElements/MenusTheme.uss?fileID=7433441132597879392&amp;guid=a76cf53ccdf7e994c975f797845f1d3d&amp;type=3#MenusTheme" />
-    <engine:VisualElement name="Container" style="flex-grow: 1; justify-content: flex-end; flex-wrap: nowrap; flex-direction: column; align-items: center; background-color: rgba(113, 194, 203, 0);">
+    <Style src="project://database/Assets/UI%20Toolkit/MenusTheme.uss?fileID=7433441132597879392&amp;guid=a76cf53ccdf7e994c975f797845f1d3d&amp;type=3#MenusTheme" />
+    <engine:VisualElement name="Container" style="justify-content: flex-end; flex-wrap: nowrap; flex-direction: column; align-items: center; background-color: rgba(113, 194, 203, 0); flex-grow: 1;">
         <engine:Label text="Woodland flight" class="GameName" style="height: 381px; width: 1376px;" />
         <engine:VisualElement style="flex-grow: 1; height: 495px; width: 100%;">
             <engine:GroupBox name="GroupBox" style="height: 100%; width: 731px; align-items: flex-end; align-self: flex-end; align-content: flex-start; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 6%; padding-bottom: 6%; padding-left: 0; justify-content: flex-end;">

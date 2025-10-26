@@ -1,0 +1,26 @@
+.unity-base-dropdown__container-outer {
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.unity-base-dropdown__container-inner {
+    background-color: rgb(255, 255, 255);
+    color: rgb(27, 141, 153);
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-bottom-left-radius: 22px;
+    overflow: hidden;
+}
+
+.unity-base-dropdown__item:hover:enabled {
+    background-color: rgb(161, 225, 232);
+}
+
+.unity-base-dropdown__checkmark {
+    width: 16px;
+    height: 16px;
+    background-color: rgb(27, 141, 153);
+}
