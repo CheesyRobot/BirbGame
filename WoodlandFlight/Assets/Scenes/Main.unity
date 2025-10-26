@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.005
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0.66132057, g: 0.77421373, b: 1, a: 1}
+  m_AmbientEquatorColor: {r: 0.1367836, g: 0.21433613, b: 0.26603782, a: 1}
+  m_AmbientGroundColor: {r: 0.182565, g: 0.5301888, b: 0.18731534, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -667,7 +667,7 @@ Transform:
   m_GameObject: {fileID: 506318609}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.98, y: 3.048001, z: 40.27}
+  m_LocalPosition: {x: 9.98, y: 3.016, z: 40.27}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -994,7 +994,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 151223e7e56849255a13dd244d886e73, type: 2}
+  - {fileID: 2100000, guid: af248b2cdac6eda4395b4aa60834f4d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1142,7 +1142,7 @@ Transform:
   m_GameObject: {fileID: 993171604}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.093, y: 2.6640003, z: 37.37}
+  m_LocalPosition: {x: 7.093, y: 2.199, z: 37.37}
   m_LocalScale: {x: 0.37963954, y: 0.37963954, z: 0.37963954}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2542,7 +2542,7 @@ Transform:
   m_GameObject: {fileID: 2081912607}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 7.16, y: 2.6560009, z: 37.268}
+  m_LocalPosition: {x: 7.16, y: 2.166, z: 37.268}
   m_LocalScale: {x: 0.10414081, y: 0.10414081, z: 0.10414081}
   m_ConstrainProportionsScale: 0
   m_Children: []
