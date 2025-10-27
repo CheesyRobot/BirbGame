@@ -10,10 +10,6 @@ public class MainMenuEvents : MonoBehaviour
     private Button _quitButton;
     private TemplateContainer _main;
     private Button _returnButton;
-    private Button _gameButton;
-    private Button _videoButton;
-    private Button _audioButton;
-    private Button _controlsButton;
     private TemplateContainer _settings;
     void Start()
     {
@@ -26,11 +22,13 @@ public class MainMenuEvents : MonoBehaviour
 
     private void InitiateMainMenu()
     {
+        // Get variables
         _main = _document.rootVisualElement.Q<TemplateContainer>("MainMenu");
         _playButton = _main.Q<Button>("PlayButton");
         _settingsButton = _main.Q<Button>("SettingsButton");
         _quitButton = _main.Q<Button>("QuitButton");
 
+        // Attach buttons to actions
         _playButton.RegisterCallback<ClickEvent>(OnPlayClick);
         _settingsButton.RegisterCallback<ClickEvent>(OnSettingsClick);
         _quitButton.RegisterCallback<ClickEvent>(OnQuitClick);

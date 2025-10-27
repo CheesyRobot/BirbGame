@@ -47,10 +47,10 @@
 }
 
 .SettingsButton:checked {
-    border-top-width: 11px;
-    border-right-width: 11px;
-    border-bottom-width: 11px;
-    border-left-width: 11px;
+    border-top-width: 12px;
+    border-right-width: 12px;
+    border-bottom-width: 12px;
+    border-left-width: 12px;
     border-left-color: rgb(27, 141, 153);
     border-right-color: rgb(27, 141, 153);
     border-top-color: rgb(27, 141, 153);

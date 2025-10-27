@@ -11,7 +11,7 @@ public class SettingsEvents : MonoBehaviour
     private VisualElement _video;
     private VisualElement _audio;
     private VisualElement _controls;
-    void Start()
+    void Awake()
     {
         _document = GetComponent<UIDocument>();
 
@@ -24,14 +24,13 @@ public class SettingsEvents : MonoBehaviour
         _audio = _settings.Q<VisualElement>("Audio");
         _controls = _settings.Q<VisualElement>("Controls");
 
-        //Sets default button to 0 (Game button in UI)
+        //Sets default button to 0 (the Game button in UI)
         ulong mask = 0UL;
         mask |= (1UL << 0);
         _buttons.SetValueWithoutNotify(new ToggleButtonGroupState(mask, 4));
 
         _buttons.RegisterValueChangedCallback(OnToggles);
     }
-
     private void OnToggles(ChangeEvent<ToggleButtonGroupState> evt)
     {
         var value = evt.previousValue;
@@ -73,6 +72,11 @@ public class SettingsEvents : MonoBehaviour
     private void OnDisable()
     {
         _buttons.UnregisterValueChangedCallback(OnToggles);
+    }
+
+    private void OnEnable()
+    {
+        _buttons.RegisterValueChangedCallback(OnToggles);
     }
 
 }
