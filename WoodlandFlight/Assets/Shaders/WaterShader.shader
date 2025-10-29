@@ -11,6 +11,7 @@ Shader "Unlit/WaterShader"
         [NoScaleOffset] _DiffuseIBL ("Diffuse IBL", 2D) = "black" {}
         [NoScaleOffset] _SpecularIBL ("Specular IBL", 2D) = "black" {}
         _Gloss ("Gloss", Range(0,1)) = 0.2
+        _Rotation ("IBL rotation", Range(0,1)) = 0.5
         _SpecIBLIntensity ("Specular IBL Intensity", Range(0,1)) = 0.5
         _DiffIBLIntensity ("Diffuse IBL Intensity", Range(0,1)) = 0.5
         _FresnelPower ("Fresnel Power", Range(0,10)) = 2
@@ -88,6 +89,7 @@ Shader "Unlit/WaterShader"
             float _Gloss;
             float _SpecIBLIntensity;
             float _DiffIBLIntensity;
+            float _Rotation;
             float _FresnelPower;
             float _LerpT;
             float _Scale;
@@ -97,9 +99,15 @@ Shader "Unlit/WaterShader"
             float3 _Color2;
             float4 _Normals_ST;
 
-            float2 DirToRectilinear (float3 dir)
+            // float2 Rotate(float2 uv, float andRad) {
+            //     float ca = cos(angRad);
+            //     float sa = sin(angRad);
+            //     return float2(ca * v.x - sa * v.y, sa * v.x + ca * v.y);
+            // }
+
+            float2 DirToRectilinear(float3 dir)
             {
-                float x = atan2(dir.z, dir.x) / (pi * 2) + 0.5; // 0-1
+                float x = atan2(dir.z, dir.x) / (pi * 2) + _Rotation; // 0-1
                 float y = dir.y * 0.5 + 0.5; // 0-1
                 return float2(x,y);
             }
@@ -107,8 +115,8 @@ Shader "Unlit/WaterShader"
             v2f vert (appdata v)
             {
                 v2f o;
-                // o.uv = TRANSFORM_TEX(v.uv, _Normals);
-                o.uv = v.uv;
+                o.uv = TRANSFORM_TEX(v.uv, _Normals);
+                // o.uv = v.uv;
                 o.uv1 = float2(v.uv.x - _Time.x * _Speed, v.uv.y) * _Scale;
                 o.uv2 = float2(-v.uv.x - _Time.x * 0.5 * _Speed, -v.uv.y + _Time.x * _Speed) * _Scale;
 
@@ -133,12 +141,18 @@ Shader "Unlit/WaterShader"
 
             float4 frag (v2f i) : SV_Target
             {
-                float3 normals1 = UnpackNormal(tex2D(_Normals, i.uv1));
+                float3 normals1 = tex2D(_Normals, i.uv1).xyz;
+                float3 normals2 = tex2D(_Normals, i.uv2).xyz;
+                normals1 = (normals1 * 2 - 0.5);
+                normals2 = (normals2 * 2 - 0.5);
+                // float3 normals1 = UnpackNormal(tex2D(_Normals, i.uv1));
+                // float3 normals2 = UnpackNormal(tex2D(_Normals, i.uv2));
+                // normals1 = normalize(lerp(normals3, normals1, 0.5));
+                // normals2 = normalize(lerp(normals4, normals2, 0.5));
                 normals1 = normalize(lerp(float3(0,0,1), normals1, _NormalIntensity));
-                float3 normals2 = UnpackNormal(tex2D(_Normals, i.uv2));
                 normals2 = normalize(lerp(float3(0,0,1), normals2, _NormalIntensity));
-                float3 normalsComb = normalize(lerp(normals1, normals2, _LerpT));
-                normalsComb = normalize(lerp(float3(0,0,1), normalsComb, _NormalIntensity));
+                // float3 normalsComb = normalize(lerp(normals1, normals2, _LerpT));
+                // normalsComb = normalize(lerp(float3(0,0,1), normalsComb, _NormalIntensity));
 
                 float3x3 mtxTangToWorld =
                 {
@@ -155,12 +169,12 @@ Shader "Unlit/WaterShader"
                 
                 // vectors
                 float3 N1 = mul(mtxTangToWorld, normals1);
-                float3 N2 = mul(mtxTangToWorldInv, normals2);
+                float3 N2 = mul(mtxTangToWorld, normals2);
                 float3 N = normalize(lerp(N1, N2, _LerpT));
                 // float3 N = mul(mtxTangToWorld, normalsComb);
                 // N = i.normal;
                 //N = normals2;
-                //return float4(N, 1);
+                // return float4(N, 0);
 
                 float3 L = normalize(UnityWorldSpaceLightDir(i.worldPos));
                 float3 V = normalize(_WorldSpaceCameraPos - i.worldPos);
@@ -180,7 +194,7 @@ Shader "Unlit/WaterShader"
                 //float fresnelInv = clamp(pow(dotNV,3), 0, 0.4);
 
                 // diffuse
-                float3 diffuseLight = saturate(dotNL + 0.5) * _LightColor0.xyz;
+                float3 diffuseLight = saturate(dotNL + 0.0) * _LightColor0.xyz;
                 // float3 depthAdd = fresnelInv * saturate(1.8 - i.height) * _Color2 * (diffuseLight * 0.8 + 0.2);
 
                 // specular
