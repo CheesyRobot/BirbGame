@@ -127,7 +127,16 @@ public class Movement : MonoBehaviour
     private void Fishing() {
         Vector3 targetDirection = Vector3.Normalize(Vector3.down + rb.transform.forward);
         Vector3 reboundDirection = Vector3.Normalize(Vector3.up + rb.transform.forward);
-        aboveWater = Physics.Raycast(tr.position, targetDirection, playerHeight * 15.0f, water);
+
+        RaycastHit hit;
+        Ray rayDirection = new Ray(transform.position, targetDirection);
+        Physics.Raycast(rayDirection, out hit);
+        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Water"))
+            aboveWater = true;
+        else
+            aboveWater = false;
+
+        // aboveWater = Physics.Raycast(tr.position, targetDirection, playerHeight * 15.0f, water);
         bool contactWater = Physics.Raycast(tr.position, Vector3.down, playerHeight * 0.5f, water);
         if (fishing) {
             timer += Time.deltaTime;
