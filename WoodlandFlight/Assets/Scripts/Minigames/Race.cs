@@ -6,13 +6,15 @@ using UnityEngine;
 public class Race : MonoBehaviour
 {
     private bool active;
+    private bool completed;
     private float timer;
     private int currentHoopIndex;
-    // public List<Hoop> hoops;
     public Hoop[] hoops;
     public DisplayTime timeDisplay;
     public RaceStart raceStart;
     public int timeGoal;
+    public int xpReward;
+    public Player player;
     void Start()
     {
         active = false;
@@ -59,8 +61,6 @@ public class Race : MonoBehaviour
             hoops[0].gameObject.SetActive(true);
             hoops[1].gameObject.SetActive(true);
             hoops[0].SetTarget(true);
-            hoops[0].SetVisible(true);
-            hoops[1].SetVisible(true);
             timeDisplay.EnableTimer(true);
         }
         else
@@ -75,5 +75,9 @@ public class Race : MonoBehaviour
             hoop.gameObject.SetActive(false);
         }
         timeDisplay.EnableTimer(false);
+        if (!completed && timer <= timeGoal) {
+            player.AddExperience(xpReward);
+            completed = true;
+        }
     }
 }

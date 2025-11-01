@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [field:SerializeField] public float stamina { get; private set; }
     [field:SerializeField] public float staminaLimit { get; private set; }
     [field:SerializeField] public int experience { get; private set; }
+    public int currentLevel { get; private set; }
     public float weightLimit { get; private set; }
     public float currentHealth { get; private set; }
     public float currentStamina { get; private set; }
@@ -15,15 +16,23 @@ public class Player : MonoBehaviour
     [field:SerializeField] public float staminaRecoveryDelay { get; private set; }
     [field:SerializeField] public float healthRecoveryRate { get; private set; }
     [field:SerializeField] public float staminaConsumptionRate { get; private set; }
-    void Start()
-    {
-        currentHealth = health;
-        currentStamina = stamina;
+    
+    [System.Serializable] private struct PlayerLevel {
+        public int requiredXP;
+        public float health;
+        public float staminaLimit;
+        public float weightLimit;
     }
 
-    void Update()
+    [SerializeField] private PlayerLevel[] levels;
+    [SerializeField] private DisplayLevel levelDisplay;
+    void Start()
     {
-        
+        currentLevel = 1;
+        UpdateStats();
+        levelDisplay.UpdateLevel(currentLevel, experience, levels.Length);
+        currentHealth = health;
+        currentStamina = stamina;
     }
 
     public void AddHealth(float amount) {
@@ -43,5 +52,18 @@ public class Player : MonoBehaviour
 
     public void AddExperience(int amount) {
         experience += amount;
+        if (currentLevel < levels.Length && experience >= levels[currentLevel].requiredXP) {
+            experience -= levels[currentLevel].requiredXP;
+            currentLevel++;
+            UpdateStats();
+        }
+            levelDisplay.UpdateLevel(currentLevel, experience, levels.Length);
+    }
+
+    private void UpdateStats() {
+        health = levels[currentLevel - 1].health;
+        staminaLimit = levels[currentLevel - 1].staminaLimit;
+        weightLimit = levels[currentLevel - 1].weightLimit;
     }
 }
+

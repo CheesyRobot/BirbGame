@@ -13,7 +13,7 @@ public class DisplayStaminaBar : MonoBehaviour
 
     void Update()
     {
-        float newBarWidth = width * (1 + player.staminaLimit / 1000);
+        float newBarWidth = width * (player.staminaLimit / 100);
         float newStaminaWidth = (player.currentStamina / player.staminaLimit) * newBarWidth;
         stamina.sizeDelta = new Vector2(newStaminaWidth - padding, height - padding);
         bar.sizeDelta = new Vector2(newBarWidth, height);
