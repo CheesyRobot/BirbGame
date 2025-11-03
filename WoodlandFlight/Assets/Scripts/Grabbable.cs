@@ -8,6 +8,7 @@ public class Grabbable : MonoBehaviour, IInteractable
     private Transform grabPoint;
     public Vector3 offset;
     private Collider cl;
+    [SerializeField] private float mass;
     [SerializeField] private string prompt;
     public string InteractionPrompt => prompt;
 
@@ -22,7 +23,7 @@ public class Grabbable : MonoBehaviour, IInteractable
     {
         this.grabPoint = grabPoint;
         rb.useGravity = false;
-        prompt = "(E) Drop";
+        //prompt = "(E) Drop";
     }
 
     public void Drop() {
@@ -32,27 +33,35 @@ public class Grabbable : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        if (grabPoint == null)
+        Movement player = interactor.GetComponent<Movement>();
+        GrabControl grabControl = interactor.GetComponent<GrabControl>();
+
+        if (grabPoint == null && !grabControl.HasGrabbed())
         {
             grabPoint = interactor.interactionPoint;
-            interactor.GetComponent<Movement>().MovePlayer(this.transform.position - grabPoint.position - offset);
+            player.MovePlayer(this.transform.position - grabPoint.position - offset);
+            player.AddMass(mass);
+            grabControl.setGrabbed(true);
             rb.useGravity = false;
-            prompt = "(E) Drop";
+            //prompt = "(E) Drop";
         }
-        else
+        else if (grabPoint != null && grabControl.HasGrabbed())
         {
             grabPoint = null;
             rb.useGravity = true;
-            prompt = "(E) Pick Up";
+            player.ResetMass();
+            grabControl.setGrabbed(false);
+            //prompt = "(E) Pick Up";
         }
         return true;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (grabPoint != null)
         {
             rb.MovePosition(grabPoint.position + offset);
+            // rb.transform.forward = grabPoint.transform.forward;
         }
     }
 }

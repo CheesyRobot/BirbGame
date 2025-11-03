@@ -13,13 +13,13 @@ public class Movement : MonoBehaviour
     public float flyingSpeed;
     public float walkingSpeed;
     public float playerHeight;
+    public float mass;
     [SerializeField] LayerMask ground;
     [SerializeField] LayerMask water;
     [SerializeField] FishCatcher fishCatcher;
     private Rigidbody rb;
     private Vector3 speed;
     private float maxSpeed;
-    private float mass;
     private bool grounded;
     private bool aboveWater;
     private bool gliding;
@@ -60,9 +60,9 @@ public class Movement : MonoBehaviour
         Fishing();
         if (!fishing && !rebounding)
             VerticalMovement();
+        SetMaxSpeed();
         HorizontalMovement();
 
-        rb.mass = mass;
         rb.linearVelocity = speed;
     }
         
@@ -72,37 +72,42 @@ public class Movement : MonoBehaviour
         
         grounded = Physics.Raycast(tr.position, Vector3.down, playerHeight * 0.5f, ground);
 
-        // Flying up
-        if (Input.GetKey(KeyCode.Space) && grounded) {
-            rb.AddForce(Vector3.up * verticalForce * 2);
-        }
-        if (Input.GetKey(KeyCode.Space) && player.currentStamina > 0)
-        {
-            rb.AddForce(Vector3.up * verticalForce);
-            if (speed.y <= 0)
-                speed.y += 0.5f;
-            gliding = false;
+        if (Input.GetKey(KeyCode.Space)) {
+            if (grounded)   //jumping
+            {
+                rb.AddForce(Vector3.up * verticalForce * 2);
+            }
+            
+            if (player.currentStamina > 0)  //flying up
+            {
+                rb.AddForce(Vector3.up * verticalForce);
+                if (speed.y <= 0)
+                    speed.y += 0.5f;
+                gliding = false;
+            }
+
             player.AddStamina(-player.staminaConsumptionRate * Time.fixedDeltaTime);
         }
-        // Gliding
-        else if (Input.GetKey(KeyCode.LeftShift)) {
+        else if (Input.GetKey(KeyCode.LeftShift))   //gliding
+        {
             speed.y = Mathf.Clamp(speed.y, -1, float.MaxValue);
             gliding = true;
             player.AddStamina(player.staminaRecoveryRateGliding * Time.fixedDeltaTime);
         }
-        else {
+        else
+        {
             gliding = false;
             player.AddStamina(player.staminaRecoveryRate * Time.fixedDeltaTime);
         }
-        
+    }
+
+    private void SetMaxSpeed() {
         if (grounded)
             maxSpeed = walkingSpeed;
         else if (gliding)
             maxSpeed = Mathf.Lerp(maxSpeed, glidingSpeed, Time.fixedDeltaTime * 1.0f);
         else
             maxSpeed = Mathf.Lerp(maxSpeed, flyingSpeed, Time.fixedDeltaTime * 1.5f);
-
-        
     }
 
     private void HorizontalMovement() {
@@ -142,7 +147,7 @@ public class Movement : MonoBehaviour
             timer += Time.deltaTime;
             // speed = targetDirection * flyingSpeed;
             rb.AddForce(targetDirection * verticalForce * 2);
-            if (aboveWater && (contactWater || timer > 2f)) {
+            if (contactWater || timer > 1.5f) {
                 fishCatcher.Catch();
                 fishing = false;
                 rebounding = true;
@@ -163,5 +168,13 @@ public class Movement : MonoBehaviour
     
     public void MovePlayer(Vector3 translation) {
         tr.Translate(translation);
+    }
+
+    public void AddMass(float mass) {
+        rb.mass = mass;
+    }
+
+    public void ResetMass() {
+        rb.mass = this.mass;
     }
 }
