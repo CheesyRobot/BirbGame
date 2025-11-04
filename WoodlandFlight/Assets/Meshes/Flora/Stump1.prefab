@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7891760181589978546}
   - component: {fileID: 2289146091455013961}
   - component: {fileID: -6291238302147517708}
+  - component: {fileID: -8939260118514038299}
   m_Layer: 0
   m_Name: Stump1
   m_TagString: Untagged
@@ -114,3 +115,26 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2289146091455013961}
   m_Enabled: 1
+--- !u!136 &-8939260118514038299
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273356864027965544}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.22503522
+  m_Height: 0.47990894
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.018890314, z: 0}

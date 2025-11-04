@@ -9,13 +9,13 @@ AudioMixerGroupController:
   m_Name: Ambient
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: c9a20bcf3a30e1f42aae956141d12092
-  m_Children:
-  - {fileID: 7001893089231604736}
+  m_Children: []
   m_Volume: c20afb4bb5887f1458faedf59db78c5f
   m_Pitch: a1aa18e7178534543b44c241fcf4e650
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 3146720860298152921}
+  - {fileID: 2061279979870879047}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -55,6 +55,7 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 79353535dbd0590478fff127a7999221
   m_Children:
+  - {fileID: 7001893089231604736}
   - {fileID: -2624107569825234796}
   - {fileID: 5141659212046935390}
   m_Volume: f69f8143ff0141f46b6b6470355d7ca0
@@ -90,12 +91,17 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: f058330d8c695d04d8e7f72cec4303bd
   m_FloatValues:
+    05b364f0973886a7bbe86efe238ed9c9: 3524
     f69f8143ff0141f46b6b6470355d7ca0: -0.017638132
+    f8bed2d3ecf2806e4b016166a74a2aec: 0
     6ee0a074997fcbc468dc337ca18f364c: 2603
     9f07f4a5dd4112742bec1701c0a5716f: 0
     61a698792c4c8034983dbff434eba7ba: 1
+    61c56f99b6dcec343b3714cbcdc289be: -24.752338
     bf850ee98e3dc8c4ca10460d0e6fe523: 0
-    c20afb4bb5887f1458faedf59db78c5f: -8.103453
+    b910431abc9449ba99f6894321e60157: 9494
+    c20afb4bb5887f1458faedf59db78c5f: -24.493677
+    b264cbcb7d1248085a7cccf3b9e99a39: 0
     65f158ebf8a67284d855233956f4a38e: 0.95
     2512871d230f34546ac5e47d3196f8b2: 1461
     b807596e9d6392c4baa912a16b9868c8: 0.09274155
@@ -126,6 +132,22 @@ AudioMixerEffectController:
   m_EffectName: Attenuation
   m_MixLevel: 0dedabd4014f9e14dba29c127d606fde
   m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &2061279979870879047
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 1125374fef8dc2b7084a5d78fed01f15
+  m_EffectName: Highpass Simple
+  m_MixLevel: a1e3c7f332afa822699a35806834411d
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: 05b364f0973886a7bbe86efe238ed9c9
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0

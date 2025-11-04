@@ -23,12 +23,15 @@ public class Grabbable : MonoBehaviour, IInteractable
     {
         this.grabPoint = grabPoint;
         rb.useGravity = false;
+        rb.freezeRotation = true;
+        grabPoint.gameObject.GetComponentInParent<GrabControl>().setGrabbed(true);
         //prompt = "(E) Drop";
     }
 
     public void Drop() {
         this.grabPoint = null;
         rb.useGravity = true;
+        rb.freezeRotation = false;
     }
 
     public bool Interact(Interactor interactor)
@@ -43,12 +46,14 @@ public class Grabbable : MonoBehaviour, IInteractable
             player.AddMass(mass);
             grabControl.setGrabbed(true);
             rb.useGravity = false;
+            rb.freezeRotation = true;
             //prompt = "(E) Drop";
         }
         else if (grabPoint != null && grabControl.HasGrabbed())
         {
             grabPoint = null;
             rb.useGravity = true;
+            rb.freezeRotation = false;
             player.ResetMass();
             grabControl.setGrabbed(false);
             //prompt = "(E) Pick Up";
@@ -56,7 +61,7 @@ public class Grabbable : MonoBehaviour, IInteractable
         return true;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (grabPoint != null)
         {

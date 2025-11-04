@@ -135,8 +135,8 @@ public class Movement : MonoBehaviour
 
         RaycastHit hit;
         Ray rayDirection = new Ray(transform.position, targetDirection);
-        Physics.Raycast(rayDirection, out hit);
-        if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Water"))
+        bool hasHit = Physics.Raycast(rayDirection, out hit, 10.0f);
+        if (hasHit && hit.transform.gameObject.layer == LayerMask.NameToLayer("Water"))
             aboveWater = true;
         else
             aboveWater = false;
@@ -171,7 +171,7 @@ public class Movement : MonoBehaviour
     }
 
     public void AddMass(float mass) {
-        rb.mass = mass;
+        rb.mass = this.mass + mass;
     }
 
     public void ResetMass() {

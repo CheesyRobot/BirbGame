@@ -6,6 +6,8 @@ public class FishCatcher : MonoBehaviour
     public Transform catchPoint;
     [SerializeField] private LayerMask fishLayerMask;
     [SerializeField] private float catchRadius;
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip sound;
     public void Catch()
     {
         Collider[] colliders = Physics.OverlapSphere(catchPoint.position, catchRadius, fishLayerMask);
@@ -16,6 +18,8 @@ public class FishCatcher : MonoBehaviour
                 fish?.Catch(catchPoint);
             }
         }
+        source.clip = sound;
+        source.Play();
     }
 
     // Show pick-up radius

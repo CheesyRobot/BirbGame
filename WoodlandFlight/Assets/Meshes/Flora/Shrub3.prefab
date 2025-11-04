@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 394105897853445344}
   - component: {fileID: 2816723503495415167}
   - component: {fileID: 1496096271269532221}
+  - component: {fileID: 1300333234990062344}
   m_Layer: 0
   m_Name: Shrub3
   m_TagString: Untagged
@@ -211,3 +212,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1300333234990062344
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8669510326277061795}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8203131963207654371, guid: 3b169763424317c29ace552596500f00, type: 3}
