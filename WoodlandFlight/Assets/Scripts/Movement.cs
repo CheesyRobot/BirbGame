@@ -30,6 +30,7 @@ public class Movement : MonoBehaviour
     private Transform tr;
     private Player player;
     Vector2 inputDirection;
+    Animator anim;
 
     void Awake()
     {
@@ -42,6 +43,7 @@ public class Movement : MonoBehaviour
         rebounding = false;
         aboveWater = false;
         timer = 0;
+        anim = GetComponent<Animator>();
     }
 
     void Update() {
@@ -85,20 +87,23 @@ public class Movement : MonoBehaviour
                     speed.y += 0.5f;
                 gliding = false;
             }
-
+            anim.SetBool("Flying", true);
             player.AddStamina(-player.staminaConsumptionRate * Time.fixedDeltaTime);
         }
         else if (Input.GetKey(KeyCode.LeftShift))   //gliding
         {
             speed.y = Mathf.Clamp(speed.y, -1, float.MaxValue);
             gliding = true;
+            anim.SetBool("Flying", false);
             player.AddStamina(player.staminaRecoveryRateGliding * Time.fixedDeltaTime);
         }
         else
         {
+            anim.SetBool("Flying", false);
             gliding = false;
             player.AddStamina(player.staminaRecoveryRate * Time.fixedDeltaTime);
         }
+        anim.SetBool("Gliding", gliding);
     }
 
     private void SetMaxSpeed() {
@@ -127,6 +132,9 @@ public class Movement : MonoBehaviour
             speed.z = moveDirection.z * maxSpeed;
         }
         rb.linearVelocity = speed;
+
+        if(speed.z != 0 && speed.x != 0 && grounded) anim.SetBool("Walking", true);
+        else anim.SetBool("Walking", false);
     }
 
     private void Fishing() {
