@@ -29,6 +29,7 @@ public class PauseMenuEvents : MonoBehaviour
         _settings = _document.rootVisualElement.Q<TemplateContainer>("SettingsMenu");
         _returnButton = _settings.Q<Button>("ReturnButton");
 
+        RegisterCallbacks(); // Remove this line when not testing mid play mode anymore
         _menusContainer.style.display = DisplayStyle.None;
         //Debug.Log("Awake");
     }
@@ -45,7 +46,9 @@ public class PauseMenuEvents : MonoBehaviour
                 Pause();
         }
     }
-    private void OnDisable()
+
+    // Remove comment symbols on functions when not testing mid play mode anymore
+    /*private void OnDisable()
     {
         _continueButton.UnregisterCallback<ClickEvent>(OnContinueClick);
         _journalButton.UnregisterCallback<ClickEvent>(OnJournalClick);
@@ -57,7 +60,7 @@ public class PauseMenuEvents : MonoBehaviour
     private void OnEnable()
     {
         RegisterCallbacks();
-    }
+    }*/
 
     private void RegisterCallbacks()
     {
@@ -88,6 +91,7 @@ public class PauseMenuEvents : MonoBehaviour
 
     private void ResetDisplays()
     {
+
         OnSettingsReturnClick(ClickEvent.GetPooled());
     }
 
@@ -110,6 +114,7 @@ public class PauseMenuEvents : MonoBehaviour
         Settings.enabled = false;
         _pause.style.display = DisplayStyle.Flex;
         _settings.style.display = DisplayStyle.None;
+
     }
 
     private void OnQuitMenuClick(ClickEvent evt)
