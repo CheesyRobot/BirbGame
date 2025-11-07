@@ -15,10 +15,11 @@
             <engine:VisualElement name="Controls" class="PanelBackground" style="height: 317px; width: 748px; visibility: visible; display: flex; justify-content: space-between; align-self: auto; position: absolute;">
                 <engine:Label text="WIP" class="TextFont" />
             </engine:VisualElement>
-            <engine:VisualElement name="Audio" class="PanelBackground" style="height: 317px; width: 748px; visibility: visible; display: flex; justify-content: space-between; align-self: auto; position: absolute;">
-                <engine:Slider label="Master" value="46" high-value="100" name="Master" class="TextFont" style="color: rgb(255, 255, 255);" />
-                <engine:Slider label="Music" value="46" high-value="100" name="Music" class="TextFont" style="color: rgb(255, 255, 255);" />
-                <engine:Slider label="SFX&#10;" value="46" high-value="100" name="SFX" class="TextFont" style="color: rgb(255, 255, 255);" />
+            <engine:VisualElement name="Audio" class="PanelBackground" style="height: auto; width: 748px; visibility: visible; display: flex; justify-content: space-between; align-self: auto; position: absolute;">
+                <engine:Slider label="Master" value="0.5" high-value="1" name="Master" low-value="1E-05" class="TextFont" style="color: rgb(255, 255, 255);" />
+                <engine:Slider label="Music" value="0.5" high-value="1" name="Music" low-value="1E-05" class="TextFont" style="color: rgb(255, 255, 255);" />
+                <engine:Slider label="SFX&#10;" value="0.5" high-value="1" name="SFX" low-value="1E-05" class="TextFont" style="color: rgb(255, 255, 255);" />
+                <engine:Slider label="Ambient" value="0.5" high-value="1" name="Ambient" low-value="1E-05" class="TextFont" style="color: rgb(255, 255, 255);" />
             </engine:VisualElement>
             <engine:VisualElement name="Video" class="PanelBackground" style="height: 317px; width: 748px; visibility: visible; display: flex; justify-content: space-between; align-self: auto;">
                 <engine:DropdownField label="Resolution" name="Resolution" choices="1920 × 1080,1280 × 720" index="1" class="TextFont" style="visibility: visible; color: rgb(255, 255, 255);" />
