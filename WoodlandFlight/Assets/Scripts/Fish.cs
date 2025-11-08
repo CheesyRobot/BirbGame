@@ -3,11 +3,12 @@ using UnityEngine;
 public class Fish : MonoBehaviour
 {
     public bool cought;
-    public Grabbable component;
+    public Grabbable grabbable;
+    public FishMovement fishMovement;
 
     void Start() {
         cought = false;
-        component.enabled = false;
+        grabbable.enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<Rigidbody>().useGravity = false;
     }
@@ -16,8 +17,9 @@ public class Fish : MonoBehaviour
         if (cought)
             return;
         cought = true;
-        component.enabled = true;
+        grabbable.enabled = true;
+        fishMovement.enabled = false;
         GetComponent<Rigidbody>().isKinematic = false;
-        component.Grab(grabPoint);
+        grabbable.Grab(grabPoint);
     }
 }

@@ -12,7 +12,7 @@ public class Grabbable : MonoBehaviour, IInteractable
     [SerializeField] private string prompt;
     public string InteractionPrompt => prompt;
 
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
         cl = GetComponent<Collider>();
