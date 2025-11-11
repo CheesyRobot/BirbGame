@@ -141,12 +141,12 @@ Shader "Unlit/WaterShader"
 
             float4 frag (v2f i) : SV_Target
             {
-                float3 normals1 = tex2D(_Normals, i.uv1).xyz;
-                float3 normals2 = tex2D(_Normals, i.uv2).xyz;
-                normals1 = (normals1 * 2 - 0.5);
-                normals2 = (normals2 * 2 - 0.5);
-                // float3 normals1 = UnpackNormal(tex2D(_Normals, i.uv1));
-                // float3 normals2 = UnpackNormal(tex2D(_Normals, i.uv2));
+                // float3 normals1 = tex2D(_Normals, i.uv1).xyz;
+                // float3 normals2 = tex2D(_Normals, i.uv2).xyz;
+                // normals1 = (normals1 * 2 - 0.5);
+                // normals2 = (normals2 * 2 - 0.5);
+                float3 normals1 = UnpackNormal(tex2D(_Normals, i.uv1));
+                float3 normals2 = UnpackNormal(tex2D(_Normals, i.uv2));
                 // normals1 = normalize(lerp(normals3, normals1, 0.5));
                 // normals2 = normalize(lerp(normals4, normals2, 0.5));
                 normals1 = normalize(lerp(float3(0,0,1), normals1, _NormalIntensity));
