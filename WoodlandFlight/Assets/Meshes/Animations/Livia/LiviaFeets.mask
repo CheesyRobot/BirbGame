@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LiviaFeets
+  m_Mask: 01000000000000000000000001000000010000000000000000000000000000000000000001000000010000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 0
+  - m_Path: Armature/Foot.L
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/BackToe.L
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/BackToe.L/BackToe2.L
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/BackToe.L/BackToe2.L/BackToe3.L
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/BackToe.L/BackToe2.L/BackToe3.L/BackToe3.L_end
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/UpperToe1.L
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/UpperToe1.L/Toe1.L
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/UpperToe1.L/Toe1.L/Toe1.L_end
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/UpperToe2.L
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/UpperToe2.L/Toe2.L
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/UpperToe2.L/Toe2.L/Toe2.L_end
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/UpperToe3.L
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/UpperToe3.L/Toe3.L
+    m_Weight: 1
+  - m_Path: Armature/Foot.L/UpperToe3.L/Toe3.L/Toe3.L_end
+    m_Weight: 1
+  - m_Path: Armature/Foot.R
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/BackToe.R
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/BackToe.R/BackToe2.R
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/BackToe.R/BackToe2.R/BackToe3.R
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/BackToe.R/BackToe2.R/BackToe3.R/BackToe3.R_end
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/UpperToe1.R
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/UpperToe1.R/Toe1.R
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/UpperToe1.R/Toe1.R/Toe1.R_end
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/UpperToe2.R
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/UpperToe2.R/Toe2.R
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/UpperToe2.R/Toe2.R/Toe2.R_end
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/UpperToe3.R
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/UpperToe3.R/Toe3.R
+    m_Weight: 1
+  - m_Path: Armature/Foot.R/UpperToe3.R/Toe3.R/Toe3.R_end
+    m_Weight: 1
+  - m_Path: Armature/Root
+    m_Weight: 0
+  - m_Path: Armature/Root/Body
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Neck
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Neck/Head
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Neck/Head/BeakBottom
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Neck/Head/BeakBottom/BeakBottom_end
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Neck/Head/BeakTop
+    m_Weight: 0
+  - m_Path: Armature/Root/Body/Neck/Head/BeakTop/BeakTop_end
+    m_Weight: 0
+  - m_Path: Armature/Root/Tail
+    m_Weight: 0
+  - m_Path: Armature/Root/Tail/TailFeather1.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Tail/TailFeather1.L/TailFeather1.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/Tail/TailFeather1.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Tail/TailFeather1.R/TailFeather1.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/Tail/TailFeather2.L
+    m_Weight: 0
+  - m_Path: Armature/Root/Tail/TailFeather2.L/TailFeather2.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/Tail/TailFeather2.R
+    m_Weight: 0
+  - m_Path: Armature/Root/Tail/TailFeather2.R/TailFeather2.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/Thigh.L
+    m_Weight: 1
+  - m_Path: Armature/Root/Thigh.L/Calf.L
+    m_Weight: 1
+  - m_Path: Armature/Root/Thigh.L/Calf.L/Calf.L_end
+    m_Weight: 1
+  - m_Path: Armature/Root/Thigh.R
+    m_Weight: 1
+  - m_Path: Armature/Root/Thigh.R/Calf.R
+    m_Weight: 1
+  - m_Path: Armature/Root/Thigh.R/Calf.R/Calf.R_end
+    m_Weight: 1
+  - m_Path: Armature/Root/UpperArm.L
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.L/Forearm.L
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.L/Forearm.L/Hand.L
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.L/Forearm.L/Hand.L/WingFeather4.L
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.L/Forearm.L/Hand.L/WingFeather4.L/WingFeather4.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.L/Forearm.L/WingFeather2.L
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.L/Forearm.L/WingFeather2.L/WingFeather2.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.L/Forearm.L/WingFeather3.L
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.L/Forearm.L/WingFeather3.L/WingFeather3.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.L/WingFeather1.L
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.L/WingFeather1.L/WingFeather1.L_end
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.R
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.R/Forearm.R
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.R/Forearm.R/Hand.R
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.R/Forearm.R/Hand.R/WingFeather4.R
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.R/Forearm.R/Hand.R/WingFeather4.R/WingFeather4.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.R/Forearm.R/WingFeather2.R
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.R/Forearm.R/WingFeather2.R/WingFeather2.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.R/Forearm.R/WingFeather3.R
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.R/Forearm.R/WingFeather3.R/WingFeather3.R_end
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.R/WingFeather1.R
+    m_Weight: 0
+  - m_Path: Armature/Root/UpperArm.R/WingFeather1.R/WingFeather1.R_end
+    m_Weight: 0
+  - m_Path: Birb
+    m_Weight: 0
+  - m_Path: BirbEyebrows
+    m_Weight: 0
+  - m_Path: BirbEyes
+    m_Weight: 0

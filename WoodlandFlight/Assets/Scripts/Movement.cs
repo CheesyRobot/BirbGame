@@ -35,6 +35,7 @@ public class Movement : MonoBehaviour
     private Player player;
     Vector2 inputDirection;
     Animator anim;
+    GrabControl grabControl;
 
     void Awake()
     {
@@ -50,6 +51,8 @@ public class Movement : MonoBehaviour
         heightOffset = 0;
         timer = 0;
         anim = GetComponent<Animator>();
+        // To set grabbing animation:
+        grabControl = GetComponent<GrabControl>();
     }
 
     void Update() {
@@ -210,11 +213,15 @@ public class Movement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Setting bools in the animator for animation purposes
+    /// </summary>
     public void SetAnimationBools()
     {
         anim.SetBool("Gliding", gliding);
         anim.SetBool("Flying", flying);
         anim.SetBool("Grounded", grounded);
+        anim.SetBool("Grabbing", grabControl.HasGrabbed());
         if (speed.z != 0 && speed.x != 0 && grounded && enableWalking)
         {
             anim.SetBool("Walking", true);
