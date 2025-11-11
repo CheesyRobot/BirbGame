@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     private bool grounded;
     private bool aboveWater;
     private bool gliding;
+    private bool flying;
     private bool fishing;
     private bool rebounding;
     private bool enableWalking;
@@ -71,6 +72,7 @@ public class Movement : MonoBehaviour
         HorizontalMovement();
 
         rb.linearVelocity = speed;
+        SetAnimationBools();
     }
         
 
@@ -94,23 +96,23 @@ public class Movement : MonoBehaviour
                     speed.y += 0.5f;
                 gliding = false;
             }
-            anim.SetBool("Flying", true);
+            flying = true;
             player.AddStamina(-player.staminaConsumptionRate * Time.fixedDeltaTime);
         }
         else if (Input.GetKey(KeyCode.LeftShift))   //gliding
         {
             speed.y = Mathf.Clamp(speed.y, -1, float.MaxValue);
             gliding = true;
-            anim.SetBool("Flying", false);
+            flying = false;
             player.AddStamina(player.staminaRecoveryRateGliding * Time.fixedDeltaTime);
         }
         else
         {
-            anim.SetBool("Flying", false);
+            flying = false;
             gliding = false;
             player.AddStamina(player.staminaRecoveryRate * Time.fixedDeltaTime);
         }
-        anim.SetBool("Gliding", gliding);
+        
     }
 
     private void SetMaxSpeed() {
@@ -142,9 +144,6 @@ public class Movement : MonoBehaviour
             speed.z = moveDirection.z * maxSpeed;
         }
         rb.linearVelocity = speed;
-
-        if(speed.z != 0 && speed.x != 0 && grounded) anim.SetBool("Walking", true);
-        else anim.SetBool("Walking", false);
     }
 
     private void Fishing() {
@@ -209,5 +208,16 @@ public class Movement : MonoBehaviour
             enableWalking = true;
             heightOffset = -0.5f;
         }
+    }
+
+    public void SetAnimationBools()
+    {
+        anim.SetBool("Gliding", gliding);
+        anim.SetBool("Flying", flying);
+        anim.SetBool("Grounded", grounded);
+        if (speed.z != 0 && speed.x != 0 && grounded && enableWalking)
+        {
+            anim.SetBool("Walking", true);
+        } else anim.SetBool("Walking", false);
     }
 }
