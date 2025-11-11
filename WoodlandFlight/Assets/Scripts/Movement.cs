@@ -99,7 +99,7 @@ public class Movement : MonoBehaviour
             flying = true;
             player.AddStamina(-player.staminaConsumptionRate * Time.fixedDeltaTime);
         }
-        else if (Input.GetKey(KeyCode.LeftShift))   //gliding
+        else if (!grounded && Input.GetKey(KeyCode.LeftShift))   //gliding
         {
             speed.y = Mathf.Clamp(speed.y, -1, float.MaxValue);
             gliding = true;
@@ -122,7 +122,7 @@ public class Movement : MonoBehaviour
             else
                 maxSpeed = 0;
         else if (gliding)
-                maxSpeed = Mathf.Lerp(maxSpeed, glidingSpeed, Time.fixedDeltaTime * 1.0f);
+                maxSpeed = Mathf.Lerp(maxSpeed, glidingSpeed, Time.fixedDeltaTime * 0.5f);
             else
                 maxSpeed = Mathf.Lerp(maxSpeed, flyingSpeed, Time.fixedDeltaTime * 1.5f);
     }
@@ -206,7 +206,7 @@ public class Movement : MonoBehaviour
         else
         {
             enableWalking = true;
-            heightOffset = -0.5f;
+            heightOffset = 0;
         }
     }
 
