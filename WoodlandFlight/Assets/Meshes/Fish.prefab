@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
+  rotateAngle: 90
   mass: 0
   prompt: Fish
 --- !u!54 &3088069793259658858

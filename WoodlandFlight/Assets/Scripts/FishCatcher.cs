@@ -33,6 +33,7 @@ public class FishCatcher : MonoBehaviour
         {
             if (colliders[^1].gameObject.tag == "Fish") {
                 FishMovement fish = colliders[^1].GetComponent<FishMovement>();
+                fish.gameObject.layer = LayerMask.NameToLayer("Default");
                 fish?.Despawn();
             }
         }

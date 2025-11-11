@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Net.Http.Headers;
 using Unity.Mathematics;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
@@ -25,6 +26,8 @@ public class Movement : MonoBehaviour
     private bool gliding;
     private bool fishing;
     private bool rebounding;
+    private bool enableWalking;
+    private float heightOffset;
     private float timer;
     public Transform Camera;
     private Transform tr;
@@ -42,6 +45,8 @@ public class Movement : MonoBehaviour
         fishing = false;
         rebounding = false;
         aboveWater = false;
+        enableWalking = true;
+        heightOffset = 0;
         timer = 0;
         anim = GetComponent<Animator>();
     }
@@ -72,17 +77,19 @@ public class Movement : MonoBehaviour
     private void VerticalMovement()
     {
         
-        grounded = Physics.Raycast(tr.position, Vector3.down, playerHeight * 0.5f, ground);
+        grounded = Physics.Raycast(tr.position, Vector3.down, playerHeight * 0.5f + heightOffset, ground);
 
         if (Input.GetKey(KeyCode.Space)) {
-            if (grounded)   //jumping
+            if (grounded && enableWalking)   //jumping
             {
                 rb.AddForce(Vector3.up * verticalForce * 2);
             }
             
-            if (player.currentStamina > 0)  //flying up
+            if (player.currentStamina > 0 && enableWalking)  //flying up
             {
                 rb.AddForce(Vector3.up * verticalForce);
+                // speed.y += (verticalForce - mass * 5) * 5 * Time.fixedDeltaTime;
+                // speed.y = verticalForce - mass * 5;
                 if (speed.y <= 0)
                     speed.y += 0.5f;
                 gliding = false;
@@ -108,11 +115,14 @@ public class Movement : MonoBehaviour
 
     private void SetMaxSpeed() {
         if (grounded)
-            maxSpeed = walkingSpeed;
+            if (enableWalking)
+                maxSpeed = walkingSpeed;
+            else
+                maxSpeed = 0;
         else if (gliding)
-            maxSpeed = Mathf.Lerp(maxSpeed, glidingSpeed, Time.fixedDeltaTime * 1.0f);
-        else
-            maxSpeed = Mathf.Lerp(maxSpeed, flyingSpeed, Time.fixedDeltaTime * 1.5f);
+                maxSpeed = Mathf.Lerp(maxSpeed, glidingSpeed, Time.fixedDeltaTime * 1.0f);
+            else
+                maxSpeed = Mathf.Lerp(maxSpeed, flyingSpeed, Time.fixedDeltaTime * 1.5f);
     }
 
     private void HorizontalMovement() {
@@ -182,7 +192,22 @@ public class Movement : MonoBehaviour
         rb.mass = this.mass + mass;
     }
 
-    public void ResetMass() {
+    public void ResetMass()
+    {
         rb.mass = this.mass;
+    }
+    
+    public void SetWalkingEnabled(bool value, float offset)
+    {
+        if (!value && player.weightLimit < rb.mass)
+        {
+            enableWalking = false;
+            heightOffset = offset;
+        }
+        else
+        {
+            enableWalking = true;
+            heightOffset = -0.5f;
+        }
     }
 }
