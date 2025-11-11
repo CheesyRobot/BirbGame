@@ -432,9 +432,25 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
+      propertyPath: SFXSource
+      value: 
+      objectReference: {fileID: 1313495347}
+    - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
+      propertyPath: musicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d5a168e725bb40fe79c4f02b01dcc652, type: 3}
+    - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1727962590}
+    - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
       propertyPath: timeDisplay
       value: 
       objectReference: {fileID: 1743326346}
+    - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
+      propertyPath: hoopCollectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ab83cc5d9f24d3b694d3461b6d1a9a9, type: 3}
     - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
       propertyPath: hoops.Array.size
       value: 11
@@ -5959,7 +5975,7 @@ MonoBehaviour:
   interactableLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  interactionRadius: 0.5
+  interactionRadius: 0.3
   prompt: {fileID: 357926769}
 --- !u!114 &372861203
 MonoBehaviour:
@@ -6015,7 +6031,7 @@ MonoBehaviour:
   catchRadius: 0.3
   escapeRadius: 2
   source: {fileID: 1313495347}
-  sound: {fileID: 8300000, guid: b77471bed2ff2004cbf1f96a6a7a8ecc, type: 3}
+  sound: {fileID: 8300000, guid: 74faadcba6174f5ea87e8d1c9f3ccad2, type: 3}
   particles: {fileID: 761587195}
 --- !u!114 &372861209
 MonoBehaviour:
@@ -6182,6 +6198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
+  rotateAngle: 0
   mass: 2
   prompt: Super Jump Cylinder
 --- !u!54 &404087280
@@ -6401,7 +6418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
-  mass: 1
+  rotateAngle: 0
+  mass: 0.5
   prompt: Cube
 --- !u!65 &506318611
 BoxCollider:
@@ -12116,29 +12134,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7511558181221131132, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: -876546973899608171, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
-    - target: {fileID: -7511558181221131132, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
-      propertyPath: 'm_Materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: -3846018093981099296, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
-    - target: {fileID: -5754084199372789682, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -5495902117074765545, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 90
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12146,7 +12144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 200
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12180,6 +12178,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Livia100
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: -3846018093981099296, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
+    - target: {fileID: -5754084199372789682, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -5495902117074765545, guid: 86662b7efa465a85fa704ec0990cbf82, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -12362,6 +12380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
+  rotateAngle: 0
   mass: 0.5
   prompt: Rock
 --- !u!54 &890472208
@@ -13219,7 +13238,7 @@ Transform:
   m_GameObject: {fileID: 1206616416}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1891076, y: -2.218658e-17, z: 4.272747e-18, w: 0.98195636}
-  m_LocalPosition: {x: 90, y: 9.01, z: 198}
+  m_LocalPosition: {x: 5, y: 9.01, z: 28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14140,7 +14159,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -14388,6 +14407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1727962589}
   - component: {fileID: 1727962590}
+  - component: {fileID: 1727962591}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -14420,8 +14440,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7001893089231604736, guid: d110d00b0899b6c4ba441d76ab9b968f, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4bc341b6bdc068a2193a469cf76455c6, type: 3}
-  m_Resource: {fileID: 8300000, guid: 4bc341b6bdc068a2193a469cf76455c6, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -14507,6 +14527,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1727962591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727962588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4ea32b81e0072499442b327d04b6a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 4bc341b6bdc068a2193a469cf76455c6, type: 3}
+  currentClip: {fileID: 0}
+  source: {fileID: 1727962590}
+  minWaitBetweenPlays: 20
+  maxWaitBetweenPlays: 60
+  waitTimeCountdown: -1
 --- !u!1 &1743326340
 GameObject:
   m_ObjectHideFlags: 0
@@ -15726,7 +15765,7 @@ Transform:
   m_GameObject: {fileID: 2070760548}
   serializedVersion: 2
   m_LocalRotation: {x: 0.18910757, y: 2.3525773e-17, z: -2.3309235e-16, w: 0.9819564}
-  m_LocalPosition: {x: 90, y: 9.01, z: 198}
+  m_LocalPosition: {x: 5, y: 9.01, z: 28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -15,6 +15,10 @@ public class Race : MonoBehaviour
     public int timeGoal;
     public int xpReward;
     public Player player;
+    public AudioSource SFXSource;
+    public AudioSource musicSource;
+    public AudioClip hoopCollectClip;
+    public AudioClip musicClip;
     void Start()
     {
         active = false;
@@ -45,6 +49,8 @@ public class Race : MonoBehaviour
                     
                     hoops[currentHoopIndex].SetTarget(true);
                 }
+                SFXSource.clip = hoopCollectClip;
+                SFXSource.Play();
             }
         }
     }
@@ -66,6 +72,8 @@ public class Race : MonoBehaviour
         else
             Debug.Log("Race must have at least 2 hoops");
         active = true;
+        musicSource.clip = musicClip;
+        musicSource.Play();
     }
 
     public void EndMinigame() {
@@ -79,5 +87,6 @@ public class Race : MonoBehaviour
             player.AddExperience(xpReward);
             completed = true;
         }
+        musicSource.Stop();
     }
 }
