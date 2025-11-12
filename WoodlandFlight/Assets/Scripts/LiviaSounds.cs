@@ -24,8 +24,8 @@ public class LiviaSounds : MonoBehaviour
 
     public void PlayFlyingSound()
     {
-        //source.clip = audioClips[4];
-        source.PlayOneShot(flapClips[Random.Range(0, flapClips.Count)]);
-        //source.Play();
+            //source.clip = audioClips[flapClips[Random.Range(0, flapClips.Count)]];
+            source.PlayOneShot(flapClips[Random.Range(0, flapClips.Count)]);
+            //source.Play();
     }
 }
