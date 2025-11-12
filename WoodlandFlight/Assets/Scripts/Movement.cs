@@ -220,6 +220,7 @@ public class Movement : MonoBehaviour
     {
         anim.SetBool("Gliding", gliding);
         anim.SetBool("Flying", flying);
+        anim.SetBool("Diving", fishing);
         anim.SetBool("Grounded", grounded);
         anim.SetBool("Grabbing", grabControl.HasGrabbed());
         if (speed.z != 0 && speed.x != 0 && grounded && enableWalking)
