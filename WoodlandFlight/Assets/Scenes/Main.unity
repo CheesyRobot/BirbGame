@@ -432,9 +432,25 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
+      propertyPath: SFXSource
+      value: 
+      objectReference: {fileID: 1313495347}
+    - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
+      propertyPath: musicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d5a168e725bb40fe79c4f02b01dcc652, type: 3}
+    - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1727962590}
+    - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
       propertyPath: timeDisplay
       value: 
       objectReference: {fileID: 1743326346}
+    - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
+      propertyPath: hoopCollectClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9ab83cc5d9f24d3b694d3461b6d1a9a9, type: 3}
     - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
       propertyPath: hoops.Array.size
       value: 11
@@ -5959,7 +5975,7 @@ MonoBehaviour:
   interactableLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  interactionRadius: 0.5
+  interactionRadius: 0.3
   prompt: {fileID: 357926769}
 --- !u!114 &372861203
 MonoBehaviour:
@@ -6426,7 +6442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: 0}
   rotateAngle: 0
-  mass: 1
+  mass: 0.5
   prompt: Cube
 --- !u!65 &506318611
 BoxCollider:

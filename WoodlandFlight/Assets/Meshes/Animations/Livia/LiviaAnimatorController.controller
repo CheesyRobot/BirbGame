@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Armature_Flying
-  m_Speed: 4
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4510604206828665982}
@@ -306,7 +306,7 @@ AnimatorStateMachine:
     m_Position: {x: 140, y: -180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8693136307521907295}
-    m_Position: {x: -240, y: -110, z: 0}
+    m_Position: {x: -260, y: -90, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 2062203031362761184}
