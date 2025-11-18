@@ -86,4 +86,17 @@ public class DialogueEvents : MonoBehaviour
         else
             _dialogueContainer.style.display = DisplayStyle.None;
     }
+
+    /// <summary>
+    /// Returns if UI is enabled (showing) or not
+    /// </summary>
+    /// <returns></returns>
+    public bool isEnabled()
+    {
+        if (_dialogueContainer.resolvedStyle.display == DisplayStyle.Flex)
+        {
+            return true;
+        }
+        else return false;
+    }
 }
