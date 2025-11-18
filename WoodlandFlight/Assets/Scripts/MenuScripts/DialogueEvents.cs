@@ -45,4 +45,45 @@ public class DialogueEvents : MonoBehaviour
         /// Elementams parodyti:
         //_dialogueContainer.style.display = DisplayStyle.Flex;
     }
+
+    /// <summary>
+    /// Sets title/name text
+    /// </summary>
+    /// <param name="text"></param>
+    public void SetNameText(string text)
+    {
+        _nameLabel.text = text;
+    }
+
+    /// <summary>
+    /// Sets dialogue text
+    /// </summary>
+    /// <param name="text"></param>
+    public void SetDialogueText(string text)
+    {
+        _dialogueLabel.text = text;
+    }
+
+    /// <summary>
+    /// Sets the text of small label on bottom right
+    /// </summary>
+    /// <param name="text"></param>
+    public void SetEnterLabelText(string text)
+    {
+        _pressEnterLabel.text = text;
+    }
+
+    /// <summary>
+    /// Hides or shows UI
+    /// </summary>
+    /// <param name="isEnabled"></param>
+    public void Show(bool isEnabled)
+    {
+        if (isEnabled)
+        {
+            _dialogueContainer.style.display = DisplayStyle.Flex;
+        }
+        else
+            _dialogueContainer.style.display = DisplayStyle.None;
+    }
 }
