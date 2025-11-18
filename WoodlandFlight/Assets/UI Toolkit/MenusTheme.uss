@@ -5,6 +5,12 @@
     color: rgb(255, 255, 255);
 }
 
+.ParagraphFont {
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/Fonts/Barlow/Barlow-Medium.ttf?fileID=12800000&guid=3518abe5486e019448a234ee137a5d2b&type=3#Barlow-Medium");
+    font-size: 32px;
+    white-space: normal;
+}
+
 .NormalButton {
     width: 490px;
     height: 70px;
@@ -192,4 +198,10 @@ Toggle:focus .unity-base-field__label {
 #unity-toggle-button-group__container {
     flex-direction: row;
     justify-content: center;
+}
+
+.ParagraphFont {
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/Fonts/Barlow/Barlow-Medium.ttf?fileID=12800000&guid=3518abe5486e019448a234ee137a5d2b&type=3#Barlow-Medium");
+    font-size: 32px;
+    white-space: normal;
 }
