@@ -5771,7 +5771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 760, y: -483}
+  m_AnchoredPosition: {x: 782, y: -483}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &357926769
@@ -5828,7 +5828,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -12235,7 +12235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 90
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12243,7 +12243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 199.98
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13714,10 +13714,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Witch
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dc2ba7a9935de534b860cf685209d0f8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc2ba7a9935de534b860cf685209d0f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1339490778}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc2ba7a9935de534b860cf685209d0f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1339490777}
   m_SourcePrefab: {fileID: 100100000, guid: dc2ba7a9935de534b860cf685209d0f8, type: 3}
 --- !u!4 &1172773142 stripped
 Transform:
@@ -13920,7 +13930,7 @@ Transform:
   m_GameObject: {fileID: 1206616416}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1891076, y: -2.218658e-17, z: 4.272747e-18, w: 0.98195636}
-  m_LocalPosition: {x: 90, y: 9.01, z: 197.98}
+  m_LocalPosition: {x: 10, y: 9.01, z: 28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14335,6 +14345,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 372861197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1339490775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dc2ba7a9935de534b860cf685209d0f8, type: 3}
+  m_PrefabInstance: {fileID: 1064271132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1339490777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339490775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a124ea5bd82e185e9451a3c9f2312fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Witch
+  dialogue: Hello, birdy!
+  prompt: (E) Talk
+  de: {fileID: 801940249}
+  UICanvas: {fileID: 1743326340}
+--- !u!136 &1339490778
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339490775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.5070186
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7535093, z: 0}
 --- !u!114 &1439219525 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8040454523088306414, guid: 0304c745dd79d4b47af0eca1fad69d7a, type: 3}
@@ -16427,7 +16482,7 @@ Transform:
   m_GameObject: {fileID: 2070760548}
   serializedVersion: 2
   m_LocalRotation: {x: 0.18910757, y: 2.3525773e-17, z: -2.3309235e-16, w: 0.9819564}
-  m_LocalPosition: {x: 90, y: 9.01, z: 197.98}
+  m_LocalPosition: {x: 10, y: 9.01, z: 28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
