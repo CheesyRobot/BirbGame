@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Net.Http.Headers;
 using Unity.Mathematics;
-using UnityEditor.ShaderGraph.Internal;
+//using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Splines.Interpolators;
