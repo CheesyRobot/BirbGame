@@ -2,5 +2,6 @@ using UnityEngine;
 
 public interface IQuestObjectiveType
 {
-    public bool CheckCondition(Quest quest);
+    public bool CheckCondition(QuestObjective quest);
+    public void StartObjetive();
 }

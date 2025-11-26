@@ -9,6 +9,5 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        currentQuestStage = 0;
     }
 }

@@ -1,0 +1,32 @@
+using System;
+using UnityEngine;
+
+public class FetchObjective : MonoBehaviour, IQuestObjectiveType
+{
+    public GameObject questItem;
+    //public Collider dropZone;
+    private bool completed;
+    
+    void Start() {
+        completed = false;
+        GetComponent<Collider>().enabled = false;
+    }
+    
+    public bool CheckCondition(QuestObjective quest)
+    {
+        return completed;
+    }
+
+    void OnTriggerEnter(Collider col) {
+        if(col.name == questItem.name)
+        {
+            Debug.Log("Quest item detected");
+            GetComponent<Collider>().enabled = false;
+            // questItem.GetComponent<Grabbable>().enabled = false;
+            completed = true;
+        }
+    }
+    public void StartObjetive() {
+        GetComponent<Collider>().enabled = true;
+    }
+}
