@@ -12,7 +12,7 @@ public class FetchObjective : MonoBehaviour, IQuestObjectiveType
         GetComponent<Collider>().enabled = false;
     }
     
-    public bool CheckCondition(QuestObjective quest)
+    public bool CheckCondition()
     {
         return completed;
     }
@@ -26,7 +26,7 @@ public class FetchObjective : MonoBehaviour, IQuestObjectiveType
             completed = true;
         }
     }
-    public void StartObjetive() {
+    public void StartObjective() {
         GetComponent<Collider>().enabled = true;
     }
 }

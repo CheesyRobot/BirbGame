@@ -61,6 +61,7 @@ public class NPC : MonoBehaviour, IInteractable
             de.SetDialogueText(questDialogue.SayOneLine());
         }
         else {
+            questDialogue.SayOneLine();
             de.Show(false);
             UICanvas.SetActive(true);
         }

@@ -13,10 +13,11 @@ public class TalkObjective : MonoBehaviour, IQuestObjectiveType
         completed = false;
     }
     
-    public bool CheckCondition(QuestObjective quest)
+    public bool CheckCondition()
     {
         return completed;
     }
+
     public string SayOneLine() {
         if (currentDialogueLine < dialogueLines.Length)
             currentDialogueLine++;
@@ -25,10 +26,10 @@ public class TalkObjective : MonoBehaviour, IQuestObjectiveType
         return dialogueLines[currentDialogueLine - 1];
     }
     public bool HasLinesLeft() {
-        return !completed;
+        return !(currentDialogueLine == dialogueLines.Length);
     }
 
-    public void StartObjetive() {
+    public void StartObjective() {
         npc.SetTalkObjective(this);
     }
 
