@@ -27,6 +27,12 @@ public class FetchObjective : MonoBehaviour, IQuestObjectiveType
         }
     }
     public void StartObjective() {
+        completed = false;
         GetComponent<Collider>().enabled = true;
+    }
+
+    public void CompleteObjective() {
+        GetComponent<Collider>().enabled = false;
+        completed = true;
     }
 }

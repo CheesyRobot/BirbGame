@@ -65,5 +65,37 @@ public class Player : MonoBehaviour
         staminaLimit = levels[currentLevel - 1].staminaLimit;
         weightLimit = levels[currentLevel - 1].weightLimit;
     }
+
+    public PlayerData Save() {
+        PlayerData playerData = new();
+        playerData.position = transform.position;
+        playerData.rotation = transform.rotation;
+        playerData.currentLevel = currentLevel;
+        playerData.experience = experience;
+        playerData.currentStamina = currentStamina;
+        playerData.currentHealth = currentHealth;
+        return playerData;
+    }
+
+    public void Load(PlayerData playerData) {
+        transform.position = playerData.position;
+        transform.rotation = playerData.rotation;
+        GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        currentLevel = playerData.currentLevel;
+        experience = playerData.experience;
+        UpdateStats();
+        levelDisplay.UpdateLevel(currentLevel, experience, levels.Length);
+        currentStamina = playerData.currentStamina;
+        currentHealth = playerData.currentHealth;
+    }
 }
 
+[System.Serializable]
+public struct PlayerData {
+    public Vector3 position;
+    public Quaternion rotation;
+    public int currentLevel;
+    public int experience;
+    public float currentStamina;
+    public float currentHealth;
+}

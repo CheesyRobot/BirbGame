@@ -30,7 +30,15 @@ public class TalkObjective : MonoBehaviour, IQuestObjectiveType
     }
 
     public void StartObjective() {
+        currentDialogueLine = 0;
+        completed = false;
         npc.SetTalkObjective(this);
+    }
+
+    public void CompleteObjective() {
+        npc.SetTalkObjective(this);
+        completed = true;
+        currentDialogueLine = dialogueLines.Length;
     }
 
     // public void SetNPC(NPC npc) {
