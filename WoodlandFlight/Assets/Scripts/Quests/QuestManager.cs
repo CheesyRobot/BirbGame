@@ -85,7 +85,10 @@ public class QuestManager : MonoBehaviour
         inactiveQuests = quests.Where(q => questManagerData.inactiveQuests.Contains(q.ID)).ToList();
         activeQuests = quests.Where(q => questManagerData.activeQuests.Select(a => a.ID).Contains(q.ID)).ToList();
         completedQuests = quests.Where(q => questManagerData.completedQuests.Contains(q.ID)).ToList();
-        //trackedQuest = quests.Find(q => q.ID == questManagerData.trackedQuest);
+        if (questManagerData.trackedQuest != null)
+            trackedQuest = quests.FirstOrDefault(q => q.ID == questManagerData.trackedQuest);
+        else
+            trackedQuest = null;
 
         DisableNonActiveQuests();
         
