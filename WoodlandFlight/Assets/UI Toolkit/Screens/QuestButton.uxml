@@ -1,0 +1,7 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenusTheme.uss?fileID=7433441132597879392&amp;guid=a76cf53ccdf7e994c975f797845f1d3d&amp;type=3#MenusTheme" />
+    <engine:VisualElement name="Container" style="flex-grow: 0; flex-shrink: 1; align-items: flex-start; align-self: flex-start; padding-left: 40px;">
+        <engine:Button text="ANOTHER QUEST" name="QuestButton" enabled="true" class="TextFont LabelButton" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); -unity-text-align: middle-left; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; justify-content: flex-end; flex-grow: 0; flex-shrink: 0; height: auto; width: auto; overflow: visible; padding-bottom: 5px; padding-right: 0; white-space: normal;" />
+        <engine:VisualElement name="Line" style="background-color: rgb(255, 255, 255); height: 2px; display: none; flex-grow: 0; flex-shrink: 1; width: 100%;" />
+    </engine:VisualElement>
+</engine:UXML>

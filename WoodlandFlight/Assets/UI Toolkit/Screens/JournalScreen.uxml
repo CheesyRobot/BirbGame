@@ -1,0 +1,32 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenusTheme.uss?fileID=7433441132597879392&amp;guid=a76cf53ccdf7e994c975f797845f1d3d&amp;type=3#MenusTheme" />
+    <engine:VisualElement name="JournalElements" style="flex-grow: 1;">
+        <engine:VisualElement name="Top" style="flex-grow: 0; height: 15%; width: 1917px; flex-wrap: nowrap; justify-content: center; align-items: center; align-self: auto; align-content: auto; min-height: auto;">
+            <engine:Button text="Return" name="ReturnButton" class="NormalButton" />
+        </engine:VisualElement>
+        <engine:VisualElement name="Panel" style="flex-grow: 1; align-items: center; margin-top: 20px;">
+            <engine:VisualElement name="Background" class="PanelBackground" style="flex-grow: 0; width: 84%; align-items: flex-start; height: 90%; flex-direction: row; padding-right: 40px; padding-left: 40px;">
+                <engine:VisualElement name="QuestsList" class="PanelBackground" style="flex-grow: 0; border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); margin-right: 25px; height: 100%; width: 33%; padding-top: 0; border-top-left-radius: 35px; border-top-right-radius: 35px; border-bottom-right-radius: 35px; border-bottom-left-radius: 35px; padding-right: 30px; align-items: flex-start; padding-left: 30px;">
+                    <engine:VisualElement name="Title" style="flex-grow: 0; align-items: stretch; width: 100%;">
+                        <engine:Label text="Quests" name="ListTitle" class="TextFont" style="-unity-text-align: upper-center; padding-top: 8px; padding-bottom: 8px; padding-right: 32px;" />
+                        <engine:VisualElement name="Line" style="flex-grow: 0; background-color: rgb(255, 255, 255); width: auto; height: 5px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-right: -32px; margin-left: -32px; margin-bottom: 30px;" />
+                    </engine:VisualElement>
+                    <engine:ScrollView name="QuestScrollView" style="flex-shrink: 1; flex-grow: 1; width: 100%; height: 100%;">
+                        <engine:VisualElement name="MyQuest" style="flex-direction: row-reverse; align-items: center; justify-content: flex-end; align-content: flex-start;">
+                            <engine:VisualElement name="Quest_1" style="flex-grow: 0; flex-shrink: 0; align-self: flex-start;">
+                                <engine:Button text="My Quest" name="QuestButton" class="TextFont LabelButton" style="background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); -unity-text-align: middle-left; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; justify-content: flex-end; flex-grow: 0; flex-shrink: 0; height: auto; width: auto; overflow: visible; padding-bottom: 5px; padding-right: 0;" />
+                                <engine:VisualElement name="Line" style="background-color: rgb(255, 255, 255); height: 2px; display: none; flex-grow: 0; flex-shrink: 1; width: 100%;" />
+                            </engine:VisualElement>
+                            <engine:VisualElement name="Checked" style="background-image: url(&quot;project://database/Assets/UI%20Toolkit/SelectIcon.png?fileID=2800000&amp;guid=ee717021e03a9934daa5af7bb61e36e4&amp;type=3#SelectIcon&quot;); background-color: rgba(0, 0, 0, 0); width: 30px; height: 30px; margin-left: 0; margin-right: 10px;" />
+                        </engine:VisualElement>
+                    </engine:ScrollView>
+                </engine:VisualElement>
+                <engine:VisualElement name="DescriptionPanel" class="PanelBackground" style="flex-grow: 1; background-color: rgb(216, 216, 216); height: 100%; padding-top: 20px; padding-right: 35px; padding-bottom: 20px; padding-left: 35px; border-top-left-radius: 35px; border-top-right-radius: 35px; border-bottom-right-radius: 35px; border-bottom-left-radius: 35px;">
+                    <engine:Label text="ANOTHER QUEST AAA" name="QuestName" class="TextFont" style="color: rgb(0, 0, 0); -unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=d5802138c1f7b464cbe9e151ba572397&amp;type=3#NotInter-Regular&quot;); font-size: 40px; margin-bottom: 10px;" />
+                    <engine:Label text="Quest entry moment&#10;&#10;I quest the quest and then quest quest the quest quest&#10;&#10;If ya get what im sayin" name="Description" class="ParagraphFont" style="flex-grow: 1; font-size: 26px;" />
+                    <engine:Button text="Follow Quest" name="FollowQuestButton" class="NormalButton" style="border-left-color: rgb(27, 141, 153); border-right-color: rgb(27, 141, 153); border-top-color: rgb(27, 141, 153); border-bottom-color: rgb(27, 141, 153); -unity-text-align: middle-center; align-items: stretch; align-self: flex-end; width: auto; margin-top: 10px; margin-right: 0; margin-bottom: 15px; margin-left: 0;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

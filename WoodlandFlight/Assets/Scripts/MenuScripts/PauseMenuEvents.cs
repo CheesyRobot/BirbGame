@@ -8,17 +8,21 @@ public class PauseMenuEvents : MonoBehaviour
     public static bool GameIsPaused = false;
     private UIDocument _document;
     private SettingsEvents Settings;
+    private JournalEvents Journal;
     private VisualElement _menusContainer;
     private TemplateContainer _pause;
     private TemplateContainer _settings;
+    private TemplateContainer _journal;
     private Button _continueButton;
     private Button _journalButton;
     private Button _settingsButton;
     private Button _quitToMenuButton;
-    private Button _returnButton;
+    private Button _settingsReturnButton;
+    private Button _journalReturnButton;
     void Awake()
     {
         Settings = GetComponent<SettingsEvents>();
+        Journal = GetComponent<JournalEvents>();
         _document = GetComponent<UIDocument>();
         _menusContainer = _document.rootVisualElement.Q<VisualElement>("PauseMenuScreens");
         _pause = _document.rootVisualElement.Q<TemplateContainer>("PauseMenu");
@@ -27,8 +31,9 @@ public class PauseMenuEvents : MonoBehaviour
         _settingsButton = _pause.Q<Button>("SettingsButton");
         _quitToMenuButton = _pause.Q<Button>("QuitToMenuButton");
         _settings = _document.rootVisualElement.Q<TemplateContainer>("SettingsMenu");
-        _returnButton = _settings.Q<Button>("ReturnButton");
-
+        _settingsReturnButton = _settings.Q<Button>("ReturnButton");
+        _journal = _document.rootVisualElement.Q<TemplateContainer>("JournalMenu");
+        _journalReturnButton = _journal.Q<Button>("ReturnButton");
         RegisterCallbacks(); // Remove this line when not testing mid play mode anymore
         _menusContainer.style.display = DisplayStyle.None;
         //Debug.Log("Awake");
@@ -54,7 +59,8 @@ public class PauseMenuEvents : MonoBehaviour
         _journalButton.UnregisterCallback<ClickEvent>(OnJournalClick);
         _settingsButton.UnregisterCallback<ClickEvent>(OnSettingsClick);
         _quitToMenuButton.UnregisterCallback<ClickEvent>(OnQuitMenuClick);
-        _returnButton.UnregisterCallback<ClickEvent>(OnSettingsReturnClick);
+        _settingsReturnButton.UnregisterCallback<ClickEvent>(OnReturnClick);
+        _journalReturnButton.UnregisterCallback<ClickEvent>(OnReturnClick);
     }
 
     private void OnEnable()
@@ -68,7 +74,8 @@ public class PauseMenuEvents : MonoBehaviour
         _journalButton.RegisterCallback<ClickEvent>(OnJournalClick);
         _settingsButton.RegisterCallback<ClickEvent>(OnSettingsClick);
         _quitToMenuButton.RegisterCallback<ClickEvent>(OnQuitMenuClick);
-        _returnButton.RegisterCallback<ClickEvent>(OnSettingsReturnClick);
+        _settingsReturnButton.RegisterCallback<ClickEvent>(OnReturnClick);
+        _journalReturnButton.RegisterCallback<ClickEvent>(OnReturnClick);
     }
 
     private void Pause()
@@ -91,15 +98,15 @@ public class PauseMenuEvents : MonoBehaviour
 
     private void ResetDisplays()
     {
-
-        OnSettingsReturnClick(ClickEvent.GetPooled());
+        OnReturnClick(ClickEvent.GetPooled());
     }
 
     private void OnJournalClick(ClickEvent evt)
     {
         Debug.Log("Journal");
-        //_settings.style.display = DisplayStyle.Flex;
-        //_pause.style.display = DisplayStyle.None;
+        Journal.enabled = true;
+        _journal.style.display = DisplayStyle.Flex;
+        _pause.style.display = DisplayStyle.None;
     }
 
     private void OnSettingsClick(ClickEvent evt)
@@ -109,12 +116,13 @@ public class PauseMenuEvents : MonoBehaviour
         _pause.style.display = DisplayStyle.None;
     }
 
-    private void OnSettingsReturnClick(ClickEvent evt)
+    private void OnReturnClick(ClickEvent evt)
     {
         Settings.enabled = false;
+        Journal.enabled = false;
         _pause.style.display = DisplayStyle.Flex;
         _settings.style.display = DisplayStyle.None;
-
+        _journal.style.display = DisplayStyle.None;
     }
 
     private void OnQuitMenuClick(ClickEvent evt)

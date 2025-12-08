@@ -6,7 +6,6 @@
 }
 
 .ParagraphFont {
-    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/Fonts/Barlow/Barlow-Medium.ttf?fileID=12800000&guid=3518abe5486e019448a234ee137a5d2b&type=3#Barlow-Medium");
     font-size: 32px;
     white-space: normal;
 }
@@ -200,8 +199,26 @@ Toggle:focus .unity-base-field__label {
     justify-content: center;
 }
 
-.ParagraphFont {
-    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/Fonts/Barlow/Barlow-Medium.ttf?fileID=12800000&guid=3518abe5486e019448a234ee137a5d2b&type=3#Barlow-Medium");
-    font-size: 32px;
-    white-space: normal;
+.LabelButton {
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/Fonts/Karantina/Karantina-Regular.ttf?fileID=12800000&guid=30e113c54c5f9b34187c6eb110b5d30a&type=3#Karantina-Regular");
+    font-size: 50px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 7px;
+}
+
+.LabelButton:hover {
+    color: rgba(255, 255, 255, 0.69);
+}
+
+.unity-base-slider__dragger {
+    margin-left: -2px;
+}
+
+.LabelButton:disabled {
+    color: rgba(255, 255, 255, 0.53);
 }
