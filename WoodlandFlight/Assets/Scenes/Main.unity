@@ -16106,18 +16106,18 @@ MonoBehaviour:
   manager: {fileID: 1857883014}
   questStages:
   - hintText: 
-    journalEntryActive: 
-    journalEntryCompleted: 
+    journalEntryActive: I need talketh to with
+    journalEntryCompleted: I hath talketh to witch
     objective:
       underlyingValue: {fileID: 1708879777}
   - hintText: 
-    journalEntryActive: 
-    journalEntryCompleted: 
+    journalEntryActive: The witch asked me to cube the cube
+    journalEntryCompleted: I yeeted the cube
     objective:
       underlyingValue: {fileID: 726075509}
   - hintText: 
-    journalEntryActive: 
-    journalEntryCompleted: 
+    journalEntryActive: I come back to witch
+    journalEntryCompleted: Witch happy
     objective:
       underlyingValue: {fileID: 1708879776}
   nextQuest: {fileID: 1007776664}

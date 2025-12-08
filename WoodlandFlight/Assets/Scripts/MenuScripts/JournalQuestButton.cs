@@ -44,6 +44,7 @@ public class JournalQuestButton
         _line.style.display = DisplayStyle.Flex;
         selected = true;
         events.SetTitle(quest.questName);
+        events.SetDescription(quest.GetQuestDescription());
         events.selectedButton = this;
         if (completed) events.FollowQuestButtonEnabled(false);
         else events.FollowQuestButtonEnabled(true);
@@ -59,5 +60,7 @@ public class JournalQuestButton
     {
         _line.style.display = DisplayStyle.Flex;
         selected = true;
+        events.SetTitle(quest.questName);
+        events.SetDescription(quest.GetQuestDescription());
     }
 }

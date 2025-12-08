@@ -75,6 +75,22 @@ public class Quest : MonoBehaviourID
         questStages[currentQuestStage].objective.Value.StartObjective();
     }
 
+    public string GetQuestDescription() {
+        string text = "";
+        int i = 0;
+        while (i < currentQuestStage) {
+            text += questStages[i].journalEntryActive + "\n";
+            text += questStages[i].journalEntryCompleted + "\n";
+            i++;
+        }
+        if (isCompleted) {
+            //text += questStages[i].journalEntryCompleted;
+        }
+        else
+            text += questStages[i].journalEntryActive;
+        return text;
+    }
+
     // Set NPC dialogue to default
     private void ResetNPCs() {
         for (int i = 0; i < questStages.Length; i++) {
