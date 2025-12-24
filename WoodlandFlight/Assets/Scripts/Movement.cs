@@ -10,6 +10,7 @@ using UnityEngine.Splines.Interpolators;
 public class Movement : MonoBehaviour
 {
     public float verticalForce;
+    public float verticalSpeed;
     public float glidingSpeed;
     public float flyingSpeed;
     public float walkingSpeed;
@@ -20,9 +21,11 @@ public class Movement : MonoBehaviour
     [SerializeField] FishCatcher fishCatcher;
     private Rigidbody rb;
     private Vector3 speed;
+    private float linearDamping;
     private float maxSpeed;
     private bool grounded;
     private bool aboveWater;
+    private bool swimming;
     private bool gliding;
     private bool flying;
     private bool fishing;
@@ -42,6 +45,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         player = GetComponent<Player>();
         tr = GetComponent<Transform>();
+        linearDamping = rb.linearDamping;
         mass = rb.mass;
         rb.freezeRotation = true;
         fishing = false;
@@ -53,12 +57,14 @@ public class Movement : MonoBehaviour
         anim = GetComponent<Animator>();
         // To set grabbing animation:
         grabControl = GetComponent<GrabControl>();
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Water"), true);
     }
 
     void Update() {
         inputDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         if (aboveWater && Input.GetKeyDown(KeyCode.E)) {
             fishing = true;
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Water"), false);
             rb.useGravity = false;
         }
     }
@@ -69,8 +75,10 @@ public class Movement : MonoBehaviour
         tr = rb.transform;
 
         Fishing();
-        if (!fishing && !rebounding)
+        if (!fishing && !rebounding) {
             VerticalMovement();
+            Swimming();
+        }
         SetMaxSpeed();
         HorizontalMovement();
 
@@ -92,11 +100,13 @@ public class Movement : MonoBehaviour
             
             if (player.currentStamina > 0 && enableWalking)  //flying up
             {
-                rb.AddForce(Vector3.up * verticalForce);
+                //rb.AddForce(Vector3.up * verticalForce);
                 // speed.y += (verticalForce - mass * 5) * 5 * Time.fixedDeltaTime;
                 // speed.y = verticalForce - mass * 5;
-                if (speed.y <= 0)
-                    speed.y += 0.5f;
+                // if (speed.y <= 0)
+                //     speed.y += 0.5f;
+                // else
+                    speed.y = Mathf.Lerp(speed.y, verticalSpeed, Time.fixedDeltaTime * 5f);
                 gliding = false;
             }
             flying = true;
@@ -131,7 +141,8 @@ public class Movement : MonoBehaviour
     }
 
     private void HorizontalMovement() {
-        Vector3 moveDirection = Camera.forward * inputDirection.y + Camera.right * inputDirection.x;
+        // Vector3 moveDirection = Vector3.Normalize(Camera.forward * inputDirection.y + Camera.right * inputDirection.x);
+        Vector3 moveDirection = Vector3.Normalize(Vector3.Normalize(new Vector3(Camera.forward.x, 0, Camera.forward.z)) * inputDirection.y + Camera.right * inputDirection.x);
 
         // Character rotation
         if (moveDirection.magnitude != 0)
@@ -146,7 +157,28 @@ public class Movement : MonoBehaviour
             speed.x = moveDirection.x * maxSpeed;
             speed.z = moveDirection.z * maxSpeed;
         }
+        else if (!gliding) {
+            speed.x = Mathf.Lerp(speed.x, 0f, Time.fixedDeltaTime * 1.5f);
+            speed.z = Mathf.Lerp(speed.z, 0f, Time.fixedDeltaTime * 1.5f);
+        }
         rb.linearVelocity = speed;
+    }
+
+    private void Swimming() {
+        bool hasHit = Physics.Raycast(tr.position + Vector3.down * playerHeight * 2f, Vector3.up, 10f, water);
+        if (hasHit) {
+            swimming = true;
+            rb.linearDamping = linearDamping + 2;
+            // if (speed.y <= 0)
+            //     speed.y += 0.5f;
+            // else
+            //     speed.y += 0.2f;
+            // rb.AddForce(Vector3.up * verticalForce * 1f);
+        }
+        else {
+            swimming = false;
+            rb.linearDamping = linearDamping;
+        }
     }
 
     private void Fishing() {
@@ -171,6 +203,8 @@ public class Movement : MonoBehaviour
                 fishCatcher.Catch();
                 fishing = false;
                 rebounding = true;
+                Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Default"), LayerMask.NameToLayer("Water"), true);
+                // speed.y = 0f;
                 timer = 0;
             }
         }
