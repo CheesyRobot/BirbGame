@@ -1,8 +1,9 @@
 using Unity.VisualScripting;
 //using UnityEditor.Rendering;
+using System.Linq;
 using UnityEngine;
 
-public class Grabbable : MonoBehaviour, IInteractable
+public class Grabbable : MonoBehaviourID, IInteractable
 {
     private Rigidbody rb;
     private Transform grabPoint;

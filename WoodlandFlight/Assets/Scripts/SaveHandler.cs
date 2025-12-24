@@ -6,21 +6,25 @@ public class SaveHandler : MonoBehaviour
 {
     private SaveData saveData;
     [SerializeField] private QuestManager questManager;
+    [SerializeField] GrabbableManager grabbableManager;
     [SerializeField] private Player player;
 
     [System.Serializable]
     public struct SaveData {
         public QuestManagerData questManagerData;
+        public GrabbableManagerData grabbableManagerData;
         public PlayerData playerData;
     }
 
     private void HandleLoadData() {
         questManager.Load(saveData.questManagerData);
+        grabbableManager.Load(saveData.grabbableManagerData);
         player.Load(saveData.playerData);
     }
 
     public void HandleSaveData() {
         saveData.questManagerData = questManager.Save();
+        saveData.grabbableManagerData = grabbableManager.Save();
         saveData.playerData = player.Save();
     }
 

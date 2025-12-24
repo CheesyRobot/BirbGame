@@ -26,8 +26,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] private PlayerLevel[] levels;
     [SerializeField] private DisplayLevel levelDisplay;
+    private Movement movement;
     void Start()
     {
+        movement = GetComponent<Movement>();
         currentLevel = 1;
         UpdateStats();
         levelDisplay.UpdateLevel(currentLevel, experience, levels.Length);
@@ -70,6 +72,8 @@ public class Player : MonoBehaviour
         PlayerData playerData = new();
         playerData.position = transform.position;
         playerData.rotation = transform.rotation;
+        playerData.cameraPosition = movement.Camera.position;
+        playerData.cameraRotation = movement.Camera.rotation;
         playerData.currentLevel = currentLevel;
         playerData.experience = experience;
         playerData.currentStamina = currentStamina;
@@ -81,6 +85,8 @@ public class Player : MonoBehaviour
         transform.position = playerData.position;
         transform.rotation = playerData.rotation;
         GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        movement.Camera.position = playerData.cameraPosition;
+        movement.Camera.rotation = playerData.cameraRotation;
         currentLevel = playerData.currentLevel;
         experience = playerData.experience;
         UpdateStats();
@@ -94,6 +100,8 @@ public class Player : MonoBehaviour
 public struct PlayerData {
     public Vector3 position;
     public Quaternion rotation;
+    public Vector3 cameraPosition;
+    public Quaternion cameraRotation;
     public int currentLevel;
     public int experience;
     public float currentStamina;
