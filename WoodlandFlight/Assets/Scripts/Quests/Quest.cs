@@ -1,3 +1,4 @@
+using System;
 using System.Security;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,6 +13,10 @@ public class Quest : MonoBehaviourID
     [SerializeField] public QuestObjectiveData[] questStages;
     // private IQuestObjectiveType[] iobjectives;
     public Quest nextQuest;
+    public event EventHandler<OnStageChangedEventArgs> OnStageChanged;
+    public class OnStageChangedEventArgs : EventArgs {
+        public int stage;
+    }
 
     void Start() {
         // iobjectives = new IQuestObjectiveType[questData.Length];
@@ -29,6 +34,8 @@ public class Quest : MonoBehaviourID
         if (!isCompleted && questStages[currentQuestStage].objective.Value.CheckCondition()) {
             // objectives[currentQuestStage].enabled = false;
             currentQuestStage++;
+            OnStageChanged?.Invoke(this, new OnStageChangedEventArgs{stage = currentQuestStage});
+
             if (currentQuestStage < questStages.Length)
                 questStages[currentQuestStage].objective.Value.StartObjective();
             else {
@@ -54,6 +61,7 @@ public class Quest : MonoBehaviourID
     public void StartQuest() {
         isCompleted = false;
         currentQuestStage = 0;
+        OnStageChanged?.Invoke(this, new OnStageChangedEventArgs{stage = currentQuestStage});
         // objectives[currentQuestStage].StartObjetive();
         questStages[currentQuestStage].objective.Value.StartObjective();
     }
