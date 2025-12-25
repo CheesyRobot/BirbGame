@@ -80,6 +80,7 @@ public class Quest : MonoBehaviourID
             questStages[i].objective.Value.CompleteObjective();
         }
         currentQuestStage = stage;
+        OnStageChanged?.Invoke(this, new OnStageChangedEventArgs{stage = currentQuestStage});
         questStages[currentQuestStage].objective.Value.StartObjective();
     }
 
