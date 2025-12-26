@@ -21,4 +21,8 @@ public class DisplayTime : MonoBehaviour
         string text = ts.ToString(@"mm\:ss");
         textField.SetText(text);
     }
+
+    public void AppendText(string text) {
+        textField.SetText(textField.text + text);
+    }
 }

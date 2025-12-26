@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
 
     public void AddExperience(int amount) {
         experience += amount;
-        if (currentLevel < levels.Length && experience >= levels[currentLevel].requiredXP) {
+        while (currentLevel < levels.Length && experience >= levels[currentLevel].requiredXP) {
             experience -= levels[currentLevel].requiredXP;
             currentLevel++;
             UpdateStats();
@@ -66,6 +66,12 @@ public class Player : MonoBehaviour
         health = levels[currentLevel - 1].health;
         staminaLimit = levels[currentLevel - 1].staminaLimit;
         weightLimit = levels[currentLevel - 1].weightLimit;
+    }
+
+    public float SetStaminaConsumptionRate(float rate) {
+        float currentRate = staminaConsumptionRate;
+        staminaConsumptionRate = rate;
+        return currentRate;
     }
 
     public PlayerData Save() {

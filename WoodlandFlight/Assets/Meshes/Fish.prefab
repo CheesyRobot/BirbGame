@@ -106,6 +106,9 @@ MonoBehaviour:
   cought: 0
   grabbable: {fileID: 6079832562034180358}
   fishMovement: {fileID: 7728825002066350929}
+  experienceAmount: 200
+  staminaAmount: 15
+  prompt: Eat Fish
 --- !u!114 &6079832562034180358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d4cf63e7ebb165ea8d51582a47dfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id:
+    Value: 
   offset: {x: 0, y: 0, z: 0}
   rotateAngle: 90
   mass: 0
