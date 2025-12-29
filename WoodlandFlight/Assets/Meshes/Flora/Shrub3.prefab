@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4028887727237852160}
   - component: {fileID: 3922164331016246674}
   - component: {fileID: 5231887722666033750}
+  - component: {fileID: 8859739807352400052}
   m_Layer: 7
   m_Name: Berries3
   m_TagString: Untagged
@@ -124,6 +125,32 @@ MonoBehaviour:
   staminaAmount: 5
   experienceAmount: 50
   prompt: (E) Eat
+--- !u!205 &8859739807352400052
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5899248413580938516}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4028887727237852160}
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4028887727237852160}
+  - screenRelativeHeight: 0.01
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &8669510326277061795
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +162,8 @@ GameObject:
   - component: {fileID: 394105897853445344}
   - component: {fileID: 2816723503495415167}
   - component: {fileID: 1496096271269532221}
-  - component: {fileID: 1300333234990062344}
+  - component: {fileID: 5278492320792464732}
+  - component: {fileID: 8834890683091116494}
   m_Layer: 0
   m_Name: Shrub3
   m_TagString: Untagged
@@ -212,8 +240,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1300333234990062344
-MeshCollider:
+--- !u!135 &5278492320792464732
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -230,7 +258,33 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8203131963207654371, guid: 3b169763424317c29ace552596500f00, type: 3}
+  serializedVersion: 3
+  m_Radius: 0.91687304
+  m_Center: {x: 0.022448031, y: 0.03, z: 0}
+--- !u!205 &8834890683091116494
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8669510326277061795}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1496096271269532221}
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1496096271269532221}
+  - screenRelativeHeight: 0.01
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1496096271269532221}
+  m_Enabled: 1
