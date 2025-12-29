@@ -9,6 +9,7 @@ public class QuestManager : MonoBehaviour
     public List<Quest> activeQuests;
     public List<Quest> completedQuests;
     public Quest trackedQuest;
+    public QuestTrackEvents qte;
     // public QuestManagerData questManagerData;
 
     void Start()
@@ -32,23 +33,27 @@ public class QuestManager : MonoBehaviour
         activeQuests.Remove(item);
         completedQuests.Add(item);
         if (trackedQuest == item)
-            trackedQuest.TrackQuest(false);
+            MarkQuestTracked(activeQuests.FirstOrDefault());
         item.enabled = false;
         Debug.Log(item.questName + " COMPLETED");
     }
 
     public void MarkQuestTracked(Quest item) {
-        if (trackedQuest != null) {
-            trackedQuest.TrackQuest(false);
-            if (trackedQuest != item)
-            {
-                trackedQuest = item;
-                trackedQuest.TrackQuest(true);
-            }
+        if (trackedQuest == null && item != null && trackedQuest != item || trackedQuest != null && trackedQuest != item) {
+            trackedQuest = item;
+            UpdateTrackedQuest(trackedQuest);
+            qte.Show(true);
         }
         else {
-            trackedQuest = item;
-            trackedQuest.TrackQuest(true);
+            trackedQuest = null;
+            qte.Show(false);
+        }
+    }
+
+    public void UpdateTrackedQuest(Quest item) {
+        if (trackedQuest == item) {
+            qte.SetTitleText(trackedQuest.questName);
+            qte.SetDescriptionText(trackedQuest.GetQuestHint());
         }
     }
 
@@ -92,10 +97,8 @@ public class QuestManager : MonoBehaviour
         inactiveQuests = quests.Where(q => questManagerData.inactiveQuests.Contains(q.ID)).ToList();
         activeQuests = quests.Where(q => questManagerData.activeQuests.Select(a => a.ID).Contains(q.ID)).ToList();
         completedQuests = quests.Where(q => questManagerData.completedQuests.Contains(q.ID)).ToList();
-        if (questManagerData.trackedQuest != null)
-            trackedQuest = quests.FirstOrDefault(q => q.ID == questManagerData.trackedQuest);
-        else
-            trackedQuest = null;
+        Quest trackedQuest = quests.FirstOrDefault(q => q.ID == questManagerData.trackedQuest);
+        this.trackedQuest = null;
 
         DisableNonActiveQuests();
         
@@ -107,6 +110,7 @@ public class QuestManager : MonoBehaviour
                 }
             }
         }
+        MarkQuestTracked(trackedQuest);
     }
 }
 

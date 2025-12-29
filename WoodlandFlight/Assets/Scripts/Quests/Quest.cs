@@ -36,8 +36,10 @@ public class Quest : MonoBehaviourID
             currentQuestStage++;
             OnStageChanged?.Invoke(this, new OnStageChangedEventArgs{stage = currentQuestStage});
 
-            if (currentQuestStage < questStages.Length)
+            if (currentQuestStage < questStages.Length) {
                 questStages[currentQuestStage].objective.Value.StartObjective();
+                manager.UpdateTrackedQuest(this);
+            }
             else {
                 isCompleted = true;
                 ResetNPCs();
@@ -64,10 +66,6 @@ public class Quest : MonoBehaviourID
         OnStageChanged?.Invoke(this, new OnStageChangedEventArgs{stage = currentQuestStage});
         // objectives[currentQuestStage].StartObjetive();
         questStages[currentQuestStage].objective.Value.StartObjective();
-    }
-
-    public void TrackQuest(bool value) {
-        // Should show objective hint text on HUD
     }
 
     public int GetQuestStage() {
@@ -98,6 +96,10 @@ public class Quest : MonoBehaviourID
         else
             text += questStages[i].journalEntryActive;
         return text;
+    }
+
+    public string GetQuestHint() {
+        return questStages[currentQuestStage].hintText;
     }
 
     // Set NPC dialogue to default
