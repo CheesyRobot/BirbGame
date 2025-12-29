@@ -67,14 +67,9 @@ public class JournalEvents : MonoBehaviour
                 selectedButton = button;
                 button.SetAsUnderlined();
             }
-            // If quest is same as tracked quest or
-            // tracked quest is empty (first time value or because it has been removed),
-            // mark as tracked quest
-            if (quest == questManager.trackedQuest || questManager.trackedQuest == null) {
+            if (quest == questManager.trackedQuest){
                 button.SetAsTracked(true);
                 trackedQuest = button;
-                if (questManager.trackedQuest == null) 
-                    questManager.MarkQuestTracked(trackedQuest.quest);
             }
             questCount++;
             questButtons.Add(button);
@@ -111,7 +106,14 @@ public class JournalEvents : MonoBehaviour
     {
         if (trackedQuest != null) { trackedQuest.SetAsTracked(false); }
         questManager.MarkQuestTracked(selectedButton.quest);
-        trackedQuest = selectedButton;
-        trackedQuest.SetAsTracked(true);
+        if (trackedQuest != selectedButton)
+        {
+            trackedQuest = selectedButton;
+            trackedQuest.SetAsTracked(true);
+        }
+        else
+        {
+            trackedQuest.SetAsTracked(questManager.trackedQuest != null);
+        }
     }
 }
