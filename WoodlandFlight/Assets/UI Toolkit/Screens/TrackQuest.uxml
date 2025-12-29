@@ -1,0 +1,13 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/MenusTheme.uss?fileID=7433441132597879392&amp;guid=a76cf53ccdf7e994c975f797845f1d3d&amp;type=3#MenusTheme" />
+    <engine:VisualElement name="Container" style="flex-grow: 1; font-size: 44px;">
+        <engine:VisualElement name="Background" style="flex-grow: 0; background-color: rgba(0, 0, 0, 0); width: 450px; height: 170px; top: 22%; display: flex; padding-left: 46px; background-image: url(&quot;project://database/Assets/Textures/UItextures/GradientTexture.png?fileID=2800000&amp;guid=70b1085d73b41054293e02cac8230141&amp;type=3#GradientTexture&quot;); -unity-background-image-tint-color: rgba(0, 0, 0, 0.5); padding-top: 8px; padding-bottom: 8px;">
+            <engine:Label text="My Quest" name="QuestTitle" class="TextFont" style="display: flex; font-size: 32px;" />
+            <engine:VisualElement name="LineDeco" style="flex-grow: 0; flex-shrink: 1; flex-direction: row; width: auto; height: 32px; margin-right: 0; margin-top: -8px; margin-bottom: -8px; margin-left: -36px; align-items: center;">
+                <engine:VisualElement style="flex-grow: 0; width: 36px; height: 36px; background-image: url(&quot;project://database/Assets/Textures/UItextures/SelectIcon.png?fileID=2800000&amp;guid=ee717021e03a9934daa5af7bb61e36e4&amp;type=3#SelectIcon&quot;);" />
+                <engine:VisualElement style="flex-grow: 0; background-color: rgba(255, 255, 255, 0); width: 80%; height: 4px; margin-left: -5px; border-bottom-right-radius: 200px; border-top-right-radius: 200px; background-image: url(&quot;project://database/Assets/Textures/UItextures/GradientTexture.png?fileID=2800000&amp;guid=70b1085d73b41054293e02cac8230141&amp;type=3#GradientTexture&quot;);" />
+            </engine:VisualElement>
+            <engine:Label text="Label" name="QuestText" class="ParagraphFont" style="color: rgb(255, 255, 255); margin-top: 0; font-size: 20px;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

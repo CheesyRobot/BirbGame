@@ -1,7 +1,9 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Template name="TrackQuest" src="project://database/Assets/UI%20Toolkit/Screens/TrackQuest.uxml?fileID=9197481963319205126&amp;guid=1e1177a5cdc873d4291b1840196eedb1&amp;type=3#TrackQuest" />
     <engine:Template name="Buttons" src="project://database/Assets/UI%20Toolkit/Screens/Buttons.uxml?fileID=9197481963319205126&amp;guid=f252092c9dd68844997cb8e796ca9ba0&amp;type=3#Buttons" />
     <engine:Template name="DialogueBoxScreen" src="project://database/Assets/UI%20Toolkit/Screens/DialogueBoxScreen.uxml?fileID=9197481963319205126&amp;guid=ca624c9be7434db43b76a5b3fc9c82d4&amp;type=3#DialogueBoxScreen" />
-    <engine:VisualElement name="DialogueContainer" style="flex-grow: 0; width: 70%; align-self: center; flex-direction: column; justify-content: flex-end; align-content: flex-end; height: 100%; align-items: flex-end; flex-shrink: 1; margin-bottom: 1%; display: none;">
+    <engine:Instance template="TrackQuest" name="QuestContainer" style="flex-grow: 1; width: 100%; height: 100%; position: absolute; display: none;" />
+    <engine:VisualElement name="DialogueContainer" style="flex-grow: 0; width: 70%; align-self: center; flex-direction: column; justify-content: flex-end; align-content: flex-end; height: 100%; align-items: flex-end; flex-shrink: 1; margin-bottom: 1%; display: none; position: relative;">
         <engine:Instance template="Buttons" name="OptionsButtons" style="width: 50%; display: none;" />
         <engine:Instance template="DialogueBoxScreen" name="DialogueBox" style="width: 100%; height: 23%;" />
     </engine:VisualElement>
