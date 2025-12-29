@@ -51,7 +51,7 @@ public class QuestManager : MonoBehaviour
     }
 
     public void UpdateTrackedQuest(Quest item) {
-        if (trackedQuest == item) {
+        if (trackedQuest != null && trackedQuest == item) {
             qte.SetTitleText(trackedQuest.questName);
             qte.SetDescriptionText(trackedQuest.GetQuestHint());
         }
