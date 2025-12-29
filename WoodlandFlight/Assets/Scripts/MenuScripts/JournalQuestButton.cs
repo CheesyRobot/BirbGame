@@ -8,6 +8,7 @@ public class JournalQuestButton
     public TemplateContainer _newQuest;
     Button _button;
     VisualElement _line;
+    VisualElement _checked;
     public bool selected = false;
     bool completed;
     JournalEvents events;
@@ -18,6 +19,7 @@ public class JournalQuestButton
         this.quest = quest;
         _button = _newQuest.Q<Button>("QuestButton");
         _line = _newQuest.Q<VisualElement>("Line");
+        _checked = _newQuest.Q<VisualElement>("Checked");
         _button.text = quest.questName;
         _button.RegisterCallback<ClickEvent>(OnClick);
         events = evts;
@@ -27,11 +29,10 @@ public class JournalQuestButton
         {
             SetAsUnderlined();
             events.selectedButton = this;
-            if (isCompleted) events.FollowQuestButtonEnabled(false);
         }
         if (isCompleted)
         {
-            //_button.SetEnabled(false);
+            events.FollowQuestButtonEnabled(false);
             _button.style.color = new Color(1f, 1f, 1f, 0.5f);
             _line.style.backgroundColor = new Color(1f, 1f, 1f, 0.5f);
         }
@@ -41,7 +42,7 @@ public class JournalQuestButton
     {
         if (events.selectedButton != null)
         { events.selectedButton.OffClick(); }
-        _line.style.display = DisplayStyle.Flex;
+        _line.style.visibility = Visibility.Visible;
         selected = true;
         events.SetTitle(quest.questName);
         events.SetDescription(quest.GetQuestDescription());
@@ -52,15 +53,28 @@ public class JournalQuestButton
 
     public void OffClick()
     {
-        _line.style.display = DisplayStyle.None;
+        _line.style.visibility = Visibility.Hidden;
         selected = false;
     }
 
     public void SetAsUnderlined()
     {
-        _line.style.display = DisplayStyle.Flex;
+        _line.style.visibility = Visibility.Visible;
         selected = true;
         events.SetTitle(quest.questName);
         events.SetDescription(quest.GetQuestDescription());
+    }
+
+    public void SetAsTracked(bool isTracked)
+    {
+        if (isTracked)
+        { _checked.style.visibility = Visibility.Visible; }
+        else
+            _checked.style.visibility = Visibility.Hidden;
+    }
+
+    public void OnDisable()
+    {
+        _button.UnregisterCallback<ClickEvent>(OnClick);
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,17 +14,19 @@ public class JournalEvents : MonoBehaviour
     private ScrollView _questScrollView;
     [SerializeField] QuestManager questManager;
     public JournalQuestButton selectedButton;
-    //private List<JournalQuestButton> questButtons;
+    public JournalQuestButton trackedQuest;
+    private List<JournalQuestButton> questButtons;
     private int questCount;
     void Awake()
     {
         questCount = 0;
-        //questButtons = new List<JournalQuestButton>();
+        questButtons = new List<JournalQuestButton>();
         _document = GetComponent<UIDocument>();
         _journal = _document.rootVisualElement.Q<TemplateContainer>("JournalMenu");
 
         // Follow Quest button
         _followQuest = _journal.Q<Button>("FollowQuestButton");
+        _followQuest.RegisterCallback<ClickEvent>(TrackQuest);
 
         // Getting labels
         _titleLabel = _journal.Q<Label>("QuestName");
@@ -31,7 +34,7 @@ public class JournalEvents : MonoBehaviour
 
         // Quest list container:
         _questScrollView = _journal.Q<ScrollView>("QuestScrollView");
-        //InstantiateQuests();
+        
         InstantiateQuests();
     }
 
@@ -42,35 +45,46 @@ public class JournalEvents : MonoBehaviour
 
     void RefreshQuests()
     {
-        //selectedButton = null;
         for(int i = 0; i < questCount; i++)
         {
+            // Unregisters button calls
+            questButtons[i].OnDisable();
+            // Removes buttons from UI
             _questScrollView.RemoveAt(1);
         }
-        /*foreach (JournalQuestButton entry in questButtons)
-        {
-            _questScrollView.RemoveAt(2);
-        }*/
-        //questButtons = new List<JournalQuestButton>();
+        questButtons.Clear();
         questCount = 0;
         InstantiateQuests();
     }
 
     void InstantiateQuests()
     {
-
         foreach(Quest quest in questManager.activeQuests)
         {
             JournalQuestButton button = new JournalQuestButton(quest, false, _questButton, this);
+            // Initializing first time value
+            if (selectedButton == null) {
+                selectedButton = button;
+                button.SetAsUnderlined();
+            }
+            // If quest is same as tracked quest or
+            // tracked quest is empty (first time value or because it has been removed),
+            // mark as tracked quest
+            if (quest == questManager.trackedQuest || questManager.trackedQuest == null) {
+                button.SetAsTracked(true);
+                trackedQuest = button;
+                if (questManager.trackedQuest == null) 
+                    questManager.MarkQuestTracked(trackedQuest.quest);
+            }
             questCount++;
-            //questButtons.Add(button);
+            questButtons.Add(button);
             _questScrollView.Add(button._newQuest);
         }
         foreach (Quest quest in questManager.completedQuests)
         {
             JournalQuestButton button = new JournalQuestButton(quest, true, _questButton, this);
             questCount++;
-            //questButtons.Add(button);
+            questButtons.Add(button);
             _questScrollView.Add(button._newQuest);
         }
     }
@@ -80,17 +94,24 @@ public class JournalEvents : MonoBehaviour
         _titleLabel.text = title;
     }
 
-    public void FollowQuestButtonEnabled(bool enabled)
-    {
-        if(enabled)
-            _followQuest.style.display = DisplayStyle.Flex;
-        else
-            _followQuest.style.display = DisplayStyle.None;
-    }
-
     public void SetDescription(string description)
     {
         _descriptionLabel.text = description;
     }
 
+    public void FollowQuestButtonEnabled(bool enabled)
+    {
+        if (enabled)
+            _followQuest.style.display = DisplayStyle.Flex;
+        else
+            _followQuest.style.display = DisplayStyle.None;
+    }
+
+    private void TrackQuest(ClickEvent evt)
+    {
+        if (trackedQuest != null) { trackedQuest.SetAsTracked(false); }
+        questManager.MarkQuestTracked(selectedButton.quest);
+        trackedQuest = selectedButton;
+        trackedQuest.SetAsTracked(true);
+    }
 }

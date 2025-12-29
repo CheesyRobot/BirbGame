@@ -38,8 +38,15 @@ public class QuestManager : MonoBehaviour
     }
 
     public void MarkQuestTracked(Quest item) {
-        trackedQuest.TrackQuest(false);
-        if (trackedQuest != item) {
+        if (trackedQuest != null) {
+            trackedQuest.TrackQuest(false);
+            if (trackedQuest != item)
+            {
+                trackedQuest = item;
+                trackedQuest.TrackQuest(true);
+            }
+        }
+        else {
             trackedQuest = item;
             trackedQuest.TrackQuest(true);
         }
