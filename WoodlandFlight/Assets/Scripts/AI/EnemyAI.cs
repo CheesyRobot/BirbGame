@@ -49,7 +49,6 @@ public class EnemyAI : MonoBehaviour
     public void SetTargetTransform(Transform position) {
         targetPosition = position.position;
         targetTransform = position;
-        Debug.Log(targetTransform);
     }
 
     // returns true if target position is reached

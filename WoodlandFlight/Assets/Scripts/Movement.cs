@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     private float maxSpeed;
     private bool grounded;
     private bool aboveWater;
-    private bool swimming;
+    // private bool swimming;
     private bool gliding;
     private bool flying;
     private bool fishing;
@@ -167,7 +167,7 @@ public class Movement : MonoBehaviour
     private void Swimming() {
         bool hasHit = Physics.Raycast(tr.position + Vector3.down * playerHeight * 2f, Vector3.up, 10f, water);
         if (hasHit) {
-            swimming = true;
+            // swimming = true;
             rb.linearDamping = linearDamping + 2;
             // if (speed.y <= 0)
             //     speed.y += 0.5f;
@@ -176,7 +176,7 @@ public class Movement : MonoBehaviour
             // rb.AddForce(Vector3.up * verticalForce * 1f);
         }
         else {
-            swimming = false;
+            // swimming = false;
             rb.linearDamping = linearDamping;
         }
     }
