@@ -17,9 +17,12 @@ public class FetchObjective : MonoBehaviour, IQuestObjectiveType
         return completed;
     }
 
-    void OnTriggerEnter(Collider col) {
+    void OnTriggerStay(Collider col) {
         if(col.name == questItem.name)
         {
+            if (col.GetComponent<Grabbable>() != null && col.GetComponent<Grabbable>().IsGrabbed())
+            return;
+
             Debug.Log("Quest item detected");
             GetComponent<Collider>().enabled = false;
             // questItem.GetComponent<Grabbable>().enabled = false;

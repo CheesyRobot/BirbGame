@@ -40,6 +40,13 @@ public class Grabbable : MonoBehaviourID, IInteractable
         //prompt = "(E) Drop";
     }
 
+    public bool IsGrabbed() {
+        if (grabPoint == null)
+            return false;
+        else
+            return true;
+    }
+
     public void Drop() {
         this.grabPoint = null;
         rb.useGravity = true;

@@ -12,7 +12,6 @@ public class Quest : MonoBehaviourID
     // [SerializeField] public QuestObjective[] objectives;
     [SerializeField] public QuestObjectiveData[] questStages;
     // private IQuestObjectiveType[] iobjectives;
-    public Quest nextQuest;
     public event EventHandler<OnStageChangedEventArgs> OnStageChanged;
     public class OnStageChangedEventArgs : EventArgs {
         public int stage;
@@ -44,8 +43,6 @@ public class Quest : MonoBehaviourID
                 isCompleted = true;
                 ResetNPCs();
                 manager.MarkQuestCompleted(this);
-                if (nextQuest != null)
-                    manager.MarkQuestActive(nextQuest);
             }
         }
         // if (!isCompleted && objectives[currentQuestStage].IsCompleted()) {

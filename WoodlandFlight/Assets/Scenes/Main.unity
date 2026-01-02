@@ -6949,6 +6949,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigame: {fileID: 72790513}
   prompt: (E) Begin Fishing
+--- !u!1 &476958634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 476958636}
+  - component: {fileID: 476958635}
+  m_Layer: 5
+  m_Name: FadeSingleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &476958635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476958634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a289b1dd9d5f4f79280aab289cefdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1118704170}
+--- !u!224 &476958636
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476958634}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &506318609
 GameObject:
   m_ObjectHideFlags: 0
@@ -7365,19 +7414,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8875076407205593217, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99781716
+      value: 0.9882284
       objectReference: {fileID: 0}
     - target: {fileID: 8875076407205593217, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.042369682
+      value: 0.07316925
       objectReference: {fileID: 0}
     - target: {fileID: 8875076407205593217, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0041918186
+      value: -0.09249061
       objectReference: {fileID: 0}
     - target: {fileID: 8875076407205593217, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.050479922
+      value: -0.09745006
       objectReference: {fileID: 0}
     - target: {fileID: 8875076407205593217, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -13393,7 +13442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 184.83
+      value: 10.62
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13401,7 +13450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 228.49
+      value: 37.16
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14569,7 +14618,6 @@ MonoBehaviour:
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 726075509}
-  nextQuest: {fileID: 0}
 --- !u!4 &948066433
 Transform:
   m_ObjectHideFlags: 0
@@ -15139,7 +15187,6 @@ MonoBehaviour:
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 1007776663}
-  nextQuest: {fileID: 0}
 --- !u!1 &1023312867
 GameObject:
   m_ObjectHideFlags: 0
@@ -15335,7 +15382,6 @@ MonoBehaviour:
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 1050161425}
-  nextQuest: {fileID: 0}
 --- !u!114 &1050161425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15614,7 +15660,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1118704167}
-  - component: {fileID: 1118704171}
   - component: {fileID: 1118704170}
   - component: {fileID: 1118704169}
   - component: {fileID: 1118704168}
@@ -15694,19 +15739,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!114 &1118704171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118704166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a289b1dd9d5f4f79280aab289cefdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 1118704170}
 --- !u!1 &1119367456
 GameObject:
   m_ObjectHideFlags: 0
@@ -16014,7 +16046,7 @@ Transform:
   m_GameObject: {fileID: 1206616416}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15212356, y: -1.0037807e-12, z: 1.5449679e-13, w: 0.9883615}
-  m_LocalPosition: {x: 184.83, y: 5.5114117, z: 226.58257}
+  m_LocalPosition: {x: 10.62, y: 5.5114117, z: 35.252567}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18263,6 +18295,9 @@ GameObject:
   - component: {fileID: 1708879776}
   - component: {fileID: 1708879778}
   - component: {fileID: 1708879779}
+  - component: {fileID: 1708879780}
+  - component: {fileID: 1708879781}
+  - component: {fileID: 1708879782}
   m_Layer: 0
   m_Name: Test1
   m_TagString: Untagged
@@ -18323,7 +18358,6 @@ MonoBehaviour:
     journalEntryCompleted: Witch happy
     objective:
       underlyingValue: {fileID: 1708879776}
-  nextQuest: {fileID: 1007776664}
 --- !u!114 &1708879776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18369,8 +18403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59534868e04f04de4a1ca1426285b060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest: {fileID: 1708879775}
   stage: 1
+  delaySeconds: 1
   item: {fileID: 1323744599}
   position: {fileID: 0}
 --- !u!114 &1708879779
@@ -18385,9 +18419,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6636a53935cfc712c946582c7a87884b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest: {fileID: 1708879775}
   stage: 3
+  delaySeconds: 0
   item: {fileID: 1323744599}
+--- !u!114 &1708879780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708879773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ad30f3fea3a6f6d09678430fe91996f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  delaySeconds: 0.5
+  fadeOutTime: 0.5
+  holdTime: 0.5
+  fadeInTime: 0.5
+--- !u!114 &1708879781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708879773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f34601e2d33dbcc4848d49bdd3aa302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 1
+  delaySeconds: 1.5
+  SFXSource: {fileID: 372861212}
+  sound: {fileID: 8300000, guid: cea2ab8cbaa824e9387fe41f07b66302, type: 3}
+--- !u!114 &1708879782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708879773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb11e2431646db0cb8b2adf2bf068a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 3
+  delaySeconds: 0
+  newQuest: {fileID: 1007776664}
 --- !u!1 &1727962588
 GameObject:
   m_ObjectHideFlags: 0
@@ -20158,7 +20240,7 @@ Transform:
   m_GameObject: {fileID: 2070760548}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15212354, y: -1.41123e-12, z: 2.8017352e-12, w: 0.98836154}
-  m_LocalPosition: {x: 184.83, y: 5.5114117, z: 226.58257}
+  m_LocalPosition: {x: 10.62, y: 5.5114117, z: 35.252567}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23079,6 +23161,7 @@ SceneRoots:
   - {fileID: 817895191}
   - {fileID: 1482830983}
   - {fileID: 1743326345}
+  - {fileID: 476958636}
   - {fileID: 1502632386}
   - {fileID: 993171608}
   - {fileID: 757395936377028984}
