@@ -1,5 +1,7 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDetector : MonoBehaviour
 {
@@ -9,7 +11,12 @@ public class PlayerDetector : MonoBehaviour
     [SerializeField] private float detectionDecayPerSecond;
     [SerializeField] private Transform rayOriginPoint;
     [SerializeField] private Transform target;
+    [SerializeField] private RawImage indicator;
     private float timer;
+    public event EventHandler<OnPlayerDetectedEventArgs> OnPlayerDetected;
+    public class OnPlayerDetectedEventArgs : EventArgs {
+        public Transform player;
+    }
     void Start()
     {
         timer = 0f;
@@ -18,7 +25,8 @@ public class PlayerDetector : MonoBehaviour
     void Update()
     {
         if (timer > timeUntilDetection) {
-            Debug.Log("Detected");
+            // Debug.Log("Detected");
+            OnPlayerDetected?.Invoke(this, new OnPlayerDetectedEventArgs{player = this.target});
             timer = 0f;
         }
         else if (IsInSight()) {
@@ -27,9 +35,11 @@ public class PlayerDetector : MonoBehaviour
         else if (timer > 0f) {
             timer -= Time.deltaTime * detectionDecayPerSecond;
         }
+        if (indicator != null)
+            indicator.color = new Color(1,1,1, GetDetectionProgress());
     }
 
-    private bool IsInSight() {
+    public bool IsInSight() {
         Vector3 targetDistance = target.position - rayOriginPoint.position;
         if (targetDistance.magnitude > detectionDistance || Vector3.Angle(rayOriginPoint.forward, targetDistance) > detectionAngle)
             return false;
@@ -43,5 +53,11 @@ public class PlayerDetector : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    public float GetDetectionProgress() {
+        if (timer <= 0)
+            return 0;
+        return 1 - (timeUntilDetection - timer) / timeUntilDetection;
     }
 }

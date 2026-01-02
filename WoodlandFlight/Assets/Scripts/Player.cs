@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [field:SerializeField] public float staminaRecoveryDelay { get; private set; }
     [field:SerializeField] public float healthRecoveryRate { get; private set; }
     [field:SerializeField] public float staminaConsumptionRate { get; private set; }
+    [field:SerializeField] public Transform respawnPoint { get; private set; }
     
     [System.Serializable] private struct PlayerLevel {
         public int requiredXP;
@@ -72,6 +73,14 @@ public class Player : MonoBehaviour
         float currentRate = staminaConsumptionRate;
         staminaConsumptionRate = rate;
         return currentRate;
+    }
+
+    public void Death() {
+        ScreenFade.Instance.FadeOutHoldFadeIn(0f, 1f, 1f);
+        transform.position = respawnPoint.position;
+        transform.rotation = respawnPoint.rotation;
+        currentStamina = stamina;
+        experience = 0;
     }
 
     public PlayerData Save() {
