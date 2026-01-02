@@ -85,7 +85,7 @@ public class Grabbable : MonoBehaviourID, IInteractable
             rb.MovePosition(grabPoint.position + offset);
             if (coord == 'y')
                 // rb.transform.forward = grabPoint.transform.forward;
-                rb.transform.up = Vector3.up;
+                rb.transform.forward = Vector3.up;
             else if (coord == 'x')
                 rb.transform.right = Vector3.up;
             // rb.transform.up = grabPoint.transform.forward;
