@@ -116,11 +116,11 @@ public class EnemyAI : MonoBehaviour
         animator.SetTrigger("Shoot");
         aimConstraint.constraintActive = true;
         yield return new WaitForSeconds(0.8f);
-        if (playerDetector.IsInSight())
-            player.Death();
-        SFXSource.clip = gunShotSound;
         SFXSource.clip = gunShotSound;
         SFXSource.Play();
+        yield return new WaitForSeconds(0.05f);
+        if (playerDetector.IsInSight())
+            player.Death();
         aimConstraint.constraintActive = false;
         enableMovement = true;
     }
