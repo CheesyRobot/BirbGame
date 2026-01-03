@@ -65,7 +65,7 @@ public class EnemyAI : MonoBehaviour
         // direction.x = Mathf.Lerp(transform.forward.x, direction.x, Time.deltaTime * 0.5f);
         // direction.z = Mathf.Lerp(transform.forward.z, direction.z, Time.deltaTime * 0.5f);
         // transform.position += direction * movementSpeed * Time.deltaTime;
-        rb.linearVelocity = new Vector3(direction.x * movementSpeed, 0, direction.z * movementSpeed);
+        rb.linearVelocity = new Vector3(direction.x * movementSpeed, rb.linearVelocity.y, direction.z * movementSpeed);
         transform.forward = direction;
         animator.SetBool("isWalking", true);
         return false;
