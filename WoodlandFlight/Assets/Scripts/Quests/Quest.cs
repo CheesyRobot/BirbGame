@@ -8,7 +8,7 @@ public class Quest : MonoBehaviourID
     private int currentQuestStage;
     private bool isCompleted;
     public string questName;
-    public QuestManager manager;
+    [NonSerialized] public QuestManager manager;
     // [SerializeField] public QuestObjective[] objectives;
     [SerializeField] public QuestObjectiveData[] questStages;
     // private IQuestObjectiveType[] iobjectives;
@@ -20,6 +20,9 @@ public class Quest : MonoBehaviourID
     void Start() {
         // iobjectives = new IQuestObjectiveType[questData.Length];
         isCompleted = false;
+        manager = GetComponentInParent<QuestManager>();
+        if (manager == null)
+            Debug.LogWarning("Quest must be a child of Quest Manager GameObject");
         // for (int i = 0; i < questData.Length; i++) {
         //     iobjectives[i] = questData[i].objective.GetComponent<IQuestObjectiveType>();
         // }

@@ -44,6 +44,7 @@ public class SaveHandler : MonoBehaviour
             string saveContent = File.ReadAllText(SaveFileName());
             saveData = JsonUtility.FromJson<SaveData>(saveContent);
             HandleLoadData();
+            ScreenFade.Instance.FadeOutHoldFadeIn(0f, 1f, 1f);
         }
         else
         {
@@ -63,5 +64,10 @@ public class SaveHandler : MonoBehaviour
             DeleteSave();
         if (Input.GetKeyDown(KeyCode.M))
             Load();
+    }
+
+    void Start() {
+        // if (File.Exists(SaveFileName()))
+        //     Load();
     }
 }

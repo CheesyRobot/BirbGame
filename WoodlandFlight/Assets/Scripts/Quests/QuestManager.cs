@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using UnityEngine;
+using System.Runtime.Versioning;
 
 public class QuestManager : MonoBehaviour
 {
@@ -14,11 +15,17 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        if (!File.Exists(SaveHandler.SaveFileName()))
+        inactiveQuests = Resources.FindObjectsOfTypeAll<Quest>().ToList();
+        inactiveQuests.RemoveAll(q => activeQuests.Contains(q) || completedQuests.Contains(q));
+
+        if (!File.Exists(SaveHandler.SaveFileName())) {
             foreach (Quest quest in activeQuests) {
                 quest.StartQuest();
                 Debug.Log(quest.questName + " STARTED");
+                MarkQuestTracked(quest);
             }
+        }
+        
         DisableNonActiveQuests();
     }
     public void MarkQuestActive(Quest item) {
@@ -26,6 +33,7 @@ public class QuestManager : MonoBehaviour
         activeQuests.Add(item);
         item.enabled = true;
         item.StartQuest();
+        MarkQuestTracked(item);
         Debug.Log(item.questName + " STARTED");
     }
 
@@ -39,7 +47,7 @@ public class QuestManager : MonoBehaviour
     }
 
     public void MarkQuestTracked(Quest item) {
-        if (trackedQuest == null && item != null && trackedQuest != item || trackedQuest != null && trackedQuest != item) {
+        if (item != null && trackedQuest != item) {
             trackedQuest = item;
             UpdateTrackedQuest(trackedQuest);
             qte.Show(true);
