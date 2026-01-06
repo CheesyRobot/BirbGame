@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour
     private Transform targetTransform;
     private Rigidbody rb;
     private bool enableMovement;
+    private bool isEnabled;
     private Animator animator;
 
     // private Vector3 speed;
@@ -36,6 +37,7 @@ public class EnemyAI : MonoBehaviour
             playerDetector.OnPlayerDetected += Receive_OnPlayerDetected;
         if (aimConstraint != null)
             aimConstraint.constraintActive = false;
+        isEnabled = true;
     }
 
     void Update()
@@ -128,4 +130,37 @@ public class EnemyAI : MonoBehaviour
         
         StartCoroutine(Shoot(Vector3.Normalize(e.player.position - transform.position), e.player.GetComponent<Player>()));
     }
+
+    public void DisableEnemy() {
+        isEnabled = false;
+        gameObject.SetActive(isEnabled);
+    }
+
+    public void EnableEnemy() {
+        isEnabled = true;
+        gameObject.SetActive(isEnabled);
+    }
+
+
+    public EnemyData Save() {
+        EnemyData enemyData = new();
+        enemyData.position = transform.position;
+        enemyData.rotation = transform.rotation;
+        enemyData.isEnabled = isEnabled;
+        return enemyData;
+    }
+
+    public void Load(EnemyData enemyData) {
+        transform.position = enemyData.position;
+        transform.rotation = enemyData.rotation;
+        GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        gameObject.SetActive(enemyData.isEnabled);
+    }
+}
+
+[System.Serializable]
+public struct EnemyData {
+    public Vector3 position;
+    public Quaternion rotation;
+    public bool isEnabled;
 }

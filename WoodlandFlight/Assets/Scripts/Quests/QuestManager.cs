@@ -18,7 +18,7 @@ public class QuestManager : MonoBehaviour
         inactiveQuests = Resources.FindObjectsOfTypeAll<Quest>().ToList();
         inactiveQuests.RemoveAll(q => activeQuests.Contains(q) || completedQuests.Contains(q));
 
-        if (!File.Exists(SaveHandler.SaveFileName())) {
+        if (true || !File.Exists(SaveHandler.SaveFileName())) {
             foreach (Quest quest in activeQuests) {
                 quest.StartQuest();
                 Debug.Log(quest.questName + " STARTED");
