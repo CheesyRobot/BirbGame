@@ -1393,8 +1393,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253304035}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.152, y: -0.08, z: 0.26}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.152, y: 0.259, z: 0.143}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8095,9 +8095,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npc: {fileID: 1339490777}
   dialogueLines:
-  - Oh? You say he has rich relatives? The poor guy probably doesn't want to be here...
+  - Oh? You say he has rich relatives? The poor fellow probably doesn't even want
+    to be here...
   - How about we trick him - let's say his grandpa tragically died and left a hefty
-    sum for his dear grandson.
+    sum for his dearest grandson.
   - I can write a fake letter informing the Marksman about his inheritance. Just
     need some ink...
   - Bring me an inkwell. It should be around the hut... Somewhere...
@@ -8117,7 +8118,7 @@ MonoBehaviour:
     Value: e4b0528c-4301-4ccf-a755-6b78fc81b0de
   questName: Writing
   questStages:
-  - hintText: Talk to the Witch
+  - hintText: Report back to the Witch
     journalEntryActive: 
     journalEntryCompleted: 
     objective:
@@ -15429,6 +15430,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1409692096}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1409692100}
   m_SourcePrefab: {fileID: 100100000, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
 --- !u!114 &943008154 stripped
 MonoBehaviour:
@@ -17031,7 +17035,10 @@ GameObject:
   - component: {fileID: 1190043476}
   - component: {fileID: 1190043478}
   - component: {fileID: 1190043477}
+  - component: {fileID: 1190043480}
   - component: {fileID: 1190043479}
+  - component: {fileID: 1190043482}
+  - component: {fileID: 1190043481}
   m_Layer: 0
   m_Name: Exploring
   m_TagString: Untagged
@@ -17054,6 +17061,7 @@ Transform:
   m_Children:
   - {fileID: 1906020881}
   - {fileID: 2099116355}
+  - {fileID: 1635262755}
   m_Father: {fileID: 1857883013}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1190043477
@@ -17071,13 +17079,14 @@ MonoBehaviour:
   npc: {fileID: 1339490777}
   dialogueLines:
   - Hello there! Livia is your name, I gather.
-  - Have seen the poacher camp down by the river? Quite the problem we have here...
+  - Have seen the poacher camp down by the river? Quite the problem we have got there...
   - Our forest is suffering dearly, which is why I need your help.
-  - 'Could you perhaps poke around the camp and see if there is anything we could
-    make us of? '
+  - 'Could you poke around the camp and see if there is any information we could
+    make use of? '
   - I would go there myself, but you see, I'm not that difficult to spot...
-  - Please be careful around the marksmen...
-  - I await you return!
+  - And before you go, please be careful around the marksmen. They are not fond of
+    wildlife.
+  - Be safe and tell me what you find at the camp. I await you return!
 --- !u!114 &1190043478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17109,6 +17118,11 @@ MonoBehaviour:
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 2099116356}
+  - hintText: Snoop around the Camp
+    journalEntryActive: 
+    journalEntryCompleted: 
+    objective:
+      underlyingValue: {fileID: 1190043480}
 --- !u!114 &1190043479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17121,9 +17135,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb11e2431646db0cb8b2adf2bf068a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
+  stage: 4
   delaySeconds: 1
   newQuest: {fileID: 643522167}
+--- !u!114 &1190043480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190043475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a948977d4e7bc4692bda67c6b67132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 1409692100}
+  dialogueLines:
+  - If only my gramps lent me some money... It's not like he's a short on it!
+--- !u!114 &1190043481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190043475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6636a53935cfc712c946582c7a87884b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 4
+  delaySeconds: 0
+  item: {fileID: 1635262754}
+--- !u!114 &1190043482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190043475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59534868e04f04de4a1ca1426285b060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 3
+  delaySeconds: 0
+  item: {fileID: 1635262754}
+  position: {fileID: 0}
 --- !u!1 &1196841628
 GameObject:
   m_ObjectHideFlags: 0
@@ -18282,7 +18342,7 @@ MonoBehaviour:
   - Hello, birdy!
   - Me is a the witchy
   - Have a nice day
-  prompt: (E) Talk
+  prompt: Talk
   exitDistance: 2
   de: {fileID: 801940249}
   UICanvas: {fileID: 1743326340}
@@ -18461,6 +18521,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
   m_PrefabInstance: {fileID: 924808614}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1409692100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409692089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a124ea5bd82e185e9451a3c9f2312fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Weary Marksman
+  dialogue: []
+  prompt: 
+  exitDistance: 10
+  de: {fileID: 801940249}
+  UICanvas: {fileID: 1743326340}
 --- !u!114 &1439219525 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8040454523088306414, guid: 0304c745dd79d4b47af0eca1fad69d7a, type: 3}
@@ -19759,6 +19837,73 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14c06695478d9ac54b41c9e5c5856741, type: 3}
+--- !u!1 &1635262754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1635262755}
+  - component: {fileID: 1635262757}
+  - component: {fileID: 1635262756}
+  m_Layer: 0
+  m_Name: ShooterTalkTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1635262755
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635262754}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.92308533, z: -0, w: 0.38459533}
+  m_LocalPosition: {x: 194.7119, y: -7.141, z: 197.1955}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1190043476}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1635262756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635262754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844415f846064956192deda2e8636581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 1409692100}
+--- !u!135 &1635262757
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635262754}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1680351160
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20944,7 +21089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inactiveQuests: []
   activeQuests:
-  - {fileID: 643522167}
+  - {fileID: 1190043478}
   completedQuests: []
   trackedQuest: {fileID: 0}
   qte: {fileID: 801940250}
