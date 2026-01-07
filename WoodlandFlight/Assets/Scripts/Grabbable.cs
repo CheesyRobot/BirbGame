@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using System.Linq;
 using UnityEngine;
 
-public class Grabbable : MonoBehaviourID, IInteractable
+public class Grabbable : MonoBehaviour, IInteractable
 {
     private Rigidbody rb;
     private Transform grabPoint;
