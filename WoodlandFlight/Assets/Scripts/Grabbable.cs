@@ -52,8 +52,8 @@ public class Grabbable : MonoBehaviourID, IInteractable
         this.grabPoint = null;
         rb.useGravity = true;
         // rb.freezeRotation = false;
-        if (grabControl != null)
-            grabControl.setGrabbed(this, false);
+        grabControl?.setGrabbed(this, false);
+        grabPoint?.gameObject.GetComponentInParent<GrabControl>()?.setGrabbed(this, true);
         DisableRotation(false);
     }
 

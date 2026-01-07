@@ -39,7 +39,7 @@ public class Fish : MonoBehaviour, IInteractableModifier
         else {
             game?.AddScore();
         }
-        
+        GetComponent<Grabbable>()?.Drop();
         Destroy(gameObject);
 
         return true;
