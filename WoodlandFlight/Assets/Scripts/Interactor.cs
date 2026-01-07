@@ -19,7 +19,7 @@ public class Interactor : MonoBehaviour
                 interactableMod = colliders[^1].GetComponent<IInteractableModifier>();
                 if (interactableMod != null) {
                     prompt.gameObject.SetActive(true);
-                    prompt.SetText(interactableMod.InteractionPrompt);
+                    prompt.SetText("(E) " + interactableMod.InteractionPrompt);
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         interactableMod.Interact(this);
@@ -31,7 +31,7 @@ public class Interactor : MonoBehaviour
                 interactable = colliders[^1].GetComponent<IInteractable>();
                 if (interactable != null) {
                     prompt.gameObject.SetActive(true);
-                    prompt.SetText(interactable.InteractionPrompt);
+                    prompt.SetText("(E) " + interactable.InteractionPrompt);
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         interactable.Interact(this);
