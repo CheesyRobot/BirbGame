@@ -14,6 +14,7 @@ public class Grabbable : MonoBehaviourID, IInteractable
     [SerializeField] private float mass;
     [SerializeField] private string prompt;
     public string InteractionPrompt => prompt;
+    private GrabControl grabControl;
 
     void Awake()
     {
@@ -36,7 +37,7 @@ public class Grabbable : MonoBehaviourID, IInteractable
         rb.useGravity = false;
         // rb.freezeRotation = true;
         DisableRotation(true);
-        grabPoint.gameObject.GetComponentInParent<GrabControl>().setGrabbed(true);
+        grabPoint.gameObject.GetComponentInParent<GrabControl>().setGrabbed(this, true);
         //prompt = "(E) Drop";
     }
 
@@ -51,13 +52,15 @@ public class Grabbable : MonoBehaviourID, IInteractable
         this.grabPoint = null;
         rb.useGravity = true;
         // rb.freezeRotation = false;
+        if (grabControl != null)
+            grabControl.setGrabbed(this, false);
         DisableRotation(false);
     }
 
     public bool Interact(Interactor interactor)
     {
         Movement player = interactor.GetComponent<Movement>();
-        GrabControl grabControl = interactor.GetComponent<GrabControl>();
+        grabControl = interactor.GetComponent<GrabControl>();
 
         if (grabPoint == null && !grabControl.HasGrabbed())
         {
@@ -65,7 +68,7 @@ public class Grabbable : MonoBehaviourID, IInteractable
             player.MovePlayer(this.transform.position - grabPoint.position - offset);
             player.AddMass(mass);
             player.SetWalkingEnabled(false, -offset.y * 2f);
-            grabControl.setGrabbed(true);
+            grabControl.setGrabbed(this, true);
             rb.useGravity = false;
             DisableRotation(true);
             // rb.freezeRotation = true;
@@ -79,7 +82,7 @@ public class Grabbable : MonoBehaviourID, IInteractable
             DisableRotation(false);
             player.ResetMass();
             player.SetWalkingEnabled(true, 0);
-            grabControl.setGrabbed(false);
+            grabControl.setGrabbed(this, false);
             //prompt = "(E) Pick Up";
         }
         return true;

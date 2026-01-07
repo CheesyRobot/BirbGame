@@ -77,6 +77,9 @@ public class Player : MonoBehaviour
 
     public void Death() {
         ScreenFade.Instance.FadeOutHoldFadeIn(0f, 1f, 1f);
+        Grabbable grabbedObject = GetComponent<GrabControl>().GetGrabbedObject();
+        if (grabbedObject != null)
+            grabbedObject.Drop();
         transform.position = respawnPoint.position;
         transform.rotation = respawnPoint.rotation;
         currentStamina = stamina;
