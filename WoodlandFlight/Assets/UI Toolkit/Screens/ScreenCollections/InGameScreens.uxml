@@ -7,4 +7,5 @@
         <engine:Instance template="Buttons" name="OptionsButtons" style="width: 50%; display: none;" />
         <engine:Instance template="DialogueBoxScreen" name="DialogueBox" style="width: 100%; height: 23%;" />
     </engine:VisualElement>
+    <engine:VisualElement name="Image" style="flex-grow: 1; width: 100%; height: 100%; position: absolute; background-image: url(&quot;project://database/Assets/UI%20Toolkit/Screens/Paveikslelis1.png?fileID=2800000&amp;guid=c95450337ea57db46913646e5c306587&amp;type=3#Paveikslelis1&quot;); display: none;" />
 </engine:UXML>
