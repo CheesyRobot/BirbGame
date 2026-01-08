@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class NPC : MonoBehaviour, IInteractable
 {
@@ -12,16 +13,19 @@ public class NPC : MonoBehaviour, IInteractable
     private int currentDialogueLine;
     private Interactor lastInteractor;
     private bool continueTalking;
+    private bool blockNextInteraction;
     public string InteractionPrompt => prompt;
 
     void Start() {
         currentDialogueLine = 0;
         continueTalking = false;
+        blockNextInteraction = false;
     }
 
     void Update() {
         if (lastInteractor != null && Vector3.Distance(lastInteractor.transform.position, transform.position) > exitDistance) {
             StopTalk();
+            blockNextInteraction = false;
         }
         if (lastInteractor != null && Input.GetKeyDown(KeyCode.E)) {
             if (!continueTalking)
@@ -31,11 +35,15 @@ public class NPC : MonoBehaviour, IInteractable
             else
                 ContinueTalkQuest();
         }
-            
     }
     public bool Interact(Interactor interactor) {
-        if (continueTalking)
+        if (blockNextInteraction) {
+            blockNextInteraction = false;
             return true;
+        }
+        if (continueTalking) {
+            return true;
+        }
         if (questDialogue == null)
             StartTalkIdle();
         else
@@ -88,7 +96,11 @@ public class NPC : MonoBehaviour, IInteractable
         UICanvas.SetActive(true);
         lastInteractor = null;
         continueTalking = false;
+        blockNextInteraction = true;
+        StartCoroutine(UnblockInteraction(0.2f));
     }
+
+    
 
     private void TalkIdle() {
         if (!de.isEnabled()) {
@@ -107,6 +119,18 @@ public class NPC : MonoBehaviour, IInteractable
         }
     }
 
+    IEnumerator UnblockInteraction(float seconds) {
+        yield return new WaitForSeconds(seconds);
+        blockNextInteraction = false;
+    }
+
+    IEnumerator DelayTalk(float seconds) {
+        yield return new WaitForSeconds(seconds);
+        if (questDialogue == null)
+            StartTalkIdle();
+        else
+            StartTalkQuest();
+    }
     public void TalkQuest() {
         if (!de.isEnabled()) {
             de.SetNameText(npcName);
