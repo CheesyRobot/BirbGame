@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaAmount: 5
   experienceAmount: 50
-  prompt: (E) Eat
+  prompt: Eat
 --- !u!65 &3809611166107184895
 BoxCollider:
   m_ObjectHideFlags: 0

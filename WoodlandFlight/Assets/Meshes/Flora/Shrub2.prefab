@@ -299,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaAmount: 5
   experienceAmount: 50
-  prompt: (E) Eat
+  prompt: Eat
 --- !u!205 &598619107594447369
 LODGroup:
   m_ObjectHideFlags: 0
