@@ -103,7 +103,6 @@ public class PauseMenuEvents : MonoBehaviour
 
     private void OnJournalClick(ClickEvent evt)
     {
-        Debug.Log("Journal");
         Journal.enabled = true;
         _journal.style.display = DisplayStyle.Flex;
         _pause.style.display = DisplayStyle.None;

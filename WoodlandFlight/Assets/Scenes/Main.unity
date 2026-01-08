@@ -8089,6 +8089,7 @@ GameObject:
   - component: {fileID: 643522169}
   - component: {fileID: 643522165}
   - component: {fileID: 643522171}
+  - component: {fileID: 643522176}
   - component: {fileID: 643522170}
   - component: {fileID: 643522173}
   - component: {fileID: 643522172}
@@ -8176,23 +8177,26 @@ MonoBehaviour:
   questName: Writing
   questStages:
   - hintText: Report back to the Witch
-    journalEntryActive: 
-    journalEntryCompleted: 
+    journalEntryActive: I should tell the Witch about what the Marksman said.
+    journalEntryCompleted: She told me that she could help me write a fake letter
+      so the Marksman can leave.
     objective:
       underlyingValue: {fileID: 643522166}
   - hintText: Find an Inkwell
-    journalEntryActive: 
+    journalEntryActive: I need to find an inkwell. I'm pretty sure it's some kind
+      of ink bottle. She said it should be somewhere around the hut. Hmm...
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 1924755268}
   - hintText: Talk to the Witch
-    journalEntryActive: 
+    journalEntryActive: I found the inkwell! I should bring it back inside the Witch's 
+      hut.
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 643522169}
   - hintText: Deliver the Letter to the sitting Marksman
-    journalEntryActive: 
-    journalEntryCompleted: 
+    journalEntryActive: I need to bring the letter back to the Marksman from earlier.
+    journalEntryCompleted: The letter has been delivered. The Marksman has gone home!
     objective:
       underlyingValue: {fileID: 898319113}
 --- !u!114 &643522169
@@ -8307,6 +8311,21 @@ MonoBehaviour:
   stage: 4
   delaySeconds: 2
   newQuest: {fileID: 703903303}
+--- !u!114 &643522176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643522163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6636a53935cfc712c946582c7a87884b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 3
+  delaySeconds: 0.5
+  item: {fileID: 1954779907}
 --- !u!4 &671840730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 394105897853445344, guid: 433fad01e231ce699aace73d1dc19842, type: 3}
@@ -17161,23 +17180,27 @@ MonoBehaviour:
   questName: Exploring your surroundings
   questStages:
   - hintText: Locate the Witch Hut
-    journalEntryActive: 
-    journalEntryCompleted: 
+    journalEntryActive: I don't like those people cutting down trees and walking
+      with guns... I should visit the Witch, her hut should be around the forest
+      somewhere.
+    journalEntryCompleted: I found her hut on a hill. The hut has a pointy hat!
     objective:
       underlyingValue: {fileID: 1906020882}
   - hintText: Talk to the Witch
     journalEntryActive: 
-    journalEntryCompleted: 
+    journalEntryCompleted: I talked to the Witch. She told me to investigate the
+      camp.
     objective:
       underlyingValue: {fileID: 1190043477}
   - hintText: Go to the Poacher Camp
-    journalEntryActive: 
+    journalEntryActive: I remember it being right by that river. I should go there.
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 2099116356}
   - hintText: Snoop around the Camp
     journalEntryActive: 
-    journalEntryCompleted: 
+    journalEntryCompleted: One of the Marksmen said something about a grandpa with
+      money. Can this information help somehow?
     objective:
       underlyingValue: {fileID: 1190043480}
 --- !u!114 &1190043479
@@ -21828,6 +21851,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5736535552286946306, guid: 0304c745dd79d4b47af0eca1fad69d7a, type: 3}
   m_PrefabInstance: {fileID: 853966071}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1954779907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5888082033979563900, guid: 02fb1983ec00fba48a627fc786ead42e, type: 3}
+  m_PrefabInstance: {fileID: 4269923225504295583}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1957443975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 70088868981495322, guid: 5ceb26918fbb6f600a9e45be01b90ef2, type: 3}
@@ -23047,15 +23075,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5754256164370067489, guid: 997232a1e2066194f9a1dfe6f6985656, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5391145
+      value: -0.378
       objectReference: {fileID: 0}
     - target: {fileID: 5754256164370067489, guid: 997232a1e2066194f9a1dfe6f6985656, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.102
+      value: -6.38
       objectReference: {fileID: 0}
     - target: {fileID: 5754256164370067489, guid: 997232a1e2066194f9a1dfe6f6985656, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.12
       objectReference: {fileID: 0}
     - target: {fileID: 5754256164370067489, guid: 997232a1e2066194f9a1dfe6f6985656, type: 3}
       propertyPath: m_LocalRotation.w
@@ -24205,7 +24233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982191867943068963, guid: 02fb1983ec00fba48a627fc786ead42e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.106
+      value: 5.065
       objectReference: {fileID: 0}
     - target: {fileID: 7982191867943068963, guid: 02fb1983ec00fba48a627fc786ead42e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24213,19 +24241,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982191867943068963, guid: 02fb1983ec00fba48a627fc786ead42e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7982191867943068963, guid: 02fb1983ec00fba48a627fc786ead42e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7982191867943068963, guid: 02fb1983ec00fba48a627fc786ead42e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7982191867943068963, guid: 02fb1983ec00fba48a627fc786ead42e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7982191867943068963, guid: 02fb1983ec00fba48a627fc786ead42e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24233,7 +24261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7982191867943068963, guid: 02fb1983ec00fba48a627fc786ead42e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 7982191867943068963, guid: 02fb1983ec00fba48a627fc786ead42e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

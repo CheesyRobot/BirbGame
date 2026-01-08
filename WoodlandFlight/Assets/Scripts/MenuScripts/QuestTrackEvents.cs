@@ -41,6 +41,24 @@ public class QuestTrackEvents : MonoBehaviour
     }
 
     /// <summary>
+    /// Sets title text opacity
+    /// </summary>
+    /// <param name="value">1 - visible, 0 - invisible</param>
+    public void SetTitleOpacity(float value)
+    {
+        _titleLabel.style.color = new Color(1f, 1f, 1f, value);
+    }
+
+    /// <summary>
+    /// Sets description text opacity
+    /// </summary>
+    /// <param name="value">1 - visible, 0 - invisible</param>
+    public void SetDescriptionOpacity(float value)
+    {
+        _textLabel.style.color = new Color(1f, 1f, 1f, value);
+    }
+
+    /// <summary>
     /// Hides or shows UI
     /// </summary>
     /// <param name="isEnabled"></param>
