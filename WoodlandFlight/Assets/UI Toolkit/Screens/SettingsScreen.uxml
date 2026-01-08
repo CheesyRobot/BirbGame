@@ -6,13 +6,13 @@
             <engine:Button text="Return" name="ReturnButton" class="NormalButton" />
         </engine:VisualElement>
         <engine:ToggleButtonGroup value="0001" is-multiple-selection="false" name="Buttons" style="width: 100%;">
-            <engine:Button text="Game" name="GameButton" class="NormalButton SettingsButton" style="min-width: 170px; width: 13%;" />
-            <engine:Button text="Video" name="VideoButton" class="NormalButton SettingsButton" style="width: 13%;" />
+            <engine:Button text="Game" name="GameButton" class="NormalButton SettingsButton" style="min-width: 170px; width: 13%; display: none;" />
+            <engine:Button text="Video" name="VideoButton" enabled="true" class="NormalButton SettingsButton" style="width: 13%; display: none;" />
             <engine:Button text="Audio" name="AudioButton" class="NormalButton SettingsButton" style="width: 13%;" />
-            <engine:Button text="Controls" name="ControlsButton" class="NormalButton SettingsButton" style="width: 13%;" />
+            <engine:Button text="Controls" name="ControlsButton" class="NormalButton SettingsButton" style="width: 13%; display: none;" />
         </engine:ToggleButtonGroup>
         <engine:VisualElement name="Panels" style="flex-grow: 1; height: 494px; width: 100%; align-items: center; justify-content: flex-start; margin-top: 3%;">
-            <engine:VisualElement name="Controls" class="PanelBackground" style="height: 317px; width: 748px; visibility: visible; display: flex; justify-content: space-between; align-self: auto; position: absolute;">
+            <engine:VisualElement name="Controls" class="PanelBackground" style="height: 317px; width: 748px; visibility: visible; display: none; justify-content: space-between; align-self: auto; position: absolute;">
                 <engine:Label text="WIP" class="TextFont" />
             </engine:VisualElement>
             <engine:VisualElement name="Audio" class="PanelBackground" style="height: auto; width: 748px; visibility: visible; display: flex; justify-content: space-between; align-self: auto; position: absolute;">
@@ -21,7 +21,7 @@
                 <engine:Slider label="SFX&#10;" value="0.5" high-value="1" name="SFX" low-value="1E-05" class="TextFont" style="color: rgb(255, 255, 255);" />
                 <engine:Slider label="Ambient" value="0.5" high-value="1" name="Ambient" low-value="1E-05" class="TextFont" style="color: rgb(255, 255, 255);" />
             </engine:VisualElement>
-            <engine:VisualElement name="Video" class="PanelBackground" style="height: 317px; width: 748px; visibility: visible; display: flex; justify-content: space-between; align-self: auto;">
+            <engine:VisualElement name="Video" class="PanelBackground" style="height: 317px; width: 748px; visibility: visible; display: none; justify-content: space-between; align-self: auto;">
                 <engine:DropdownField label="Resolution" name="Resolution" choices="1920 × 1080,1280 × 720" index="1" class="TextFont" style="visibility: visible; color: rgb(255, 255, 255);" />
                 <engine:DropdownField label="Graphics Quality" name="Graphics" choices="High,Medium,Low" index="0" class="TextFont SettingsDropdown" style="visibility: visible; color: rgb(255, 255, 255);" />
                 <engine:FloatField label="Brightness" value="0.9" max-length="5" name="Brightness" class="TextFont" style="color: rgb(255, 255, 255); justify-content: space-between;" />

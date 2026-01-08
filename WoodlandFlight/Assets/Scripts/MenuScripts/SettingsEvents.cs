@@ -38,13 +38,13 @@ public class SettingsEvents : MonoBehaviour
         // Settings toggle buttons: Game, Video, Audio, Controls
         _buttons = _settings.Q<ToggleButtonGroup>("Buttons");
 
-        //Sets the default settings button to 0 (the Game button in UI)
-        ulong mask = 0UL;
+        //Sets the default settings button to 2 (the Audio button in UI)
+        ulong mask = 2UL;
         mask |= (1UL << 0);
         _buttons.SetValueWithoutNotify(new ToggleButtonGroupState(mask, 4));
         // Making panels other than the Game settings panel invisible
         _video.style.display = DisplayStyle.None;
-        _audio.style.display = DisplayStyle.None;
+        //_audio.style.display = DisplayStyle.None;
         _controls.style.display = DisplayStyle.None;
 
         // Connecting functions to elements
