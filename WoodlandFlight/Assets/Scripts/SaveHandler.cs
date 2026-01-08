@@ -74,8 +74,8 @@ public class SaveHandler : MonoBehaviour
             Load();
     }
 
-    void Start() {
-        // if (File.Exists(SaveFileName()))
-        //     Load();
+    void Awake() {
+        if (File.Exists(SaveFileName()))
+            Load();
     }
 }

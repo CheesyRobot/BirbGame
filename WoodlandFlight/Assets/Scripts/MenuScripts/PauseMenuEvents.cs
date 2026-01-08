@@ -1,3 +1,4 @@
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -128,6 +129,7 @@ public class PauseMenuEvents : MonoBehaviour
     {
         GameIsPaused = false;
         Time.timeScale = 1f;
+        Resources.FindObjectsOfTypeAll<SaveHandler>().First().Save();
         SceneManager.LoadScene(0);
     }
 }

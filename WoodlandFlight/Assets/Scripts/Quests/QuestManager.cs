@@ -20,10 +20,9 @@ public class QuestManager : MonoBehaviour
         inactiveQuests = Resources.FindObjectsOfTypeAll<Quest>().ToList();
         inactiveQuests.RemoveAll(q => activeQuests.Contains(q) || completedQuests.Contains(q));
 
-        if (true || !File.Exists(SaveHandler.SaveFileName())) {
+        if (!File.Exists(SaveHandler.SaveFileName())) {
             foreach (Quest quest in activeQuests) {
                 quest.StartQuest();
-                Debug.Log(quest.questName + " STARTED");
                 MarkQuestTracked(quest);
             }
         }
@@ -36,7 +35,6 @@ public class QuestManager : MonoBehaviour
         item.enabled = true;
         item.StartQuest();
         MarkQuestTracked(item);
-        Debug.Log(item.questName + " STARTED");
     }
 
     public void MarkQuestCompleted(Quest item) {
@@ -45,11 +43,10 @@ public class QuestManager : MonoBehaviour
         if (trackedQuest == item)
             MarkQuestTracked(activeQuests.FirstOrDefault());
         item.enabled = false;
-        Debug.Log(item.questName + " COMPLETED");
     }
 
     public void MarkQuestTracked(Quest item) {
-        if (item != null && trackedQuest != item) {
+        if (item != null && item != trackedQuest) {
             UpdateTrackedQuest(item);
             trackedQuest = item;
             qte.Show(true);
@@ -61,7 +58,10 @@ public class QuestManager : MonoBehaviour
     }
 
     public void UpdateTrackedQuest(Quest item) {
+        if (item == null)
+            return;
         if (trackedQuest != null && trackedQuest == item) {
+            trackedQuest = item;
             // qte.SetTitleText(trackedQuest.questName);
             // qte.SetDescriptionText(trackedQuest.GetQuestHint());
             StartCoroutine(FadeTrackedQuestDescription(0.5f, 1f));
@@ -71,7 +71,6 @@ public class QuestManager : MonoBehaviour
             StartCoroutine(FadeTrackedQuestTitle(0.5f, 1f));
             StartCoroutine(FadeTrackedQuestDescription(0.5f, 1f));
         }
-        Debug.Log(trackedQuest);
     }
 
     private void DisableNonActiveQuests() {
@@ -115,7 +114,6 @@ public class QuestManager : MonoBehaviour
         activeQuests = quests.Where(q => questManagerData.activeQuests.Select(a => a.ID).Contains(q.ID)).ToList();
         completedQuests = quests.Where(q => questManagerData.completedQuests.Contains(q.ID)).ToList();
         Quest trackedQuest = quests.FirstOrDefault(q => q.ID == questManagerData.trackedQuest);
-        this.trackedQuest = null;
 
         DisableNonActiveQuests();
         
