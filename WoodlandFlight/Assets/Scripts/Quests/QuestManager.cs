@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.IO;
 using UnityEngine;
 using System.Runtime.Versioning;
+using System;
 
 public class QuestManager : MonoBehaviour
 {
@@ -48,8 +50,8 @@ public class QuestManager : MonoBehaviour
 
     public void MarkQuestTracked(Quest item) {
         if (item != null && trackedQuest != item) {
+            UpdateTrackedQuest(item);
             trackedQuest = item;
-            UpdateTrackedQuest(trackedQuest);
             qte.Show(true);
         }
         else {
@@ -60,9 +62,16 @@ public class QuestManager : MonoBehaviour
 
     public void UpdateTrackedQuest(Quest item) {
         if (trackedQuest != null && trackedQuest == item) {
-            qte.SetTitleText(trackedQuest.questName);
-            qte.SetDescriptionText(trackedQuest.GetQuestHint());
+            // qte.SetTitleText(trackedQuest.questName);
+            // qte.SetDescriptionText(trackedQuest.GetQuestHint());
+            StartCoroutine(FadeTrackedQuestDescription(0.5f, 1f));
         }
+        else {
+            trackedQuest = item;
+            StartCoroutine(FadeTrackedQuestTitle(0.5f, 1f));
+            StartCoroutine(FadeTrackedQuestDescription(0.5f, 1f));
+        }
+        Debug.Log(trackedQuest);
     }
 
     private void DisableNonActiveQuests() {
@@ -119,6 +128,38 @@ public class QuestManager : MonoBehaviour
             }
         }
         MarkQuestTracked(trackedQuest);
+    }
+
+    IEnumerator FadeTrackedQuestTitle(float fadeOut, float fadeIn) {
+        float timer = 0;
+        while (timer < fadeOut) {
+            qte.SetTitleOpacity(Math.Clamp(1 - timer / fadeOut, 0, 1));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        qte.SetTitleText(trackedQuest.questName);
+        timer = 0;
+        while (timer < fadeIn) {
+            qte.SetTitleOpacity(Math.Clamp(timer / fadeIn, 0, 1));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    IEnumerator FadeTrackedQuestDescription(float fadeOut, float fadeIn) {
+        float timer = 0;
+        while (timer < fadeOut) {
+            qte.SetDescriptionOpacity(Math.Clamp(1 - timer / fadeOut, 0, 1));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        qte.SetDescriptionText(trackedQuest.GetQuestHint());
+        timer = 0;
+        while (timer < fadeIn) {
+            qte.SetDescriptionOpacity(Math.Clamp(timer / fadeIn, 0, 1));
+            timer += Time.deltaTime;
+            yield return null;
+        }
     }
 }
 
