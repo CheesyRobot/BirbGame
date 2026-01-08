@@ -21643,9 +21643,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 0
-  delaySeconds: 0
+  delaySeconds: 7
   fadeOutTime: 0.5
-  holdTime: 0.5
+  holdTime: 1
   fadeInTime: 0.5
 --- !u!1 &1708879773
 GameObject:
@@ -23000,7 +23000,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inactiveQuests: []
   activeQuests:
-  - {fileID: 1190043478}
+  - {fileID: 820107481}
   completedQuests: []
   trackedQuest: {fileID: 0}
   qte: {fileID: 801940250}
