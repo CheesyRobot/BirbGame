@@ -5,6 +5,7 @@ public class DisplayLevel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI level;
     [SerializeField] private TextMeshProUGUI experience;
+    [SerializeField] private Player player;
     private string levelText = "Level ";
     private string experienceText = " XP";
 
@@ -13,6 +14,6 @@ public class DisplayLevel : MonoBehaviour
         if (level == maxLevel)
             this.experience.SetText("");
         else
-            this.experience.SetText(experience + experienceText);
+            this.experience.SetText(experience + " / " + player.GetRequiredXP() + experienceText);
     }
 }

@@ -63,6 +63,13 @@ public class Player : MonoBehaviour
             levelDisplay.UpdateLevel(currentLevel, experience, levels.Length);
     }
 
+    public int GetRequiredXP() {
+        if (currentLevel < levels.Length)
+            return levels[currentLevel].requiredXP;
+        else
+            return 0;
+    }
+
     private void UpdateStats() {
         health = levels[currentLevel - 1].health;
         staminaLimit = levels[currentLevel - 1].staminaLimit;
