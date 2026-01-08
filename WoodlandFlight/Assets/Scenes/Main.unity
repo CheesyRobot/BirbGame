@@ -8675,8 +8675,9 @@ MonoBehaviour:
   - Hello Livia! Did our plan with the letter work?
   - Oh it did? That's great!
   - How to make the others leave, you ask? Hmmm...
-  - Maybe you can annoy them somehow to leave? You should look if there's anything
-    to make use of in the Camp.
+  - I don't know.. Maybe you can annoy them somehow to make them leave?
+  - You should look if there's anything to make use of in the Camp.  If that doesn't
+    work, you could ask the bear for help.
 --- !u!114 &703903306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15405,8 +15406,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npc: {fileID: 1358313933}
   dialogueLines:
-  - Thank you for feesh
-  - Now let's go kick some ass
+  - 'Thank you for the fish! '
+  - As promised, I will help you scare off the campers.
+  - Now let's go kick some ass!
 --- !u!114 &820107480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15421,9 +15423,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npc: {fileID: 1358313933}
   dialogueLines:
-  - Hello! You want help?
-  - See, I am hungry
-  - Bring feesh
+  - Hello! You want help scaring off the campers?
+  - That's a big ask... Let me think about it.
+  - Are the campers with guns still there? No? Okay.
+  - Tell you what. I'm hungry. If you can bring me three fish, I will help you out!
 --- !u!114 &820107481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15440,27 +15443,31 @@ MonoBehaviour:
     Value: 6c6d87d4-a6a2-4666-ba1b-0e2726c5acb0
   questName: Feed the Beast
   questStages:
-  - hintText: Talk to the Bear
-    journalEntryActive: 
+  - hintText: Find the Burrow and talk to the Bear
+    journalEntryActive: I am not sure how to make the Lumberjacks leave. The Witch
+      said I could ask the Bear for help.
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 820107480}
-  - hintText: Bring Fish to Bear (0/3)
+  - hintText: Bring Fish to the Bear (0/3)
+    journalEntryActive: The Bear has asked me to bring him some fish. If I can do
+      that, he said he could help me scare off the Lumberjacks. I shouldn't keep
+      him waiting.
+    journalEntryCompleted: 
+    objective:
+      underlyingValue: {fileID: 1894977796}
+  - hintText: Bring Fish to the Bear (1/3)
     journalEntryActive: 
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 1894977796}
-  - hintText: Bring Fish to Bear (1/3)
+  - hintText: Bring Fish to the Bear (2/3)
     journalEntryActive: 
-    journalEntryCompleted: 
+    journalEntryCompleted: I brought the fish to the Bear. He is going to scare off
+      the Lumberjacks.
     objective:
       underlyingValue: {fileID: 1894977796}
-  - hintText: Bring Fish to Bear (2/3)
-    journalEntryActive: 
-    journalEntryCompleted: 
-    objective:
-      underlyingValue: {fileID: 1894977796}
-  - hintText: Talk to Bear
+  - hintText: Talk to the Bear
     journalEntryActive: 
     journalEntryCompleted: 
     objective:
