@@ -6,7 +6,8 @@ public class SaveHandler : MonoBehaviour
 {
     private SaveData saveData;
     [SerializeField] private QuestManager questManager;
-    [SerializeField] SavePositionManager savePositionManagerData;
+    [SerializeField] private SavePositionManager savePositionManager;
+    [SerializeField] private EnemyStateManager enemyStateManager;
     [SerializeField] private Player player;
     [SerializeField] private GrabControl grabControl;
 
@@ -14,6 +15,7 @@ public class SaveHandler : MonoBehaviour
     public struct SaveData {
         public QuestManagerData questManagerData;
         public SavePositionManagerData savePositionManagerData;
+        public EnemyStateManagerData enemyStateManagerData;
         public PlayerData playerData;
         public GrabControlData grabControlData;
     }
@@ -21,13 +23,15 @@ public class SaveHandler : MonoBehaviour
     private void HandleLoadData() {
         questManager.Load(saveData.questManagerData);
         grabControl.Load(saveData.grabControlData);
-        savePositionManagerData.Load(saveData.savePositionManagerData);
+        savePositionManager.Load(saveData.savePositionManagerData);
+        enemyStateManager.Load(saveData.enemyStateManagerData);
         player.Load(saveData.playerData);
     }
 
     public void HandleSaveData() {
         saveData.questManagerData = questManager.Save();
-        saveData.savePositionManagerData = savePositionManagerData.Save();
+        saveData.savePositionManagerData = savePositionManager.Save();
+        saveData.enemyStateManagerData = enemyStateManager.Save();
         saveData.playerData = player.Save();
         saveData.grabControlData = grabControl.Save();
     }

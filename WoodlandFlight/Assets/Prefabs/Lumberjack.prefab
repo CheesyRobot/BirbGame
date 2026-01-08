@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lumberjack
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b677bc0987edaa9b19fd0a2af4f4613d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: b677bc0987edaa9b19fd0a2af4f4613d, type: 3}
       propertyPath: m_Controller
       value: 
@@ -158,6 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f689f2bbbe79eeb795cc476e2463eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id:
+    Value: 
   playerDetector: {fileID: 0}
   aimConstraint: {fileID: 0}
   positions:

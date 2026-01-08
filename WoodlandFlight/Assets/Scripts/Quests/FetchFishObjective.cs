@@ -1,15 +1,23 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
-public class FetchObjective : MonoBehaviour, IQuestObjectiveType
+public class FetchFishObjective : MonoBehaviour, IQuestObjectiveType
 {
-    public GameObject questItem;
+    public float deleteObjectAfterSeconds = -1;
     //public Collider dropZone;
     private bool completed;
+    private float timer;
     
-    void Start() {
+    void Awake() {
         completed = false;
         GetComponent<Collider>().enabled = false;
+        timer = deleteObjectAfterSeconds;
+    }
+
+    void Update() {
+        if (GetComponent<Collider>().enabled == true && timer <= deleteObjectAfterSeconds)
+            timer += Time.deltaTime;
     }
     
     public bool CheckCondition()
@@ -18,11 +26,13 @@ public class FetchObjective : MonoBehaviour, IQuestObjectiveType
     }
 
     void OnTriggerStay(Collider col) {
-        if(col.name == questItem.name)
+        if(col.GetComponent<Fish>() != null && timer >= deleteObjectAfterSeconds)
         {
             if (col.GetComponent<Grabbable>() != null && col.GetComponent<Grabbable>().IsGrabbed())
-            return;
-
+                return;
+            if (deleteObjectAfterSeconds >= 0)
+                Destroy(col.gameObject, deleteObjectAfterSeconds);
+            timer = 0;
             GetComponent<Collider>().enabled = false;
             // questItem.GetComponent<Grabbable>().enabled = false;
             completed = true;

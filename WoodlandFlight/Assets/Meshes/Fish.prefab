@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2618560714631191174}
   - component: {fileID: 6079832562034180358}
   - component: {fileID: 3088069793259658858}
-  - component: {fileID: 4004695771989459155}
   - component: {fileID: 7728825002066350929}
+  - component: {fileID: 2592187802114666529}
   m_Layer: 7
   m_Name: Fish
   m_TagString: Fish
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2467478593801667146}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 190.7646, y: 0.14376068, z: 237.39108}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -121,8 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d4cf63e7ebb165ea8d51582a47dfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id:
-    Value: 
   offset: {x: 0, y: 0, z: 0}
   rotateAngle: 90
   mass: 0
@@ -154,7 +152,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!65 &4004695771989459155
+--- !u!114 &7728825002066350929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2467478593801667146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a78dd3f96c2bae191e9987ae80c62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2592187802114666529
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,17 +183,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.04217699, y: 0.33171678, z: 0.1039082}
-  m_Center: {x: 0, y: -0.040212687, z: 0.000029016293}
---- !u!114 &7728825002066350929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2467478593801667146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a78dd3f96c2bae191e9987ae80c62f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 0.04217699, y: 0.10390818, z: 0.3317167}
+  m_Center: {x: 0, y: 0.000029016286, z: 0.040212676}

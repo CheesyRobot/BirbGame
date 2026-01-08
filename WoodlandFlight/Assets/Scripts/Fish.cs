@@ -13,10 +13,15 @@ public class Fish : MonoBehaviour, IInteractableModifier
     private FishingGame game;
 
     void Start() {
-        cought = false;
         grabbable.enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<Rigidbody>().useGravity = false;
+        if (cought) {
+            grabbable.enabled = true;
+            fishMovement.enabled = false;
+            GetComponent<Rigidbody>().useGravity = true;
+            GetComponent<Rigidbody>().isKinematic = false;
+        }
     }
 
     public void Catch(Transform grabPoint) {
