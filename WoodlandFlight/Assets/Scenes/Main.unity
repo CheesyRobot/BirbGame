@@ -1441,6 +1441,73 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &243395548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243395551}
+  - component: {fileID: 243395550}
+  - component: {fileID: 243395549}
+  m_Layer: 0
+  m_Name: Shooter2TalkTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &243395549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243395548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844415f846064956192deda2e8636581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPC: {fileID: 2096438122}
+--- !u!135 &243395550
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243395548}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 7.371093
+  m_Center: {x: 0.33787537, y: 0, z: -0.43888426}
+--- !u!4 &243395551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243395548}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.92308533, z: -0, w: 0.38459533}
+  m_LocalPosition: {x: 184.03, y: -7.141, z: 204.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 703903297}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &253304035
 GameObject:
   m_ObjectHideFlags: 0
@@ -8129,6 +8196,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2096438121}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2096438122}
     - targetCorrespondingSourceObject: {fileID: 8197388814404368672, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1613282963}
@@ -8414,12 +8484,19 @@ GameObject:
   m_Component:
   - component: {fileID: 703903297}
   - component: {fileID: 703903303}
+  - component: {fileID: 703903305}
+  - component: {fileID: 703903307}
   - component: {fileID: 703903302}
   - component: {fileID: 703903301}
   - component: {fileID: 703903300}
+  - component: {fileID: 703903306}
   - component: {fileID: 703903299}
   - component: {fileID: 703903298}
   - component: {fileID: 703903304}
+  - component: {fileID: 703903309}
+  - component: {fileID: 703903308}
+  - component: {fileID: 703903311}
+  - component: {fileID: 703903310}
   m_Layer: 0
   m_Name: Bonking
   m_TagString: Untagged
@@ -8439,7 +8516,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 243395551}
   m_Father: {fileID: 1857883013}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &703903298
@@ -8454,7 +8532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c3b7508327d63deae9ea64ab0c07bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
+  stage: 7
   delaySeconds: 2
   enemy: {fileID: 2096438116}
 --- !u!114 &703903299
@@ -8469,7 +8547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad30f3fea3a6f6d09678430fe91996f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 3
+  stage: 7
   delaySeconds: 1
   fadeOutTime: 0.5
   holdTime: 0.5
@@ -8527,23 +8605,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id:
     Value: b7f228c3-0e89-417e-96be-1c7ef62962c8
-  questName: Bonking
+  questName: The other Marksman
   questStages:
-  - hintText: Bonk (0/3)
+  - hintText: Return to the Witch
+    journalEntryActive: I should go tell her that the letter plan worked.
+    journalEntryCompleted: 
+    objective:
+      underlyingValue: {fileID: 703903305}
+  - hintText: Go to the Camp
+    journalEntryActive: I need to make the other Marksman leave somehow.
+    journalEntryCompleted: 
+    objective:
+      underlyingValue: {fileID: 2099116356}
+  - hintText: Explore the Camp
+    journalEntryActive: 
+    journalEntryCompleted: The Marksman is annoyed by items getting dropped on his
+      head. I should find something to drop on him.
+    objective:
+      underlyingValue: {fileID: 703903307}
+  - hintText: Drop something on the Marksman (0/3)
     journalEntryActive: 
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 703903302}
-  - hintText: Bonk (1/3)
+  - hintText: Drop something on the Marksman  (1/3)
     journalEntryActive: 
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 703903301}
-  - hintText: Bonk (2/3)
+  - hintText: Drop something on the Marksman  (2/3)
     journalEntryActive: 
     journalEntryCompleted: 
     objective:
       underlyingValue: {fileID: 703903300}
+  - hintText: Drop something on the Marksman  (3/3)
+    journalEntryActive: 
+    journalEntryCompleted: The Marksman left the camp!
+    objective:
+      underlyingValue: {fileID: 703903306}
 --- !u!114 &703903304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8556,9 +8655,122 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb11e2431646db0cb8b2adf2bf068a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stage: 7
+  delaySeconds: 1
+  newQuest: {fileID: 820107481}
+--- !u!114 &703903305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703903296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a948977d4e7bc4692bda67c6b67132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 1339490777}
+  dialogueLines:
+  - Hello Livia! Did our plan with the letter work?
+  - Oh it did? That's great!
+  - How to make the others leave, you ask? Hmmm...
+  - Maybe you can annoy them somehow to leave? You should look if there's anything
+    to make use of in the Camp.
+--- !u!114 &703903306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703903296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a948977d4e7bc4692bda67c6b67132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 2096438122}
+  dialogueLines:
+  - THAT'S IT! I've had ENOUGH of this! I'M LEAVING.
+--- !u!114 &703903307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703903296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a948977d4e7bc4692bda67c6b67132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npc: {fileID: 2096438122}
+  dialogueLines:
+  - These DUMB birds keep dropping things on me.
+  - ' If they DON''T stop dropping things on my head, I swear, I am LEAVING this
+    place. '
+--- !u!114 &703903308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703903296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6636a53935cfc712c946582c7a87884b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   stage: 3
   delaySeconds: 0
-  newQuest: {fileID: 820107481}
+  item: {fileID: 243395548}
+--- !u!114 &703903309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703903296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59534868e04f04de4a1ca1426285b060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 2
+  delaySeconds: 0
+  item: {fileID: 243395548}
+  position: {fileID: 0}
+--- !u!114 &703903310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703903296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6636a53935cfc712c946582c7a87884b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 7
+  delaySeconds: 0
+  item: {fileID: 243395548}
+--- !u!114 &703903311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703903296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59534868e04f04de4a1ca1426285b060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stage: 6
+  delaySeconds: 0
+  item: {fileID: 243395548}
+  position: {fileID: 0}
 --- !u!1 &707672035
 GameObject:
   m_ObjectHideFlags: 0
@@ -23653,6 +23865,24 @@ MonoBehaviour:
   rayOriginPoint: {fileID: 512981290}
   target: {fileID: 372861197}
   indicator: {fileID: 827951455}
+--- !u!114 &2096438122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096438115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a124ea5bd82e185e9451a3c9f2312fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Annoyed Marksman
+  dialogue: []
+  prompt: 
+  exitDistance: 10
+  de: {fileID: 801940249}
+  UICanvas: {fileID: 1743326340}
 --- !u!1 &2099116354
 GameObject:
   m_ObjectHideFlags: 0
