@@ -626,6 +626,7 @@ MonoBehaviour:
   musicSource: {fileID: 1727962590}
   musicClip: {fileID: 8300000, guid: d5a168e725bb40fe79c4f02b01dcc652, type: 3}
   spawner: {fileID: 1973477293}
+  qte: {fileID: 801940250}
 --- !u!4 &72790514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6723719449762974549, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
@@ -856,6 +857,10 @@ PrefabInstance:
       propertyPath: prompt
       value: 'Begin Race\nGoal: 60s  \nReward: 200 XP'
       objectReference: {fileID: 0}
+    - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
+      propertyPath: qte
+      value: 
+      objectReference: {fileID: 801940250}
     - target: {fileID: 5876675485507896586, guid: 2ade6af0e4550fe839204145f3b59396, type: 3}
       propertyPath: player
       value: 
@@ -6946,11 +6951,11 @@ MonoBehaviour:
     health: 100
     staminaLimit: 110
     weightLimit: 1
-  - requiredXP: 100
+  - requiredXP: 250
     health: 110
     staminaLimit: 120
     weightLimit: 1.5
-  - requiredXP: 200
+  - requiredXP: 400
     health: 120
     staminaLimit: 140
     weightLimit: 2
@@ -20932,6 +20937,7 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: cf424f38809f1964ba456c8ad260eb01, type: 3}
   - {fileID: 8300000, guid: b80cfdbe2e826092a922902bbd36ac70, type: 3}
+  - {fileID: 8300000, guid: 4924cfb6c3562eefaa3b848a7bce512b, type: 3}
   currentClip: {fileID: 0}
   source: {fileID: 1575167087}
   minWaitBetweenPlays: 10
@@ -22000,6 +22006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 4bc341b6bdc068a2193a469cf76455c6, type: 3}
+  - {fileID: 8300000, guid: 54c3cec371ddcf05daecaa96c83098e4, type: 3}
   currentClip: {fileID: 8300000, guid: 4bc341b6bdc068a2193a469cf76455c6, type: 3}
   source: {fileID: 1727962590}
   minWaitBetweenPlays: 20
@@ -23958,7 +23965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fish: {fileID: 2467478593801667146, guid: c1b80d820660ed9ab9ec1955e793fc1f, type: 3}
   spawnBox: {fileID: 1973477294}
-  spawnTime: 3
+  spawnTime: 5
   despawnTime: 30
 --- !u!65 &1973477294
 BoxCollider:

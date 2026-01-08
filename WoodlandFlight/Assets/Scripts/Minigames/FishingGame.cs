@@ -23,6 +23,8 @@ public class FishingGame : MonoBehaviour
     public AudioSource musicSource;
     public AudioClip musicClip;
     public FishSpawner spawner;
+    public QuestTrackEvents qte;
+    private bool qteB;
     void Start()
     {
         active = false;
@@ -64,6 +66,8 @@ public class FishingGame : MonoBehaviour
         active = true;
         musicSource.clip = musicClip;
         musicSource.Play();
+        qteB = qte.isEnabled();
+        qte.Show(false);
     }
 
     public void AddScore() {
@@ -86,5 +90,6 @@ public class FishingGame : MonoBehaviour
             completed = true;
         }
         musicSource.Stop();
+        qte.Show(qteB);
     }
 }

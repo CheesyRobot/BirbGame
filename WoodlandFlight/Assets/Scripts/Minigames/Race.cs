@@ -19,6 +19,8 @@ public class Race : MonoBehaviour
     public AudioSource musicSource;
     public AudioClip hoopCollectClip;
     public AudioClip musicClip;
+    public QuestTrackEvents qte;
+    private bool qteB;
     void Start()
     {
         active = false;
@@ -74,6 +76,8 @@ public class Race : MonoBehaviour
         active = true;
         musicSource.clip = musicClip;
         musicSource.Play();
+        qteB = qte.isEnabled();
+        qte.Show(false);
     }
 
     public void EndMinigame() {
@@ -88,5 +92,6 @@ public class Race : MonoBehaviour
             completed = true;
         }
         musicSource.Stop();
+        qte.Show(qteB);
     }
 }
