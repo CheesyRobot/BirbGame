@@ -2,14 +2,17 @@ using Unity.VisualScripting;
 //using UnityEditor.Rendering;
 using System.Linq;
 using UnityEngine;
+using UnityEditor.Experimental.GraphView;
 
 public class Grabbable : MonoBehaviour, IInteractable
 {
     private Rigidbody rb;
     private Transform grabPoint;
-    public Vector3 offset;
+    private Vector3 offset;
+    public Vector3 grabDirection = Vector3.up;
     public float rotateAngle;
     private char coord;
+    private float sign;
     private Collider cl;
     [SerializeField] private float mass;
     [SerializeField] private string prompt;
@@ -20,14 +23,30 @@ public class Grabbable : MonoBehaviour, IInteractable
     {
         rb = GetComponent<Rigidbody>();
         cl = GetComponent<Collider>();
-        float minDist = Mathf.Min(cl.bounds.size.x, cl.bounds.size.y, cl.bounds.size.z);
-        offset = minDist * 0.5f * Vector3.down;
-        if (cl.bounds.size.x == minDist)
+        float minDist;
+        // float minDist = Mathf.Min(cl.bounds.size.x, cl.bounds.size.y, cl.bounds.size.z);
+        // if (cl.bounds.size.x == minDist)
+        //     coord = 'x';
+        // else if (cl.bounds.size.y == minDist)
+        //     coord = 'y';
+        // else
+        //     coord = 'z';
+        if (grabDirection.x != 0) {
             coord = 'x';
-        else if (cl.bounds.size.y == minDist)
+            minDist = cl.bounds.size.x;
+            sign = grabDirection.x;
+        }
+        else if (grabDirection.y != 0) {
             coord = 'y';
-        else
+            minDist = cl.bounds.size.y;
+            sign = grabDirection.y;
+        }
+        else {
             coord = 'z';
+            minDist = cl.bounds.size.z;
+            sign = grabDirection.z;
+        }
+        offset = minDist * 0.5f * Vector3.down;
 
     }
 
@@ -95,12 +114,12 @@ public class Grabbable : MonoBehaviour, IInteractable
             rb.MovePosition(grabPoint.position + offset);
             if (coord == 'y')
                 // rb.transform.forward = grabPoint.transform.forward;
-                rb.transform.forward = Vector3.up;
+                rb.transform.up = Vector3.up * sign;
             else if (coord == 'x')
-                rb.transform.right = Vector3.up;
+                rb.transform.up = Vector3.right * sign;
             // rb.transform.up = grabPoint.transform.forward;
             else
-                rb.transform.forward = Vector3.up;
+                rb.transform.up = Vector3.forward * sign;
             // rb.transform.right = grabPoint.transform.forward;
             rb.transform.RotateAround(transform.position, Vector3.up, grabPoint.transform.eulerAngles.y + rotateAngle);
         }

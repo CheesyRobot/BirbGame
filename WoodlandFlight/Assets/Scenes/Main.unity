@@ -6800,7 +6800,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -15.886597, y: -87.4669, z: -49.328857, w: 0}
+  m_margin: {x: -91.09119, y: -87.4669, z: -49.328857, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8103,7 +8103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_Controller
@@ -8119,19 +8119,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8875076407205593217, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92502034
+      value: 0.9758157
       objectReference: {fileID: 0}
     - target: {fileID: 8875076407205593217, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.07325235
+      value: 0.06732489
       objectReference: {fileID: 0}
     - target: {fileID: 8875076407205593217, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.36395547
+      value: -0.1902122
       objectReference: {fileID: 0}
     - target: {fileID: 8875076407205593217, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.080671646
+      value: -0.08408556
       objectReference: {fileID: 0}
     - target: {fileID: 8875076407205593217, guid: 2af4d79641c35cce2b238df378f063ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -14979,7 +14979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d4cf63e7ebb165ea8d51582a47dfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
+  grabDirection: {x: 0, y: 1, z: 0}
   rotateAngle: 90
   mass: 0
   prompt: Rifle
@@ -15115,15 +15115,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 157.066
+      value: 107.426
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.687
+      value: 9.851
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 48.755
+      value: 95.588
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bbfd823f59fb5f4a8988c2caf0433d7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16077,7 +16077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16533,7 +16533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d4cf63e7ebb165ea8d51582a47dfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
+  grabDirection: {x: 0, y: 1, z: 0}
   rotateAngle: 0
   mass: 0
   prompt: Inkwell
@@ -16584,7 +16584,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.16173166, y: 0.20208392, z: 0.16173166}
-  m_Center: {x: 0, y: 0.05491732, z: 0}
+  m_Center: {x: 0, y: 0.0023954846, z: 0}
 --- !u!114 &946988251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18543,7 +18543,7 @@ Transform:
   m_GameObject: {fileID: 1206616416}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15212356, y: -3.7881368e-11, z: 5.830507e-12, w: 0.9883615}
-  m_LocalPosition: {x: 157.066, y: 14.288412, z: 46.84757}
+  m_LocalPosition: {x: 107.426, y: 10.452412, z: 93.680565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19349,7 +19349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d4cf63e7ebb165ea8d51582a47dfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
+  grabDirection: {x: 0, y: 1, z: 0}
   rotateAngle: 0
   mass: 0
   prompt: Magical Cube
@@ -20797,6 +20797,7 @@ GameObject:
   - component: {fileID: 1575167086}
   - component: {fileID: 1575167088}
   - component: {fileID: 1575167087}
+  - component: {fileID: 1575167089}
   m_Layer: 0
   m_Name: Audio
   m_TagString: Untagged
@@ -20933,8 +20934,28 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b80cfdbe2e826092a922902bbd36ac70, type: 3}
   currentClip: {fileID: 0}
   source: {fileID: 1575167087}
-  minWaitBetweenPlays: 1
-  maxWaitBetweenPlays: 15
+  minWaitBetweenPlays: 10
+  maxWaitBetweenPlays: 30
+  waitTimeCountdown: -1
+--- !u!114 &1575167089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575167085}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9936a2bfc44a59367b307f8dc70406bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: cf424f38809f1964ba456c8ad260eb01, type: 3}
+  - {fileID: 8300000, guid: b80cfdbe2e826092a922902bbd36ac70, type: 3}
+  currentClip: {fileID: 0}
+  source: {fileID: 1575167087}
+  minWaitBetweenPlays: 5
+  maxWaitBetweenPlays: 25
   waitTimeCountdown: -1
 --- !u!4 &1583653922 stripped
 Transform:
@@ -21845,13 +21866,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1727962589}
   - component: {fileID: 1727962590}
+  - component: {fileID: 1727962591}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1727962589
 Transform:
   m_ObjectHideFlags: 0
@@ -21877,8 +21899,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7001893089231604736, guid: d110d00b0899b6c4ba441d76ab9b968f, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4bc341b6bdc068a2193a469cf76455c6, type: 3}
-  m_Resource: {fileID: 8300000, guid: 4bc341b6bdc068a2193a469cf76455c6, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -21964,6 +21986,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1727962591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727962588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4ea32b81e0072499442b327d04b6a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 4bc341b6bdc068a2193a469cf76455c6, type: 3}
+  currentClip: {fileID: 8300000, guid: 4bc341b6bdc068a2193a469cf76455c6, type: 3}
+  source: {fileID: 1727962590}
+  minWaitBetweenPlays: 20
+  maxWaitBetweenPlays: 60
+  waitTimeCountdown: -1
 --- !u!4 &1738340491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 394105897853445344, guid: 433fad01e231ce699aace73d1dc19842, type: 3}
@@ -23000,7 +23041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inactiveQuests: []
   activeQuests:
-  - {fileID: 820107481}
+  - {fileID: 1190043478}
   completedQuests: []
   trackedQuest: {fileID: 0}
   qte: {fileID: 801940250}
@@ -24589,7 +24630,7 @@ Transform:
   m_GameObject: {fileID: 2070760548}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15212354, y: -3.9604344e-11, z: 1.7024876e-11, w: 0.98836154}
-  m_LocalPosition: {x: 157.066, y: 14.288412, z: 46.84757}
+  m_LocalPosition: {x: 107.426, y: 10.452412, z: 93.680565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25330,8 +25371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d4cf63e7ebb165ea8d51582a47dfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
-  rotateAngle: 0
+  grabDirection: {x: 0, y: 1, z: 0}
+  rotateAngle: 90
   mass: 0
   prompt: Letter
 --- !u!114 &518717870745436645

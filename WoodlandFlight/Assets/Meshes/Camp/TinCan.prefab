@@ -118,9 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d4cf63e7ebb165ea8d51582a47dfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id:
-    Value: 
-  offset: {x: 0, y: 0, z: 0}
+  grabDirection: {x: 0, y: 1, z: 0}
   rotateAngle: -90
   mass: 0
   prompt: Tin Can
@@ -144,4 +142,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.2016718, y: 0.2016718, z: 0.2016718}
-  m_Center: {x: 0, y: 0.10702325, z: 0}
+  m_Center: {x: -0.0000005289912, y: -0.0028275773, z: 0}
