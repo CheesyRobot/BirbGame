@@ -17216,7 +17216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 4
-  delaySeconds: 1
+  delaySeconds: 0
   newQuest: {fileID: 643522167}
 --- !u!114 &1190043480
 MonoBehaviour:
