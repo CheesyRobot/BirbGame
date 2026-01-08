@@ -93,6 +93,12 @@ public class Player : MonoBehaviour
         experience = 0;
     }
 
+    public void TeleportToSpawn() {
+        ScreenFade.Instance.FadeOutHoldFadeIn(0f, 1f, 1f);
+        transform.position = respawnPoint.position;
+        transform.rotation = respawnPoint.rotation;
+    }
+
     public PlayerData Save() {
         PlayerData playerData = new();
         playerData.position = transform.position;
@@ -110,8 +116,8 @@ public class Player : MonoBehaviour
         transform.position = playerData.position;
         transform.rotation = playerData.rotation;
         GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-        movement.Camera.position = playerData.cameraPosition;
-        movement.Camera.rotation = playerData.cameraRotation;
+        // movement.Camera.position = playerData.cameraPosition;
+        // movement.Camera.rotation = playerData.cameraRotation;
         currentLevel = playerData.currentLevel;
         experience = playerData.experience;
         UpdateStats();
