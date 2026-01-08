@@ -7,7 +7,7 @@ public class Berries : MonoBehaviour, IInteractable
     [SerializeField] private string prompt;
     public string InteractionPrompt => prompt;
     public void Start() {
-        InvokeRepeating("Respawn", 1.0f, 2.0f);
+        InvokeRepeating("Respawn", 10.0f, 60.0f);
     }
     public bool Interact(Interactor interactor) {
         interactor.GetComponent<Player>().IncreaseMaxStamina(staminaAmount);
