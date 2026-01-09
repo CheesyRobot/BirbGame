@@ -8,7 +8,7 @@ public class VisitObjective : MonoBehaviour, IQuestObjectiveType
     
     void Awake() {
         completed = false;
-        GetComponent<Collider>().enabled = false;
+        //GetComponent<Collider>().enabled = false;
     }
     
     public bool CheckCondition()
