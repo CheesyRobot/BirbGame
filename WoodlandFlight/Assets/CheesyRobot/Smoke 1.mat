@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Smoke
+  m_Name: Smoke 1
   m_Shader: {fileID: -6465566751694194690, guid: 2b55767d61b30454aa89e44391163770, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -49,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LeftBottomFront:
-        m_Texture: {fileID: 2800000, guid: 6d0fa41d9412838458075e82707c9403, type: 3}
+        m_Texture: {fileID: 2800000, guid: afa8dd96e869f7047a1349ac54488467, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -61,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RightTopBack:
-        m_Texture: {fileID: 2800000, guid: b6de13ce55e11984f80b1aeecf7535e6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0bdaaa91f0ae05e4d9aafd9b5b5924fb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WhiteTransparency:
@@ -85,7 +85,7 @@ Material:
     - _AO: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Baked_GI: 0
+    - _Baked_GI: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BlendOp: 0
@@ -94,7 +94,7 @@ Material:
     - _CameraFarFadeDistance: 2
     - _CameraNearFadeDistance: 1
     - _ColorMode: 0
-    - _Color_Absorbtion: 0.5
+    - _Color_Absorbtion: 0.423
     - _Cull: 2
     - _Cutoff: 0.5
     - _DistortionBlend: 0.5
