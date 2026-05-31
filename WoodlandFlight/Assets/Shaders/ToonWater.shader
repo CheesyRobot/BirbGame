@@ -6,7 +6,7 @@ Shader "CheesyRobot/ToonWater"
         _DepthMaxDistance("Depth Maximum Distance", Float) = 1
 
         _SurfaceNoise("Surface Noise", 2D) = "white" {}
-        _SurfaceNoiseSecond("Surface Noise Second", 2D) = "white" {}
+        //_SurfaceNoiseSecond("Surface Noise Second", 2D) = "white" {}
         _SurfaceNoiseCutoff("Surface Noise Cutoff", Range(0, 1)) = 0.777
 
         _FoamColor("Foam Color", Color) = (1,1,1,1)
