@@ -7,7 +7,7 @@ public class ParticlePlayer : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         
-        Debug.Log("Touched " + collision.transform.root.gameObject.layer);
+        //Debug.Log("Touched " + collision.transform.root.gameObject.layer);
         if(collision.transform.root.gameObject.layer == 4)
         {
             Vector3 pos = gameObject.transform.position;
@@ -18,7 +18,7 @@ public class ParticlePlayer : MonoBehaviour
     }
     private void OnCollisionExit(Collision collision)
     {
-        Debug.Log("Untouched " + collision.transform.root.gameObject.layer);
+        //Debug.Log("Untouched " + collision.transform.root.gameObject.layer);
         if (collision.transform.root.gameObject.layer == 4)
         {
             _rippleParticleSystem.Stop();

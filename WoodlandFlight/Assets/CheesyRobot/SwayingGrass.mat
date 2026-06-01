@@ -42,11 +42,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _MaxTrampleDistance: 1.02
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _StillBottomHeight: 0.0000001
-    - _WindIntensity: 0.08
-    - _WindSpeed: 0.2
+    - _StillBottomHeight: 0.03
+    - _TrampleFalloff: 0.03
+    - _TramplePushStrength: 2.55
+    - _TrampleSquishStrength: 2.81
+    - _WindIntensity: 0.05
+    - _WindSpeed: 0.26
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
