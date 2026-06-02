@@ -3,6 +3,14 @@ using UnityEngine;
 public class ParticlePlayer : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _rippleParticleSystem;
+    private Animator anim;
+    [SerializeField] private TrailRenderer _trail1;
+    [SerializeField] private TrailRenderer _trail2;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -23,6 +31,23 @@ public class ParticlePlayer : MonoBehaviour
         {
             _rippleParticleSystem.Stop();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (anim.GetBool("Gliding"))
+        {
+            if (_trail1.emitting) return;
+            _trail1.emitting = true;
+            _trail2.emitting = true;
+        }
+        else
+        {
+            if (!_trail1.emitting) return;
+            _trail1.emitting = false;
+            _trail2.emitting = false;
+        }
+
     }
 
 }
