@@ -33,7 +33,7 @@ public class GrassTramplingFeature : ScriptableRendererFeature
                 passData.tramplePositions = tramplePositions;
                 passData.numTramplePositions = numTramplePositions;
                 builder.AllowPassCulling(false);
-                Debug.Log(passData.tramplePositions[0] + " record render graph 0");
+                //Debug.Log(passData.tramplePositions[0] + " record render graph 0");
                 builder.SetRenderFunc((PassData data, UnsafeGraphContext context) => {
                     context.cmd.SetGlobalVectorArray("_GrassTramplePositions", data.tramplePositions);
                     context.cmd.SetGlobalInt("_NumGrassTramplePositions", data.numTramplePositions);
